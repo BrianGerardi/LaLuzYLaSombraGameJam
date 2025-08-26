@@ -4,6 +4,9 @@ extends CharacterBody2D
 var direccion = Vector2 (0,0)
 @export var velocidad = 250.0
 
+
+func _ready() -> void:
+	pass
 #movimientos
 func _physics_process(delta):
 	direccion = Vector2 (0,0)
