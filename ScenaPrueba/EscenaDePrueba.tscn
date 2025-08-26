@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_0r2q2")
 texture = ExtResource("1_mqmil")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(548, 72)
+position = Vector2(552, 73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1, 1)
