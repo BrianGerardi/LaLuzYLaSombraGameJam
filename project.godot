@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 Global="*res://script global/global.gd"
 
+[global_group]
+
+Luces=""
+Player=""
+
 [input]
 
 mover_izquierda={
