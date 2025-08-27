@@ -5,9 +5,13 @@ extends Node
 
 signal usar_palanca_id(identificador : int)
 
-signal jugador_entro_en_area_de_luz_signal (numero : int)
+signal jugador_entro_en_area_de_luz_signal (numero : int, daño : int = 0) 
 #---------------------------------------------------
 signal jugador_salio_de_area_de_luz_signal (numero : int) #el numero es el nivel de daño
+
+signal restar_vida(cantidad_a_restar : int) #la usamos cuando el player reciba daño, el hud esta conectada para poder actualizar la barra de vida
+signal game_over
+
 
 func _ready() -> void:
 	pass # Replace with function body.
