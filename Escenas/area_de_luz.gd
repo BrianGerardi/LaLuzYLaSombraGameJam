@@ -1,9 +1,21 @@
 extends Node2D
 
+
+var player_en_area_1: bool = false
+var player_en_area_2: bool = false
+var player_en_area_3: bool = false
+var player_en_area_4: bool = false
+
+var cajas_en_area_1: bool = false
+var cajas_en_area_2: bool = false
+var cajas_en_area_3: bool = false
+var cajas_en_area_4: bool = false
+
 @export var daño_area1 : int = 5
 @export var daño_area2 : int = 5
 @export var daño_area3 : int = 5
 @export var daño_area4 : int = 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,25 +25,93 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
+#AREA DE DAÑO 1 ----------------
 func _on_area_de_daño_1_body_entered(body:Node2D) -> void:
-	if body.name != "Player":
-		return
-	Global.jugador_entro_en_area_de_luz_lvl1_signal.emit(daño_area1)
-	#puede ser asi o usar directamente la señal de restar_vida
 
+	if body.is_in_group("Cajas"):
+		cajas_en_area_1 = true
+		
+	if body.name == "Player" && cajas_en_area_1 == false:
+		player_en_area_1 = true
+		Global.jugador_entro_en_area_de_luz_signal.emit(1,daño_area1)
+
+
+func _on_area_de_daño_1_body_exited (body:Node2D) -> void:
+	if body.is_in_group("Cajas"):
+		cajas_en_area_1 = false
+		
+	elif body.name == "Player":
+		player_en_area_1 = false
+		Global.jugador_salio_de_area_de_luz_signal.emit(1)
+
+
+#___________________________________________________
+
+
+#AREA DE DAÑO 2 ----------------
 func _on_area_de_daño_2_body_entered(body:Node2D) -> void:
-	if body.name != "Player":
-		return
-	Global.jugador_entro_en_area_de_luz_lvl2_signal.emit(daño_area2)
 
+	if body.is_in_group("Cajas"):
+		cajas_en_area_2 = true
+
+	if body.name == "Player" && cajas_en_area_2 == false:
+		player_en_area_2 = true
+		Global.jugador_entro_en_area_de_luz_signal.emit(2,daño_area2)
+
+
+func _on_area_de_daño_2_body_exited (body:Node2D) -> void	:
+	if body.is_in_group("Cajas"):
+		cajas_en_area_2 = false
+
+	if body.name == "Player":
+		print ("salio de area 2")
+		player_en_area_2 = false
+		Global.jugador_salio_de_area_de_luz_signal.emit(2)
+
+
+#___________________________________________________
+
+
+#AREA DE DAÑO 3 ----------------
 func _on_area_de_daño_3_body_entered(body:Node2D) -> void:
-	if body.name != "Player":
-		return
-	Global.jugador_entro_en_area_de_luz_lvl3_signal.emit(daño_area3)
 
+	if body.is_in_group("Cajas"):
+		cajas_en_area_3 = true
+
+	if body.name == "Player" && cajas_en_area_2 == false:
+		player_en_area_3 = true
+		Global.jugador_entro_en_area_de_luz_signal.emit(3,daño_area3)
+
+
+func _on_area_de_daño_3_body_exited (body:Node2D) -> void	:
+	if body.is_in_group("Cajas"):
+		cajas_en_area_3 = false
+
+	if body.name == "Player":
+		player_en_area_3 = false
+		Global.jugador_salio_de_area_de_luz_signal.emit(3)
+
+#___________________________________________________
+
+#AREA DE DAÑO 4 ----------------
 func _on_area_de_daño_4_body_entered(body:Node2D) -> void:
-	if body.name != "Player":
-		return
-	Global.jugador_entro_en_area_de_luz_lvl4_signal.emit(daño_area4)
+
+	if body.is_in_group("Cajas"):
+		cajas_en_area_4 = true
+
+	if body.name == "Player" && cajas_en_area_4 == false:
+		player_en_area_4 = true
+		Global.jugador_entro_en_area_de_luz_signal.emit(4, daño_area4)
+
+
+func _on_area_de_daño_4_body_exited (body:Node2D) -> void	:
+	if body.is_in_group("Cajas"):
+		cajas_en_area_4 = false
+
+	if body.name == "Player":
+		player_en_area_4 = false
+		Global.jugador_salio_de_area_de_luz_signal.emit(4)
+
+#___________________________________________________
+
 	

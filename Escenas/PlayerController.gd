@@ -7,17 +7,17 @@ extends CharacterBody2D
 @export_range(0,1) var acceleration = 0.1
 @export_range(0,1) var deceleracion = 0.1
 @export_range(0,1) var deceleracion_al_saltar = 0.1
+const PUSH_FORCE = 100.0
+const MAX_VELOCITY = 150.0
 #var escena_principal
 func _ready() -> void:
 	#escena_principal = $".."
-	Global.restar_vida.connect(_on_restar_vida_player)
-	Global.jugador_entro_en_area_de_luz_lvl1_signal.connect(jugador_entro_en_area_de_luz_lvl1)
-	Global.jugador_entro_en_area_de_luz_lvl2_signal.connect(jugador_entro_en_area_de_luz_lvl2)
-	Global.jugador_entro_en_area_de_luz_lvl3_signal.connect(jugador_entro_en_area_de_luz_lvl3)
-	Global.jugador_entro_en_area_de_luz_lvl4_signal.connect(jugador_entro_en_area_de_luz_lvl4)
-	#esto si queres podemos hacerlo una sola señal que pase por parametro que area es
-	#algo tipo signal jugador_entro_en_area_de_luz(numero : int)
 
+	Global.jugador_entro_en_area_de_luz_signal.connect(jugador_entro_en_area_de_luz)
+	
+	Global.jugador_salio_de_area_de_luz_signal.connect(jugador_salio_en_area_de_luz)
+	
+	Global.restar_vida.connect(_on_restar_vida_player)
 
 
 func _physics_process(delta: float) -> void:
@@ -42,26 +42,44 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, velocidad_de_movimiento * deceleracion)
 
+	
+
+
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var colision_caja = collision.get_collider()
+		if colision_caja.is_in_group("Cajas") and abs(colision_caja.get_linear_velocity().x) < MAX_VELOCITY:
+			colision_caja.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+			
 	move_and_slide()
 
 
-
-func jugador_entro_en_area_de_luz_lvl1(daño_recibido : int):
-	print("El jugador entro en el area de luz 1")
-	Global.restar_vida.emit(daño_recibido) #quito 5 de vida
-
-func jugador_entro_en_area_de_luz_lvl2(daño_recibido : int):
-	print("El jugador entro en el area de luz 2")
-#	Global.restar_vida.emit(daño_recibido) #quito 5 de vida
-
-func jugador_entro_en_area_de_luz_lvl3(daño_recibido : int):
-	print("El jugador entro en el area de luz 3")
-#	Global.restar_vida.emit(daño_recibido) #quito 5 de vida
-
-func jugador_entro_en_area_de_luz_lvl4(daño_recibido : int):
-	print("El jugador entro en el area de luz 4")
-#	Global.restar_vida.emit(daño_recibido) #quito 5 de vida
-
+func jugador_entro_en_area_de_luz(numero : int, daño_recibido):
+	match numero : 
+		1: 
+			print("El jugador entro en el area de luz 1")
+      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+		2:
+			print("El jugador entro en el area de luz 2")
+      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+		3:,
+			print("El jugador entro en el area de luz 3")
+      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+		4:
+			print("El jugador entro en el area de luz 4")
+      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+	
+	
+func jugador_salio_en_area_de_luz(numero : int):		
+	match numero : 
+		1: 
+			print("El jugador salio en el area de luz 1")
+		2:
+			print("El jugador salio en el area de luz 2")
+		3:
+			print("El jugador salio en el area de luz 3")
+		4:
+			print("El jugador salio en el area de luz 4")
 
 func game_over_player():
 	#cuando perdes se llama a esta funcion
@@ -75,3 +93,4 @@ func _on_restar_vida_player(cantidad_a_restar: int):
 	if vida<= 0:
 		Global.game_over.emit() #le avisa al HUD que muestre el mensaje de game over y boton de reiniciar
 		game_over_player()
+
