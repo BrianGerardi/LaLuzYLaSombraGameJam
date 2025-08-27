@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://dbv5ftrtudw5a"]
+[gd_scene load_steps=12 format=4 uid="uid://dbv5ftrtudw5a"]
 
 [ext_resource type="Texture2D" uid="uid://bsuxdp7u81vay" path="res://tiles de prueba/tiles/background.png" id="1_k47dl"]
 [ext_resource type="Texture2D" uid="uid://6uo1ue8lk2vf" path="res://tiles de prueba/tiles/foreground.png" id="2_itfjs"]
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="3_itfjs"]
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="4_wvvle"]
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="5_octvd"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="6_pstot"]
+[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="7_vou6s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_k47dl")
@@ -142,3 +144,8 @@ id_puerta = 1
 position = Vector2(61, 522)
 scale = Vector2(1.5, 1.5)
 id_palanca = 1
+
+[node name="HUD" parent="." instance=ExtResource("6_pstot")]
+
+[node name="AreaDeLuz" parent="." instance=ExtResource("7_vou6s")]
+position = Vector2(773, 501)
