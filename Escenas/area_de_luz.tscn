@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxpxh2bravn23"]
+
+[ext_resource type="Script" uid="uid://bhlqqt6s8aoaf" path="res://Escenas/area_de_luz.gd" id="1_8we27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hoifb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8we27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vsig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
+
+[node name="AreaDeLuz" type="Node2D"]
+script = ExtResource("1_8we27")
+
+[node name="AreaDeDaño1" type="Area2D" parent="."]
+
+[node name="CapaDeDaño1" type="CollisionShape2D" parent="AreaDeDaño1"]
+shape = SubResource("CircleShape2D_hoifb")
+
+[node name="AreaDeDaño2" type="Area2D" parent="."]
+
+[node name="CapaDeDaño2" type="CollisionShape2D" parent="AreaDeDaño2"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_8we27")
+
+[node name="AreaDeDaño3" type="Area2D" parent="."]
+
+[node name="CapaDeDaño3" type="CollisionShape2D" parent="AreaDeDaño3"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_5vsig")
+
+[node name="AreaDeDaño4" type="Area2D" parent="."]
+
+[node name="CapaDeDaño4" type="CollisionShape2D" parent="AreaDeDaño4"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_d0g1a")
+
+[connection signal="body_entered" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_entered"]
+[connection signal="body_entered" from="AreaDeDaño2" to="." method="_on_area_de_daño_2_body_entered"]
+[connection signal="body_entered" from="AreaDeDaño3" to="." method="_on_area_de_daño_3_body_entered"]
+[connection signal="body_entered" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_entered"]
