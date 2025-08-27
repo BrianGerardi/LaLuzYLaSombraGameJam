@@ -58,16 +58,16 @@ func jugador_entro_en_area_de_luz(numero : int, daño_recibido):
 	match numero : 
 		1: 
 			print("El jugador entro en el area de luz 1")
-      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
 		2:
 			print("El jugador entro en el area de luz 2")
-      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
-		3:,
+			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+		3:
 			print("El jugador entro en el area de luz 3")
-      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
 		4:
 			print("El jugador entro en el area de luz 4")
-      Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
 	
 	
 func jugador_salio_en_area_de_luz(numero : int):		
@@ -93,4 +93,3 @@ func _on_restar_vida_player(cantidad_a_restar: int):
 	if vida<= 0:
 		Global.game_over.emit() #le avisa al HUD que muestre el mensaje de game over y boton de reiniciar
 		game_over_player()
-

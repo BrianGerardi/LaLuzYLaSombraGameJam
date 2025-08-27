@@ -5,7 +5,7 @@ extends Node
 
 signal usar_palanca_id(identificador : int)
 
-signal jugador_entro_en_area_de_luz_signal (numero : int, daño : int = 0) 
+signal jugador_entro_en_area_de_luz_signal (numero : int, daño : int) 
 #---------------------------------------------------
 signal jugador_salio_de_area_de_luz_signal (numero : int) #el numero es el nivel de daño
 
