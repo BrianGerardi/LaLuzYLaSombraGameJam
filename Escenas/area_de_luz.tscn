@@ -10,7 +10,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
 
-[node name="AreaDeLuz" type="Node2D"]
+[node name="AreaDeLuz" type="Node2D" groups=["Luces"]]
 script = ExtResource("1_8we27")
 
 [node name="AreaDeDaño1" type="Area2D" parent="."]
@@ -31,12 +31,18 @@ scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_5vsig")
 
 [node name="AreaDeDaño4" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CapaDeDaño4" type="CollisionShape2D" parent="AreaDeDaño4"]
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_d0g1a")
 
 [connection signal="body_entered" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_exited"]
 [connection signal="body_entered" from="AreaDeDaño2" to="." method="_on_area_de_daño_2_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño2" to="." method="_on_area_de_daño_2_body_exited"]
 [connection signal="body_entered" from="AreaDeDaño3" to="." method="_on_area_de_daño_3_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño3" to="." method="_on_area_de_daño_3_body_exited"]
 [connection signal="body_entered" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_exited"]
