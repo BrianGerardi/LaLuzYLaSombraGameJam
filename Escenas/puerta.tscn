@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://lky8ruc8urj"]
+
+[ext_resource type="Script" uid="uid://dlgl1gixm6pea" path="res://puerta.gd" id="1_cydqo"]
+[ext_resource type="Texture2D" uid="uid://bsuxdp7u81vay" path="res://tiles de prueba/tiles/background.png" id="2_ylh6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylh6m"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgxfh"]
+size = Vector2(64, 64)
+
+[node name="Puerta" type="StaticBody2D" node_paths=PackedStringArray("sprite_puerta_abierta")]
+script = ExtResource("1_cydqo")
+sprite_puerta_abierta = NodePath("SpritePuertaAbierta")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ylh6m")
+
+[node name="SpritePuertaAbierta" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 64)
+texture = ExtResource("2_ylh6m")
+
+[node name="CollisionPuertaFijo" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ylh6m")
+
+[node name="CollisionPuertaAbierta" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_hgxfh")

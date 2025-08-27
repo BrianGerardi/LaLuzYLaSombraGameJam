@@ -6,8 +6,7 @@ extends Node
 
 #ejemplo de señal
 signal primer_signal
-signal antorcha_prendida(numero : int) #en proceso
-signal game_over #la podemos dejar para usarla cuando tengamos el HUD
+signal usar_palanca_id(identificador : int)
 
 func _ready() -> void:
 	pass # Replace with function body.
