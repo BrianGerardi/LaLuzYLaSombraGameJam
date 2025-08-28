@@ -11,7 +11,7 @@ signal jugador_salio_de_area_de_luz_signal (numero : int) #el numero es el nivel
 
 signal restar_vida(cantidad_a_restar : int) #la usamos cuando el player reciba daño, el hud esta conectada para poder actualizar la barra de vida
 signal game_over
-
+signal ganar_nivel #se emite cuando entras al area2d de ganar nivel
 
 func _ready() -> void:
 	pass # Replace with function body.

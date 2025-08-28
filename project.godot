@@ -23,6 +23,7 @@ Global="*res://script global/global.gd"
 Luces=""
 Player=""
 Cajas=""
+player_sombra=""
 
 [input]
 

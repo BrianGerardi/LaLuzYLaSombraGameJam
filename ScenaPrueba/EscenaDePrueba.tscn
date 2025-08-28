@@ -10,7 +10,8 @@ size = Vector2(122, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1g42"]
 size = Vector2(120, 112)
 
-[node name="Node2D" type="Node2D"]
+[node name="BORRAR" type="Node2D"]
+position = Vector2(3, -3)
 
 [node name="CharacterBody2Dclon" type="CharacterBody2D" parent="."]
 position = Vector2(289, 327)
