@@ -18,11 +18,17 @@ config/icon="res://icon.svg"
 
 Global="*res://script global/global.gd"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=960
+
 [global_group]
 
 Luces=""
 Player=""
 Cajas=""
+Player_sombra=""
 
 [input]
 
