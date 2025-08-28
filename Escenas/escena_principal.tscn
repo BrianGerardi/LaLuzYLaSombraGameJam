@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b565hncygpvmi"]
+[gd_scene load_steps=7 format=3 uid="uid://b565hncygpvmi"]
 
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="1_wmjee"]
 [ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="2_ripk3"]
 [ext_resource type="PackedScene" uid="uid://chgjkvupo5g0s" path="res://Escenas/caja_empujable.tscn" id="3_pboj7"]
+[ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="4_s6hsl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wmjee"]
 
@@ -58,4 +59,7 @@ visibility_layer = 3
 position = Vector2(308, 472)
 
 [node name="CajaEmpujable" parent="." instance=ExtResource("3_pboj7")]
-position = Vector2(399, 465)
+position = Vector2(903, 471)
+
+[node name="Enemy_aparicion" parent="." instance=ExtResource("4_s6hsl")]
+position = Vector2(246, 475)
