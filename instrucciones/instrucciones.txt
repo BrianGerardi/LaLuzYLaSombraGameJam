@@ -1,0 +1,19 @@
+Instrucciones para crear niveles:
+	
+***PRIMER NOTA SUPER IMPORTANTE**** 
+SIEMPRE QUE AGREGUEMOS UNA ESCENA QUE YA EXISTIA DEBEMOS HACER CLICK DERECHO > CREAR LOCAL
+*** FIN NOTA ***
+	
+	1: Crear una nueva escena apretando al signo + que se encuentra encima del texto "documentacion online"
+	2: Una vez en la escena agregar como primer nodo un Node2D
+	3: Renombrar ese nodo como necesites ejemplo: "nivel_algo"
+	4: Empezar agregando los elementos utiles para creacion de nivel:
+		Primero en el arbol de nodos presionar en el icono al lado del signo + para agregar una escena nueva
+		¿que tengo que agregar primero? Convenientemente agregar primero la escena: "creador_de_mapas"
+		crear los mapas pintando los tiles
+
+
+Mecanicas: 
+	Como agregar palancas y puertas:
+		1- agregar la escena palanca y asignarle un ID
+		2- agregar la escena puerta y asignarle el MISMO ID, si le asigno otro, no va a funcionar

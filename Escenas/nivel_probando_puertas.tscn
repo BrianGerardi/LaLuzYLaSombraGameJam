@@ -153,15 +153,19 @@ id_palanca = 1
 [node name="HUD" parent="." instance=ExtResource("6_pstot")]
 
 [node name="AreaDeLuz" parent="." instance=ExtResource("7_vou6s")]
-position = Vector2(773, 501)
+position = Vector2(759, 378)
+
+[node name="Player_sombra" parent="." instance=ExtResource("9_hce6t")]
+position = Vector2(613, 514)
+velocidad_de_movimiento = 200.0
+velocidad_de_correr = 400.0
 
 [node name="GanarNivel" type="Node2D" parent="."]
-position = Vector2(1113, 536)
 script = ExtResource("8_yam7l")
 siguiente_nivel = "uid://b565hncygpvmi"
 
 [node name="AreaPlayer" type="Node2D" parent="GanarNivel"]
-position = Vector2(-922, -2)
+position = Vector2(165, 519)
 
 [node name="Area2D" type="Area2D" parent="GanarNivel/AreaPlayer"]
 
@@ -174,7 +178,7 @@ scale = Vector2(0.0820313, 1)
 texture = ExtResource("2_itfjs")
 
 [node name="AreaSombra" type="Node2D" parent="GanarNivel"]
-position = Vector2(-268, -1)
+position = Vector2(834, 522)
 
 [node name="Sprite2DGanar" type="Sprite2D" parent="GanarNivel/AreaSombra"]
 position = Vector2(0, -1)
@@ -186,11 +190,6 @@ texture = ExtResource("2_itfjs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaSombra/Area2DSombra"]
 shape = SubResource("CircleShape2D_frtrm")
-
-[node name="Player_sombra" parent="." instance=ExtResource("9_hce6t")]
-position = Vector2(613, 514)
-velocidad_de_movimiento = 200.0
-velocidad_de_correr = 400.0
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
