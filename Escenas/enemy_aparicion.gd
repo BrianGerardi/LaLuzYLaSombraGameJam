@@ -34,3 +34,11 @@ func _on_area_detectar_player_body_entered(body: Node2D) -> void:
 			velocidad = abs(velocidad) 
 		else:
 			velocidad = -abs(velocidad)
+
+
+func _on_area_pinchos_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Pinchos"):
+		die()
+		
+func die ():
+	queue_free()
