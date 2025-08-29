@@ -21,9 +21,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Puerta" type="StaticBody2D" node_paths=PackedStringArray("sprite_puerta_abierta")]
+[node name="Puerta" type="StaticBody2D"]
 script = ExtResource("1_cydqo")
-sprite_puerta_abierta = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hgxfh")
