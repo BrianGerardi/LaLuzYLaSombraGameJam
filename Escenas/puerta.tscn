@@ -1,30 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://lky8ruc8urj"]
+[gd_scene load_steps=6 format=3 uid="uid://lky8ruc8urj"]
 
 [ext_resource type="Script" uid="uid://dlgl1gixm6pea" path="res://puerta.gd" id="1_cydqo"]
-[ext_resource type="Texture2D" uid="uid://bsuxdp7u81vay" path="res://tiles de prueba/tiles/background.png" id="2_ylh6m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylh6m"]
-size = Vector2(64, 64)
+[ext_resource type="Texture2D" uid="uid://cgiyv8u0xsroi" path="res://tiles de prueba/TilesSeparados/PuertaCuerpo.png" id="2_hgxfh"]
+[ext_resource type="Texture2D" uid="uid://h8lylyujj3pr" path="res://tiles de prueba/TilesSeparados/PuertaCuerpoAbierta.png" id="3_hgxfh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgxfh"]
-size = Vector2(64, 64)
+size = Vector2(32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_imcla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hgxfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hgxfh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Puerta" type="StaticBody2D" node_paths=PackedStringArray("sprite_puerta_abierta")]
 script = ExtResource("1_cydqo")
-sprite_puerta_abierta = NodePath("SpritePuertaAbierta")
+sprite_puerta_abierta = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ylh6m")
-
-[node name="SpritePuertaAbierta" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, 64)
-texture = ExtResource("2_ylh6m")
-
-[node name="CollisionPuertaFijo" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ylh6m")
+texture = ExtResource("2_hgxfh")
 
 [node name="CollisionPuertaAbierta" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 64)
 shape = SubResource("RectangleShape2D_hgxfh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_imcla")

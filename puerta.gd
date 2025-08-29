@@ -20,7 +20,6 @@ func _on_usar_palanca(identificador : int):
 
 
 func abrir_puerta():
-	sprite_puerta_abierta.hide()
 	collision_puerta_abierta.set_deferred("disabled", true)
 	print("puerta abierta")
 	#si hubieran animaciones tambien hay que ejecutarlas aca

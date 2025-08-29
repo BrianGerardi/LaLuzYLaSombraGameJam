@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2d34n2113v01"]
 
 [ext_resource type="Script" uid="uid://b8wai1o0bs6ac" path="res://Escenas/player_sombra.gd" id="1_yfo70"]
-[ext_resource type="Texture2D" uid="uid://eadjsemx1xlu" path="res://icon.svg" id="2_a4slg"]
+[ext_resource type="Texture2D" uid="uid://48qeby6e5tgo" path="res://tiles de prueba/TilesSeparados/Osvaldo_Sombra_1_Prueba.png" id="2_yfo70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6njrx"]
 size = Vector2(122, 122)
@@ -11,7 +11,10 @@ script = ExtResource("1_yfo70")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
+scale = Vector2(0.23, 0.36)
 shape = SubResource("RectangleShape2D_6njrx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_a4slg")
+position = Vector2(2.98023e-07, 0.500002)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("2_yfo70")
