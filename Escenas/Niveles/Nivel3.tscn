@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://px3vwrsgm1e8"]
+[gd_scene load_steps=21 format=4 uid="uid://px3vwrsgm1e8"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_ou1yc"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_tj73n"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="8_4mu6w"]
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="9_fsyqv"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="10_jhnrk"]
+[ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="11_ev8hw"]
+[ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="12_jhnrk"]
+[ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="13_swdps"]
+[ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="14_hm56i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_ou1yc")
@@ -1582,6 +1586,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_p481s")
 sources/1 = SubResource("TileSetAtlasSource_stmt2")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
+radius = 31.0
+
 [node name="Nivel3" type="Node2D"]
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
@@ -1651,3 +1658,76 @@ position = Vector2(54, 882)
 
 [node name="Enemy_aparicion6" parent="." instance=ExtResource("10_jhnrk")]
 position = Vector2(1429, 241)
+
+[node name="Pinchos" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(720, 272)
+
+[node name="Pinchos2" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(752, 272)
+
+[node name="Pinchos3" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(849, 752)
+
+[node name="Pinchos4" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(881, 752)
+
+[node name="Pinchos5" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(177, 913)
+
+[node name="Pinchos6" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(209, 913)
+
+[node name="Pinchos7" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(400, 913)
+
+[node name="Pinchos8" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(432, 913)
+
+[node name="Pinchos9" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(752, 912)
+
+[node name="Pinchos10" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(784, 912)
+
+[node name="Pinchos11" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(464, 913)
+
+[node name="Pinchos12" parent="." instance=ExtResource("11_ev8hw")]
+position = Vector2(816, 912)
+
+[node name="GanarNivel" type="Node2D" parent="."]
+position = Vector2(315, 431)
+script = ExtResource("12_jhnrk")
+siguiente_nivel = "uid://c4r2obppwaekg"
+
+[node name="AreaPlayer" type="Node2D" parent="GanarNivel"]
+
+[node name="Area2D" type="Area2D" parent="GanarNivel/AreaPlayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaPlayer/Area2D"]
+position = Vector2(-7, 16)
+shape = SubResource("CircleShape2D_frtrm")
+
+[node name="Sprite2DGanar" type="Sprite2D" parent="GanarNivel/AreaPlayer"]
+position = Vector2(-5.5, 15)
+scale = Vector2(0.828125, 0.6875)
+texture = ExtResource("13_swdps")
+
+[node name="AreaSombra" type="Node2D" parent="GanarNivel"]
+position = Vector2(-141, 3)
+
+[node name="Sprite2DGanar" type="Sprite2D" parent="GanarNivel/AreaSombra"]
+position = Vector2(1334, 382)
+texture = ExtResource("14_hm56i")
+
+[node name="Area2DSombra" type="Area2D" parent="GanarNivel/AreaSombra"]
+position = Vector2(1246, 268)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaSombra/Area2DSombra"]
+position = Vector2(87, 131)
+shape = SubResource("CircleShape2D_frtrm")
+
+[connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_entered"]
+[connection signal="body_exited" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_exited"]
