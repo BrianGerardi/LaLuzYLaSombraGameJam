@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://2pmkictdj1ey"]
+[gd_scene load_steps=10 format=3 uid="uid://2pmkictdj1ey"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_2hple"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_fps6i"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_fps6i"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_2hple")
 0:0/0 = 0
 1:0/0 = 0
@@ -24,9 +24,14 @@ texture = ExtResource("1_2hple")
 3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_60u2c"]
-sources/0 = SubResource("TileSetAtlasSource_cchw8")
+sources/0 = SubResource("TileSetAtlasSource_cbhuh")
+
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fps6i"]
+friction = 0.2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p481s"]
+
 texture = ExtResource("2_fps6i")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -89,7 +94,6 @@ texture = ExtResource("2_fps6i")
 1:2/0 = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:2/0 = 0
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:2/0 = 0
@@ -1023,7 +1027,7 @@ texture = ExtResource("2_fps6i")
 34:23/0 = 0
 35:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stmt2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdfaw"]
 texture = ExtResource("3_fps6i")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1572,8 +1576,12 @@ texture = ExtResource("3_fps6i")
 
 [sub_resource type="TileSet" id="TileSet_64ska"]
 physics_layer_0/collision_layer = 1
+
+physics_layer_0/collision_mask = 3
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_fps6i")
 sources/0 = SubResource("TileSetAtlasSource_p481s")
 sources/1 = SubResource("TileSetAtlasSource_stmt2")
+
 
 [node name="CreadorDeMapas" type="Node2D"]
 

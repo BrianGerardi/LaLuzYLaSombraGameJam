@@ -4,6 +4,7 @@ extends Node2D
 #solo hay que cuidar que en EL MISMO NIVEL no existan 2 palancas con el mismo id
 #no hay problema que las id se repitan con otras palancas creadas en otros niveles
 
+var palanca_usada : bool = false
 var player_cerca : bool =false
 @export var id_palanca : int
 
@@ -20,6 +21,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if player_cerca:
 		if Input.is_action_just_pressed("accion"):
+			if palanca_usada==false: #para saber que animacion usar
+				%AnimatedSprite2D.play("usar_palanca_uno")
+				palanca_usada = true
+			else:
+				%AnimatedSprite2D.play("usar_palanca_dos")
+				palanca_usada = false
 			Global.usar_palanca_id.emit(id_palanca)
 
 
