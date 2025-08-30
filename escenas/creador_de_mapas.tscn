@@ -26,12 +26,7 @@ texture = ExtResource("1_2hple")
 [sub_resource type="TileSet" id="TileSet_60u2c"]
 sources/0 = SubResource("TileSetAtlasSource_cbhuh")
 
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fps6i"]
-friction = 0.2
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p481s"]
-
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2wej"]
 texture = ExtResource("2_fps6i")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1576,11 +1571,8 @@ texture = ExtResource("3_fps6i")
 
 [sub_resource type="TileSet" id="TileSet_64ska"]
 physics_layer_0/collision_layer = 1
-
-physics_layer_0/collision_mask = 3
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_fps6i")
-sources/0 = SubResource("TileSetAtlasSource_p481s")
-sources/1 = SubResource("TileSetAtlasSource_stmt2")
+sources/0 = SubResource("TileSetAtlasSource_h2wej")
+sources/1 = SubResource("TileSetAtlasSource_qdfaw")
 
 
 [node name="CreadorDeMapas" type="Node2D"]
