@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_fps6i"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_fps6i"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_2hple")
 0:0/0 = 0
 1:0/0 = 0
@@ -24,9 +24,9 @@ texture = ExtResource("1_2hple")
 3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_60u2c"]
-sources/0 = SubResource("TileSetAtlasSource_cchw8")
+sources/0 = SubResource("TileSetAtlasSource_cbhuh")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p481s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2wej"]
 texture = ExtResource("2_fps6i")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1023,7 +1023,7 @@ texture = ExtResource("2_fps6i")
 34:23/0 = 0
 35:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stmt2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdfaw"]
 texture = ExtResource("3_fps6i")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1572,8 +1572,8 @@ texture = ExtResource("3_fps6i")
 
 [sub_resource type="TileSet" id="TileSet_64ska"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_p481s")
-sources/1 = SubResource("TileSetAtlasSource_stmt2")
+sources/0 = SubResource("TileSetAtlasSource_h2wej")
+sources/1 = SubResource("TileSetAtlasSource_qdfaw")
 
 [node name="CreadorDeMapas" type="Node2D"]
 
