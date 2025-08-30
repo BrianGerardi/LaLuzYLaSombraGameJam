@@ -199,6 +199,9 @@ position = Vector2(388, 549)
 [node name="CajaEmpujable2" parent="." instance=ExtResource("10_hce6t")]
 position = Vector2(558, 400)
 
+[node name="AreaDeLuz2" parent="." instance=ExtResource("7_vou6s")]
+position = Vector2(290, 509)
+
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_entered"]
