@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export_range(0,1) var deceleracion_al_saltar = 0.1
 const PUSH_FORCE = 250.0
 const MAX_VELOCITY = 150.0
+@onready var coyote_timer = $CoyoteTimer
+var estaba_en_el_piso := false
 #var escena_principal
 func _ready() -> void:
 	#escena_principal = $".."
@@ -23,13 +25,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
+
 	if Input.is_action_just_pressed("reiniciar"):
 		get_tree().reload_current_scene()
-	if Input.is_action_just_pressed("saltar") and (is_on_floor() or is_on_wall()):
+	if Input.is_action_just_pressed("saltar") and (is_on_floor() || !coyote_timer.is_stopped()):
+
 		velocity.y = fuerza_de_salto
 	if Input.is_action_just_released("saltar") and velocity.y < 0:	
 		velocity.y *= deceleracion_al_saltar
+	
 		
 	var velocidad
 	if Input.is_action_pressed("correr"):
@@ -43,8 +47,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x , direction * velocidad, velocidad * acceleration)
 	else:
 		velocity.x = move_toward(velocity.x, 0, velocidad_de_movimiento * deceleracion)
+
 	move_and_slide()
-	
+		#COYOTE TIME
+	if estaba_en_el_piso and not is_on_floor():
+		coyote_timer.start()
+	estaba_en_el_piso = is_on_floor()
+
 	
 	# esto soluciona lo de las cajas y evita que quite salto cuando estoy encima
 	for i in get_slide_collision_count():
