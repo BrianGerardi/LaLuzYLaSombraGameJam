@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq2ff72a2s2wu"]
+[gd_scene load_steps=6 format=3 uid="uid://bq2ff72a2s2wu"]
 
 [ext_resource type="Script" uid="uid://dduhq5c0xkrue" path="res://Escenas/enemy_aparicion.gd" id="1_ievrw"]
 [ext_resource type="Texture2D" uid="uid://bxifr4oaxteji" path="res://tiles de prueba/tiles/Arte/Props_Luz/Caja_3_Luz.png" id="2_u21hq"]
