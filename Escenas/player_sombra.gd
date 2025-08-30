@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export_range(0,1) var acceleration = 0.1
 @export_range(0,1) var deceleracion = 0.1
 @export_range(0,1) var deceleracion_al_saltar = 0.1
-const PUSH_FORCE = 100.0
+const PUSH_FORCE = 250.0
 const MAX_VELOCITY = 150.0
 #var escena_principal
 func _ready() -> void:
@@ -45,13 +45,28 @@ func _physics_process(delta: float) -> void:
 	
 
 
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var colision_caja = collision.get_collider()
-		if colision_caja.is_in_group("Cajas") and abs(colision_caja.get_linear_velocity().x) < MAX_VELOCITY:
-			colision_caja.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#var colision_caja = collision.get_collider()
+		#if colision_caja.is_in_group("Cajas") and abs(colision_caja.get_linear_velocity().x) < MAX_VELOCITY:
+			#colision_caja.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 			
 	move_and_slide()
+
+	# esto soluciona lo de las cajas y evita que quite salto cuando estoy encima
+	for i in get_slide_collision_count():
+		var c := get_slide_collision(i)
+		var rb := c.get_collider()
+		if rb is RigidBody2D:
+			var n := c.get_normal()            # normal apunta desde la caja hacia afuera
+			# ignorar suelo/techo: sólo empujar si la colisión es principalmente de costado
+			if abs(n.y) < 0.5:
+				# empujón lateral
+				var push_dir := Vector2(-sign(n.x), 0.0)
+				var speed_factor = clamp(abs(velocity.x) / 200.0, 0.3, 1.0)
+				rb.apply_central_impulse(push_dir * PUSH_FORCE * speed_factor)
+				#esto + cambiarle la colission a la caja por un circulo lo soluciona igual sigo buscando si puede mejorarse el comportamiento
+				# a veces como que tiene tirones y empuja mucho pero ya no se traba
 
 
 func jugador_entro_en_area_de_luz(numero : int, daño_recibido):
