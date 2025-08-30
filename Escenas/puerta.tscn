@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://lky8ruc8urj"]
+[gd_scene load_steps=7 format=3 uid="uid://lky8ruc8urj"]
 
 [ext_resource type="Script" uid="uid://dlgl1gixm6pea" path="res://puerta.gd" id="1_cydqo"]
 [ext_resource type="Texture2D" uid="uid://cgiyv8u0xsroi" path="res://tiles de prueba/TilesSeparados/PuertaCuerpo.png" id="2_hgxfh"]
-[ext_resource type="Texture2D" uid="uid://h8lylyujj3pr" path="res://tiles de prueba/TilesSeparados/PuertaCuerpoAbierta.png" id="3_hgxfh"]
+[ext_resource type="Texture2D" uid="uid://c7q02hp6it5nl" path="res://tiles de prueba/tiles/Arte/Props_Luz/Puerta_OPEN_Luz.png" id="3_imcla"]
+[ext_resource type="Texture2D" uid="uid://dpd71ptafg275" path="res://tiles de prueba/tiles/Arte/Props_Luz/Puerta_CLOSED_Luz.png" id="4_rbcj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgxfh"]
 size = Vector2(32, 64)
@@ -11,10 +12,10 @@ size = Vector2(32, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hgxfh")
+"texture": ExtResource("3_imcla")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_hgxfh")
+"texture": ExtResource("4_rbcj5")
 }],
 "loop": false,
 "name": &"abrir",
