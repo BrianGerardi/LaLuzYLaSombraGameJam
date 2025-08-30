@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chgjkvupo5g0s"]
 
-[ext_resource type="Texture2D" uid="uid://bb5y1vnpr444" path="res://tiles de prueba/TilesSeparados/CajaCuerpo.png" id="1_to7r0"]
+[ext_resource type="Texture2D" uid="uid://dvys7v437vqy6" path="res://tiles de prueba/tiles/Arte/Props_Luz/Caja_1_Luz.png" id="1_to7r0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqjby"]
 size = Vector2(128, 128)
