@@ -21,5 +21,6 @@ func _on_usar_palanca(identificador : int):
 
 func abrir_puerta():
 	collision_puerta_abierta.set_deferred("disabled", true)
+	%AnimatedSprite2D.play("abrir")
 	print("puerta abierta")
 	#si hubieran animaciones tambien hay que ejecutarlas aca

@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bff6wgjmhykwc"]
+[gd_scene load_steps=4 format=3 uid="uid://bff6wgjmhykwc"]
 
 [ext_resource type="Script" uid="uid://6lrq4xvxvpqq" path="res://Escenas/palanca.gd" id="1_r1760"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1760"]
 size = Vector2(38, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1760"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"palanca",
+"speed": 5.0
+}]
 
 [node name="Palanca" type="Node2D"]
 script = ExtResource("1_r1760")
@@ -31,6 +39,11 @@ position = Vector2(-3, 2.5)
 shape = SubResource("RectangleShape2D_r1760")
 
 [node name="AudioPalanca" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimatedPalanca" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_r1760")
+animation = &"palanca"
 
 [connection signal="body_entered" from="Area2DPalanca" to="." method="_on_area_2d_palanca_body_entered"]
 [connection signal="body_exited" from="Area2DPalanca" to="." method="_on_area_2d_palanca_body_exited"]

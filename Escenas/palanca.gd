@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if player_cerca:
 		if Input.is_action_just_pressed("accion"):
+		#	%AnimatedPalanca.play("palanca")		#esta linea esta lista para reproducir la animacion
 			Global.usar_palanca_id.emit(id_palanca)
 
 
