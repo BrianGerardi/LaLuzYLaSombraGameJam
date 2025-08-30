@@ -9,6 +9,9 @@ extends CharacterBody2D
 @export_range(0,1) var deceleracion_al_saltar = 0.1
 const PUSH_FORCE = 100.0
 const MAX_VELOCITY = 150.0
+var estaba_en_el_piso := false
+@onready var coyote_timer = $CoyoteTimerSombra
+
 #var escena_principal
 func _ready() -> void:
 	#escena_principal = $".."
@@ -52,6 +55,10 @@ func _physics_process(delta: float) -> void:
 			colision_caja.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 			
 	move_and_slide()
+		#COYOTE TIME
+	if estaba_en_el_piso and not is_on_floor():
+		coyote_timer.start()
+	estaba_en_el_piso = is_on_floor()
 
 
 func jugador_entro_en_area_de_luz(numero : int, daño_recibido):

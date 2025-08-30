@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export_range(0,1) var deceleracion_al_saltar = 0.1
 const PUSH_FORCE = 100.0
 const MAX_VELOCITY = 150.0
+@onready var coyote_timer = $CoyoteTimer
+var estaba_en_el_piso := false
 #var escena_principal
 func _ready() -> void:
 	#escena_principal = $".."
@@ -24,10 +26,11 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-	if Input.is_action_just_pressed("saltar") and (is_on_floor() or is_on_wall()):
+	if Input.is_action_just_pressed("saltar") and (is_on_floor() || !coyote_timer.is_stopped()):
 		velocity.y = fuerza_de_salto
 	if Input.is_action_just_released("saltar") and velocity.y < 0:	
 		velocity.y *= deceleracion_al_saltar
+	
 		
 	var velocidad
 	if Input.is_action_pressed("correr"):
@@ -42,17 +45,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, velocidad_de_movimiento * deceleracion)
 
-	
 
 
-	for i in get_slide_collision_count():
+	#CAJAS
+	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var colision_caja = collision.get_collider()
 		if colision_caja.is_in_group("Cajas") and abs(colision_caja.get_linear_velocity().x) < MAX_VELOCITY:
 			colision_caja.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
-			
+		
+		
 	move_and_slide()
-
+		#COYOTE TIME
+	if estaba_en_el_piso and not is_on_floor():
+		coyote_timer.start()
+	estaba_en_el_piso = is_on_floor()
 
 func jugador_entro_en_area_de_luz(numero : int, daño_recibido):
 	match numero : 
