@@ -3,16 +3,17 @@
 [ext_resource type="Script" uid="uid://b8wai1o0bs6ac" path="res://Escenas/player_sombra.gd" id="1_yfo70"]
 [ext_resource type="Texture2D" uid="uid://48qeby6e5tgo" path="res://tiles de prueba/TilesSeparados/Osvaldo_Sombra_1_Prueba.png" id="2_yfo70"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6njrx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfo70"]
 size = Vector2(122, 122)
 
 [node name="Player_sombra" type="CharacterBody2D" groups=["Player_sombra", "player_sombra"]]
+collision_mask = 3
 script = ExtResource("1_yfo70")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(0.23, 0.36)
-shape = SubResource("RectangleShape2D_6njrx")
+shape = SubResource("RectangleShape2D_yfo70")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.98023e-07, 0.500002)

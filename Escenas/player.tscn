@@ -3,16 +3,17 @@
 [ext_resource type="Script" uid="uid://y3c0tuklx4v2" path="res://Escenas/PlayerController.gd" id="1_i8vih"]
 [ext_resource type="Texture2D" uid="uid://o4qohypmkpaa" path="res://tiles de prueba/TilesSeparados/Osvaldo_1_Prueba.png" id="2_i8vih"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6njrx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8vih"]
 size = Vector2(122, 122)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 3
 script = ExtResource("1_i8vih")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(4.17233e-07, 1)
 scale = Vector2(0.23, 0.36)
-shape = SubResource("RectangleShape2D_6njrx")
+shape = SubResource("RectangleShape2D_i8vih")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.5, 0.499999)
