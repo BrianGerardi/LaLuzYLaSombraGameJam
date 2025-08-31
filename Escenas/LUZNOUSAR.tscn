@@ -21,7 +21,7 @@ gradient = SubResource("Gradient_5vsig")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="AreaDeLuz" type="Node2D" node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
+[node name="NOUSAR" type="Node2D" node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
 script = ExtResource("1_8we27")
 raycast_luces = NodePath("RayCastLuz")
 "daño_area1" = 25

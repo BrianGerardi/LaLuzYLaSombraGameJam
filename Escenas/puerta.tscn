@@ -23,12 +23,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-
 "texture": ExtResource("4_rbcj5")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_imcla")
-
 }],
 "loop": false,
 "name": &"cerrar",

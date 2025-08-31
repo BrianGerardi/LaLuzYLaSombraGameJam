@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://6lrq4xvxvpqq" path="res://Escenas/palanca.gd" id="7_h0wtr"]
 [ext_resource type="PackedScene" uid="uid://c2d34n2113v01" path="res://Escenas/player_sombra.tscn" id="7_vfns5"]
 [ext_resource type="Script" uid="uid://dlgl1gixm6pea" path="res://puerta.gd" id="8_34yp4"]
-[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="8_vfns5"]
+[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/LUZNOUSAR.tscn" id="8_vfns5"]
 [ext_resource type="Texture2D" uid="uid://h8lylyujj3pr" path="res://tiles de prueba/TilesSeparados/PuertaCuerpoAbierta.png" id="9_34yp4"]
 [ext_resource type="Texture2D" uid="uid://cgiyv8u0xsroi" path="res://tiles de prueba/TilesSeparados/PuertaCuerpo.png" id="9_h0wtr"]
 
