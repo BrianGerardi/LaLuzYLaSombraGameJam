@@ -46,6 +46,4 @@ shape = SubResource("RectangleShape2D_hgxfh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_imcla")
-animation = &"cerrar"
-frame = 1
-frame_progress = 1.0
+animation = &"abrir"
