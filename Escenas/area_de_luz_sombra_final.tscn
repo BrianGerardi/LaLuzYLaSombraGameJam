@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chrxccykonx7s"]
+[gd_scene load_steps=7 format=3 uid="uid://c761hyv2w00ou"]
 
 [ext_resource type="Script" uid="uid://dll34awl42uj1" path="res://Escenas/area_de_luz_sombra_final.gd" id="1_tafgk"]
 [ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="2_o561d"]

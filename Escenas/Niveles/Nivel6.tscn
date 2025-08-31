@@ -16,7 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_ogmb3"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="15_6uiw7"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_u87e1"]
-[ext_resource type="PackedScene" uid="uid://chrxccykonx7s" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_ou0rp"]
+[ext_resource type="AudioStream" uid="uid://d3s15irc83rmf" path="res://Audio/Musica/Music_Level6.ogg" id="16_6uiw7"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ts8os"]
 texture = ExtResource("1_lqc1x")
@@ -2278,6 +2279,12 @@ position = Vector2(720, 913)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
+zoom = Vector2(0.8, 0.8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
+stream = ExtResource("16_6uiw7")
+volume_db = -10.0
+autoplay = true
 
 [node name="AreaDeLuzPlayer" parent="." instance=ExtResource("15_6uiw7")]
 position = Vector2(1170, 256)
