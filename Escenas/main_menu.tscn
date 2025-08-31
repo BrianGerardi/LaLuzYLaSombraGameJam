@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://hfngjsna2wvr"]
+[gd_scene load_steps=6 format=3 uid="uid://hfngjsna2wvr"]
 
 [ext_resource type="Script" uid="uid://dhuewfpphkmml" path="res://Escenas/main_menu.gd" id="1_hjcy7"]
 [ext_resource type="Script" uid="uid://1nivlxqvs0b7" path="res://Escenas/volume_slider.gd" id="1_r8uxs"]
 [ext_resource type="FontFile" uid="uid://dlm5gyvh31cph" path="res://textFUENTES/Deutsch.ttf" id="2_qn7j5"]
+[ext_resource type="AudioStream" uid="uid://b5tv1nt70ghu1" path="res://Audio/Musica/Music_Menu.ogg" id="4_qn7j5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_redxg"]
 bg_color = Color(0.176471, 0.447059, 0.623529, 1)
@@ -77,5 +78,10 @@ theme_override_font_sizes/font_size = 45
 text = "VOLUMEN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qn7j5")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
