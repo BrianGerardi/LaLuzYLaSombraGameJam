@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b565hncygpvmi"]
 
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="1_wmjee"]
-[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="2_ripk3"]
+[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/LUZNOUSAR.tscn" id="2_ripk3"]
 [ext_resource type="PackedScene" uid="uid://chgjkvupo5g0s" path="res://Escenas/caja_empujable.tscn" id="3_pboj7"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="4_s6hsl"]
 [ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="5_7xruv"]

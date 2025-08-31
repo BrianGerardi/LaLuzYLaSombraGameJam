@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="4_wvvle"]
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="5_octvd"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="6_pstot"]
-[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="7_vou6s"]
+[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/LUZNOUSAR.tscn" id="7_vou6s"]
 [ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="8_yam7l"]
 [ext_resource type="PackedScene" uid="uid://c2d34n2113v01" path="res://Escenas/player_sombra.tscn" id="9_hce6t"]
 [ext_resource type="PackedScene" uid="uid://chgjkvupo5g0s" path="res://Escenas/caja_empujable.tscn" id="10_hce6t"]

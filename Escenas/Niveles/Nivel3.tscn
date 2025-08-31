@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=4 uid="uid://px3vwrsgm1e8"]
+[gd_scene load_steps=24 format=4 uid="uid://px3vwrsgm1e8"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_ou1yc"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_tj73n"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_15nbs"]
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="4_g4ovo"]
 [ext_resource type="PackedScene" uid="uid://c2d34n2113v01" path="res://Escenas/player_sombra.tscn" id="5_tj73n"]
-[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="6_iabn3"]
 [ext_resource type="PackedScene" uid="uid://chgjkvupo5g0s" path="res://Escenas/caja_empujable.tscn" id="7_ev8hw"]
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="8_4mu6w"]
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="9_fsyqv"]
@@ -16,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="14_hm56i"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_swdps"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="16_hm56i"]
+[ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="17_lqyas"]
+[ext_resource type="PackedScene" uid="uid://chrxccykonx7s" path="res://Escenas/area_de_luz_sombra_final.tscn" id="17_v5oxl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_ou1yc")
@@ -1606,15 +1607,6 @@ tile_set = SubResource("TileSet_64ska")
 [node name="Player" parent="." instance=ExtResource("4_g4ovo")]
 position = Vector2(78, 169)
 
-[node name="AreaDeLuz" parent="." instance=ExtResource("6_iabn3")]
-position = Vector2(356, 117)
-
-[node name="AreaDeLuz2" parent="." instance=ExtResource("6_iabn3")]
-position = Vector2(1248, 584)
-
-[node name="AreaDeLuz3" parent="." instance=ExtResource("6_iabn3")]
-position = Vector2(207, 463)
-
 [node name="CajaEmpujable" parent="." instance=ExtResource("7_ev8hw")]
 position = Vector2(1489, 231)
 
@@ -1727,6 +1719,15 @@ position = Vector2(1488, 643)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
+
+[node name="AreaDeLuzPlayer" parent="." instance=ExtResource("17_lqyas")]
+position = Vector2(356, 117)
+
+[node name="AreaDeLuzPlayer2" parent="." instance=ExtResource("17_lqyas")]
+position = Vector2(208, 464)
+
+[node name="AreaDeLuzPlayerSombraFinal" parent="." instance=ExtResource("17_v5oxl")]
+position = Vector2(1248, 584)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

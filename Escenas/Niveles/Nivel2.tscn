@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_t7ygp"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="14_l3md6"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_t7ygp"]
-[ext_resource type="PackedScene" uid="uid://c761hyv2w00ou" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_yy12c"]
+
+[ext_resource type="PackedScene" uid="uid://chrxccykonx7s" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_yy12c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_0w85u")
