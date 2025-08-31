@@ -10,6 +10,7 @@ extends CharacterBody2D
 
 @export var PUSH_FORCE = 300.0
 const MAX_VELOCITY = 150.0
+
 @onready var coyote_timer =  $CoyoteTimerSombra#REVISAR COYOTE TIMER PORQUE LO TUVE QUE AGREGAR MANUALMENTE
 
 var estaba_en_el_piso := false
@@ -27,6 +28,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	Global.set_posicion_global_sombra(global_position) #le paso la posicion global al raycast
+	
 
 	if Input.is_action_just_pressed("reiniciar"):
 		get_tree().reload_current_scene()
