@@ -20,5 +20,7 @@ position = Vector2(2.98023e-07, 0.500002)
 scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("2_yfo70")
 
-[node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.3
+
+[node name="CoyoteTimerSombra" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true

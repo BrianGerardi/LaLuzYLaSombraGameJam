@@ -7,9 +7,12 @@ extends CharacterBody2D
 @export_range(0,1) var acceleration = 0.1
 @export_range(0,1) var deceleracion = 0.1
 @export_range(0,1) var deceleracion_al_saltar = 0.1
+
 @export var PUSH_FORCE = 300.0
 const MAX_VELOCITY = 150.0
-@onready var coyote_timer = $CoyoteTimer #REVISAR COYOTE TIMER PORQUE LO TUVE QUE AGREGAR MANUALMENTE
+
+@onready var coyote_timer =  $CoyoteTimerSombra#REVISAR COYOTE TIMER PORQUE LO TUVE QUE AGREGAR MANUALMENTE
+
 var estaba_en_el_piso := false
 #var escena_principal
 func _ready() -> void:
@@ -28,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 	Global.set_posicion_global_sombra(global_position) #le paso la posicion global al raycast
 	
+
 	if Input.is_action_just_pressed("reiniciar"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("saltar") and (is_on_floor() || !coyote_timer.is_stopped()):
