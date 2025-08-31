@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxpxh2bravn23"]
+[gd_scene load_steps=10 format=3 uid="uid://bxpxh2bravn23"]
 
 [ext_resource type="Script" uid="uid://bhlqqt6s8aoaf" path="res://Escenas/area_de_luz.gd" id="1_8we27"]
 [ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="2_5vsig"]
+[ext_resource type="Texture2D" uid="uid://eadjsemx1xlu" path="res://icon.svg" id="3_d0g1a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hoifb"]
 
@@ -12,8 +13,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
 
 [sub_resource type="Gradient" id="Gradient_5vsig"]
-offsets = PackedFloat32Array(0.157895, 0.684211)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.307018, 0.54386, 0.72807)
+colors = PackedColorArray(0.713137, 0, 0.130523, 1, 1, 0, 0.2, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d0g1a"]
 gradient = SubResource("Gradient_5vsig")
@@ -53,19 +54,26 @@ shape = SubResource("CircleShape2D_d0g1a")
 texture = ExtResource("2_5vsig")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
+unique_name_in_owner = true
 color = Color(1, 0, 0.2, 1)
+energy = 0.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_d0g1a")
+texture_scale = 2.0
+
+[node name="PointLight2Amarilla" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+color = Color(0.996078, 0.792157, 0.533333, 1)
 energy = 3.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_d0g1a")
 texture_scale = 5.0
 
-[node name="PointLight2Amarilla" type="PointLight2D" parent="."]
-color = Color(0.996078, 0.792157, 0.533333, 1)
-energy = 4.0
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_d0g1a")
-texture_scale = 6.0
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(492, 517)
+scale = Vector2(12.1367, 12.1367)
+texture = ExtResource("3_d0g1a")
 
 [connection signal="body_entered" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_entered"]
 [connection signal="body_exited" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_exited"]

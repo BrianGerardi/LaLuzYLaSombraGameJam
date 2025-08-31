@@ -16,10 +16,11 @@ var cajas_en_area_4: bool = false
 @export var daño_area3 : int = 5
 @export var daño_area4 : int = 5
 
+@export var rango_luz : float = 4.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	%PointLight2D.texture_scale = rango_luz
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
