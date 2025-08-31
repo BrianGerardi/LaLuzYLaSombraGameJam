@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c4r2obppwaekg"]
+[gd_scene load_steps=24 format=4 uid="uid://c4r2obppwaekg"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_udyq4"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_7qjsc"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="14_lctq1"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="15_gsgo2"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="16_lctq1"]
+[ext_resource type="AudioStream" uid="uid://cer0aknym6852" path="res://Audio/Musica/Music_Level4.ogg" id="17_gsgo2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_udyq4")
@@ -1747,6 +1748,12 @@ position = Vector2(369, 913)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
+zoom = Vector2(0.8, 0.8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
+stream = ExtResource("17_gsgo2")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

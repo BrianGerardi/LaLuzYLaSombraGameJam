@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=19 format=3 uid="uid://2pmkictdj1ey"]
-
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_2hple"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_fps6i"]
@@ -47,7 +45,6 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2wej"]
-
 texture = ExtResource("2_fps6i")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fps6i")
@@ -140,9 +137,7 @@ texture = ExtResource("2_fps6i")
 1:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fps6i")
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
-
 2:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fps6i")
-
 6:2/0 = 0
 6:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fps6i")
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -2426,11 +2421,9 @@ texture = ExtResource("3_fps6i")
 [sub_resource type="TileSet" id="TileSet_64ska"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_fps6i")
 sources/0 = SubResource("TileSetAtlasSource_h2wej")
 sources/1 = SubResource("TileSetAtlasSource_qdfaw")
-
 
 [node name="CreadorDeMapas" type="Node2D"]
 
