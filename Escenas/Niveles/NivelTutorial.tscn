@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dhx7wvcpxputc"]
+[gd_scene load_steps=25 format=4 uid="uid://dhx7wvcpxputc"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_a2qx7"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_ywgws"]
@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_whaow"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_5j72g"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_whaow"]
-
 [ext_resource type="AudioStream" uid="uid://bels2q5jpsduj" path="res://Audio/Musica/Music_Level1v2.ogg" id="15_5j72g"]
-
+[ext_resource type="PackedScene" uid="uid://c761hyv2w00ou" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_mp272"]
+[ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="17_y4b4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_a2qx7")
@@ -2248,11 +2248,11 @@ stream = ExtResource("15_5j72g")
 volume_db = -10.0
 autoplay = true
 
-[node name="AreaDeLuzPlayer" parent="." instance=ExtResource("15_2h0pd")]
-position = Vector2(753, 270)
-
 [node name="AreaDeLuzPlayerSombraFinal" parent="." instance=ExtResource("16_mp272")]
-position = Vector2(848, 748)
+position = Vector2(848, 751)
+
+[node name="AreaDeLuzPlayer" parent="." instance=ExtResource("17_y4b4n")]
+position = Vector2(753, 270)
 
 [connection signal="body_entered" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

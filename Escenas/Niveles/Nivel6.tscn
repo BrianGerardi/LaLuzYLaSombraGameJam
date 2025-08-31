@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://s28dy5dp2lj2"]
+[gd_scene load_steps=26 format=4 uid="uid://s28dy5dp2lj2"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_lqc1x"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_o22r6"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="15_6uiw7"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_u87e1"]
 [ext_resource type="AudioStream" uid="uid://d3s15irc83rmf" path="res://Audio/Musica/Music_Level6.ogg" id="16_6uiw7"]
-
+[ext_resource type="PackedScene" uid="uid://c761hyv2w00ou" path="res://Escenas/area_de_luz_sombra_final.tscn" id="18_v7kb4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ts8os"]
 texture = ExtResource("1_lqc1x")
@@ -2289,8 +2289,8 @@ autoplay = true
 [node name="AreaDeLuzPlayer" parent="." instance=ExtResource("15_6uiw7")]
 position = Vector2(1170, 256)
 
-[node name="AreaDeLuzPlayerSombraFinal" parent="." instance=ExtResource("16_ou0rp")]
-position = Vector2(1231, 684)
+[node name="AreaDeLuzPlayerSombraFinal" parent="." instance=ExtResource("18_v7kb4")]
+position = Vector2(1232, 686)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

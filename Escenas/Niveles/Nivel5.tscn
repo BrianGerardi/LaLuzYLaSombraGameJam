@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=25 format=4 uid="uid://08ysjgua035l"]
-
+[gd_scene load_steps=26 format=4 uid="uid://08ysjgua035l"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_o120r"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_8upsq"]
