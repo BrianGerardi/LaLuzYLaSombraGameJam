@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		raycast_luces.target_position = direccion
 		var colisionando_con_body = raycast_luces.get_collider()
 		distancia_hasta_player = (raycast_luces.global_position.distance_to(posicion_player)) / 10 #dividido 10 porque en pixeles son muchos
-		print("distancia hasta player EN PHYSICS PROCESS vale: ", distancia_hasta_player)
+		#print("distancia hasta player EN PHYSICS PROCESS vale: ", distancia_hasta_player)
 		if colisionando_con_body is not CharacterBody2D or caja_dentro_de_area==true: 
 			#si el raycast colisiona primero con cualquier cosa que no sea el player desactiva el area
 			desactivar_areas2d_de_luz() #para no hacer daño a player
@@ -78,12 +78,12 @@ func activar_areas2d_de_luz():
 func calcular_daño_segun_distancia(distancia_hasta_player):
 	if distancia_hasta_player == 0:
 		return
-	print("distancia hasta player vale: ", distancia_hasta_player)
+	#print("distancia hasta player vale: ", distancia_hasta_player)
 	if distancia_hasta_player> rango_area_de_luz:
 		daño_player = daño_minimo
 	else:
 		daño_player = daño_maximo
-	print("la luz va a hacer un daño de: ", daño_player)
+	#print("la luz va a hacer un daño de: ", daño_player)
 
 
 func _on_area_2d_central_body_entered(body: Node2D) -> void:
