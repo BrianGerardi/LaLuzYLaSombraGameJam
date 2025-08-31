@@ -18,7 +18,18 @@ animations = [{
 "texture": ExtResource("4_rbcj5")
 }],
 "loop": false,
-"name": &"default",
+"name": &"abrir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rbcj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_imcla")
+}],
+"loop": false,
+"name": &"cerrar",
 "speed": 5.0
 }]
 
@@ -34,3 +45,6 @@ shape = SubResource("RectangleShape2D_hgxfh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_imcla")
+animation = &"cerrar"
+frame = 1
+frame_progress = 1.0
