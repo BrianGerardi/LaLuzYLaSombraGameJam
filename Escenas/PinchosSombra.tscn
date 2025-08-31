@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqsaeemt4wrmf"]
+
+[ext_resource type="Script" uid="uid://csbwfirutmx0n" path="res://Escenas/pinchos_area.gd" id="1_4dfd3"]
+[ext_resource type="Texture2D" uid="uid://cm4xw4gm7psop" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Pincho_Sombra_DOWN.png" id="2_4dfd3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iad1l"]
+size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhquf"]
+size = Vector2(32, 32)
+
+[node name="Pinchos" type="Node2D" groups=["Pinchos"]]
+
+[node name="Pinchos_Area" type="Area2D" parent="." groups=["Pinchos"]]
+script = ExtResource("1_4dfd3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pinchos_Area" groups=["Pinchos"]]
+scale = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_iad1l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Pinchos"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["Pinchos"]]
+shape = SubResource("RectangleShape2D_vhquf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4dfd3")
+
+[connection signal="body_entered" from="Pinchos_Area" to="Pinchos_Area" method="_on_body_entered"]
