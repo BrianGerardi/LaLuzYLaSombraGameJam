@@ -30,4 +30,4 @@ func abrir_puerta():
 		collision_puerta_abierta.set_deferred("disabled", false)
 		print("puerta cerrada")
 		puerta_abierta = false
-	%AudioPuerta.play() #siempre verificar que agregamos el audio arrastrando el archivo al editor
+#	%AudioPuerta.play() #siempre verificar que agregamos el audio arrastrando el archivo al editor

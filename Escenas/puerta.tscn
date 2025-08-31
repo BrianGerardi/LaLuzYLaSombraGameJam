@@ -47,3 +47,6 @@ shape = SubResource("RectangleShape2D_hgxfh")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_imcla")
 animation = &"abrir"
+
+[node name="AudioPuerta" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
