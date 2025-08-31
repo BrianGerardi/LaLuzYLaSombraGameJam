@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var raycast_luces : RayCast2D
 
 var player_en_area_1: bool = false
 var player_en_area_2: bool = false
@@ -23,9 +24,11 @@ func _ready() -> void:
 	%PointLight2D.texture_scale = rango_area_de_luz
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	if Global.get_posicion_global_player() != null:
+		var direccion = Global.get_posicion_global_player() - global_position
+		raycast_luces.target_position = direccion
+		#agregar logica de que si colisiona con una caja dejar de hacer daño
 
 #AREA DE DAÑO 1 ----------------
 func _on_area_de_daño_1_body_entered(body:Node2D) -> void:

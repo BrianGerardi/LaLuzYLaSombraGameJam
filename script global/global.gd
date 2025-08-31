@@ -3,6 +3,9 @@ extends Node
 #este script global.gd es el primer archivo que se carga al abrir godot y es accesible en todo momento
 #desde cualquier nodo, ideal para definir las señales, guardar y cargar datos con config file
 
+var posicion_global_player = null
+var posicion_global_sombra = null
+
 signal usar_palanca_id(identificador : int)
 
 signal jugador_entro_en_area_de_luz_signal (numero : int, daño : int) 
@@ -20,3 +23,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func get_posicion_global_player():
+	return posicion_global_player
+
+func set_posicion_global_player(posicion):
+	posicion_global_player = posicion
+
+func get_posicion_global_sombra():
+	return posicion_global_sombra
+
+func set_posicion_global_sombra(posicion):
+	posicion_global_sombra = posicion

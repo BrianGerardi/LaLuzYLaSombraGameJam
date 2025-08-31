@@ -23,7 +23,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
+	
+	Global.set_posicion_global_sombra(global_position) #le paso la posicion global al raycast
+	
 	if Input.is_action_just_pressed("saltar") and (is_on_floor() or is_on_wall()):
 		velocity.y = fuerza_de_salto
 	if Input.is_action_just_released("saltar") and velocity.y < 0:	

@@ -20,8 +20,9 @@ gradient = SubResource("Gradient_5vsig")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="AreaDeLuz" type="Node2D" groups=["Luces"]]
+[node name="AreaDeLuz" type="Node2D" node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
 script = ExtResource("1_8we27")
+raycast_luces = NodePath("RayCastLuz")
 "daño_area1" = 25
 
 [node name="AreaDeDaño1" type="Area2D" parent="."]
@@ -59,6 +60,9 @@ energy = 2.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_d0g1a")
 texture_scale = 3.0
+
+[node name="RayCastLuz" type="RayCast2D" parent="."]
+collision_mask = 3
 
 [connection signal="body_entered" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_entered"]
 [connection signal="body_exited" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_exited"]
