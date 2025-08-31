@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgtx7w1m0of4y"]
+[gd_scene load_steps=6 format=3 uid="uid://bgtx7w1m0of4y"]
 
 [ext_resource type="Script" uid="uid://cahfmlu0ipdsh" path="res://Escenas/hud.gd" id="1_4nel0"]
+[ext_resource type="Texture2D" uid="uid://crw7w61qjb4ay" path="res://Assets/shadow-7833269_960_720.png" id="2_v1vk6"]
+
+[sub_resource type="Animation" id="Animation_5x6hg"]
+resource_name = "DañadoPorLuz"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.792157, 0.360784, 0.0980392, 0), Color(0.792157, 0.360784, 0.0980392, 0.686275), Color(0.792157, 0.360784, 0.0980392, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v1vk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.792157, 0.360784, 0.0980392, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qd6er"]
+_data = {
+&"DañadoPorLuz": SubResource("Animation_5x6hg"),
+&"RESET": SubResource("Animation_v1vk6")
+}
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("barra_de_vida", "layer_perder")]
 layout_mode = 3
@@ -12,6 +50,25 @@ grow_vertical = 2
 script = ExtResource("1_4nel0")
 barra_de_vida = NodePath("LayerVida/ProgressBarVida")
 layer_perder = NodePath("LayerPerder")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.792157, 0.360784, 0.0980392, 0)
+self_modulate = Color(0.941176, 0.317647, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v1vk6")
+expand_mode = 3
+
+[node name="Animation_EntroLuz" type="AnimationPlayer" parent="CanvasLayer/TextureRect"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_qd6er")
+}
 
 [node name="LayerVida" type="CanvasLayer" parent="."]
 
@@ -57,4 +114,5 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "REINICIAR"
 
+[connection signal="animation_finished" from="CanvasLayer/TextureRect/Animation_EntroLuz" to="." method="_on_animation_entro_luz_animation_finished"]
 [connection signal="pressed" from="LayerPerder/ButtonReiniciar" to="." method="_on_button_reiniciar_pressed"]
