@@ -21,4 +21,6 @@ scale = Vector2(0.096875, 0.09375)
 texture = ExtResource("2_i8vih")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
+
 wait_time = 0.3
+

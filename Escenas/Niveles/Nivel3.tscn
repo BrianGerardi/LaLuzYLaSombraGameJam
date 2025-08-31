@@ -1608,6 +1608,13 @@ position = Vector2(78, 169)
 
 [node name="Player_sombra" parent="." instance=ExtResource("5_tj73n")]
 position = Vector2(1520, 648)
+vida = null
+velocidad_de_movimiento = null
+velocidad_de_correr = null
+fuerza_de_salto = null
+acceleration = null
+deceleracion = null
+deceleracion_al_saltar = null
 
 [node name="AreaDeLuz" parent="." instance=ExtResource("6_iabn3")]
 position = Vector2(356, 117)
