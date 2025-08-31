@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://fcaknsgwqvjq"]
+
+[ext_resource type="Shader" uid="uid://bckx5rgrecqvf" path="res://Escenas/Niveles/luz_shader.gdshader" id="1_wp11j"]
+
+[sub_resource type="Gradient" id="Gradient_qkgwa"]
+offsets = PackedFloat32Array(0.622222, 0.788889, 0.922222)
+colors = PackedColorArray(0, 0, 0, 1, 0.988461, 0.148249, 0.111987, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_paavc"]
+gradient = SubResource("Gradient_qkgwa")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qt85c"]
+shader = ExtResource("1_wp11j")
+shader_parameter/gradient = SubResource("GradientTexture2D_paavc")
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.19
+shader_parameter/size = -0.405
+shader_parameter/speed = 1.11
+shader_parameter/ray1_density = 8.525
+shader_parameter/ray2_density = 28.395
+shader_parameter/ray2_intensity = 0.635
+shader_parameter/core_intensity = 2.125
+shader_parameter/hdr = true
+shader_parameter/seed = -0.265
+
+[sub_resource type="Gradient" id="Gradient_paavc"]
+offsets = PackedFloat32Array(0.719298, 0.912281)
+colors = PackedColorArray(0.118289, 1.08384e-05, 0.118288, 1, 0.527338, 0.0258788, 0.528881, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1qfps"]
+gradient = SubResource("Gradient_paavc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="ShaderRojo" type="Node2D"]
+
+[node name="SpriteShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qt85c")
+position = Vector2(1.00003, 10)
+scale = Vector2(1.56519, 2.05833)
+texture = SubResource("GradientTexture2D_1qfps")
