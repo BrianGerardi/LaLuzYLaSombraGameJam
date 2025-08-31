@@ -19,3 +19,6 @@ shape = SubResource("RectangleShape2D_yfo70")
 position = Vector2(2.98023e-07, 0.500002)
 scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("2_yfo70")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.3

@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://0tbq43e16ggf"]
+[gd_scene load_steps=22 format=4 uid="uid://0tbq43e16ggf"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_0w85u"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_be1ht"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_nnex1"]
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="4_q0gfp"]
 [ext_resource type="PackedScene" uid="uid://c2d34n2113v01" path="res://Escenas/player_sombra.tscn" id="5_be1ht"]
-[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="6_hijo4"]
 [ext_resource type="PackedScene" uid="uid://chgjkvupo5g0s" path="res://Escenas/caja_empujable.tscn" id="7_xngs0"]
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="8_dmhj3"]
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="9_awdhm"]
@@ -13,6 +12,9 @@
 [ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_rr262"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_l3md6"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_t7ygp"]
+[ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="14_l3md6"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_t7ygp"]
+[ext_resource type="PackedScene" uid="uid://chrxccykonx7s" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_yy12c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_0w85u")
@@ -1589,6 +1591,8 @@ sources/1 = SubResource("TileSetAtlasSource_stmt2")
 radius = 31.0
 
 [node name="Nivel2" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [0.0, 0.0, 970.0, 970.0, 0.0]
+metadata/_edit_vertical_guides_ = [1604.0, 0.0]
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -1606,20 +1610,8 @@ position = Vector2(79, 102)
 [node name="Player_sombra" parent="." instance=ExtResource("5_be1ht")]
 position = Vector2(1522, 585)
 
-[node name="AreaDeLuz" parent="." instance=ExtResource("6_hijo4")]
-position = Vector2(540, 200)
-
 [node name="CajaEmpujable" parent="." instance=ExtResource("7_xngs0")]
 position = Vector2(1104, 113)
-
-[node name="AreaDeLuz2" parent="." instance=ExtResource("6_hijo4")]
-position = Vector2(1263, 144)
-
-[node name="AreaDeLuz3" parent="." instance=ExtResource("6_hijo4")]
-position = Vector2(578, 686)
-
-[node name="AreaDeLuz4" parent="." instance=ExtResource("6_hijo4")]
-position = Vector2(978, 910)
 
 [node name="CajaEmpujable2" parent="." instance=ExtResource("7_xngs0")]
 position = Vector2(688, 913)
@@ -1667,6 +1659,24 @@ texture = ExtResource("13_t7ygp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaSombra/Area2DSombra"]
 position = Vector2(1538, 462)
 shape = SubResource("CircleShape2D_frtrm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(791, 481)
+zoom = Vector2(0.765, 0.765)
+
+[node name="AreaDeLuzPlayer" parent="." instance=ExtResource("14_l3md6")]
+position = Vector2(540, 200)
+
+[node name="AreaDeLuzPlayer2" parent="." instance=ExtResource("14_l3md6")]
+position = Vector2(1263, 144)
+
+[node name="HUD" parent="." instance=ExtResource("15_t7ygp")]
+
+[node name="AreaDeLuzPlayer3" parent="." instance=ExtResource("16_yy12c")]
+position = Vector2(577, 689)
+
+[node name="AreaDeLuzPlayer4" parent="." instance=ExtResource("16_yy12c")]
+position = Vector2(978, 910)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
