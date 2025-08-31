@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://be21iihdtgkie" path="res://tiles de prueba/tiles/Arte/Props_Luz/Pinchos_DOWN_Luz.png" id="2_yttkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iad1l"]
-size = Vector2(8, 32)
+size = Vector2(8.5, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhquf"]
 size = Vector2(32, 32)
@@ -15,6 +15,7 @@ size = Vector2(32, 32)
 script = ExtResource("1_vhquf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pinchos_Area" groups=["Pinchos"]]
+position = Vector2(0, -0.5)
 scale = Vector2(4, 1)
 shape = SubResource("RectangleShape2D_iad1l")
 

@@ -1672,6 +1672,9 @@ shape = SubResource("CircleShape2D_frtrm")
 
 [node name="HUD" parent="." instance=ExtResource("14_l3md6")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(808, 480)
+
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_entered"]

@@ -1694,6 +1694,9 @@ position = Vector2(1264, 817)
 [node name="Pinchos29" parent="." instance=ExtResource("14_whaow")]
 position = Vector2(1296, 817)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(808, 480)
+
 [connection signal="body_entered" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_entered"]
