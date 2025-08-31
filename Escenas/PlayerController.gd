@@ -7,9 +7,11 @@ extends CharacterBody2D
 @export_range(0,1) var acceleration = 0.1
 @export_range(0,1) var deceleracion = 0.1
 @export_range(0,1) var deceleracion_al_saltar = 0.1
-const PUSH_FORCE = 250.0
+
+@export var PUSH_FORCE = 300.0
 const MAX_VELOCITY = 150.0
-@onready var coyote_timer = $CoyoteTimer
+@onready var coyote_timer = $CoyoteTimer #REVISAR COYOTE TIMER PORQUE LO TUVE QUE AGREGAR MANUALMENTE
+
 var estaba_en_el_piso := false
 #var escena_principal
 func _ready() -> void:
