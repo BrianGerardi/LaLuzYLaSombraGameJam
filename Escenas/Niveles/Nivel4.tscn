@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c4r2obppwaekg"]
+[gd_scene load_steps=24 format=4 uid="uid://c4r2obppwaekg"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_udyq4"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_7qjsc"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c2d34n2113v01" path="res://Escenas/player_sombra.tscn" id="5_y5d17"]
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="6_whj0j"]
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="7_y5d17"]
-[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="8_cbhuh"]
 [ext_resource type="PackedScene" uid="uid://chgjkvupo5g0s" path="res://Escenas/caja_empujable.tscn" id="9_cbhuh"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="10_h2wej"]
 [ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="11_h2wej"]
@@ -16,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="14_lctq1"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="15_gsgo2"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="16_lctq1"]
+[ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="17_gsgo2"]
+[ext_resource type="PackedScene" uid="uid://chrxccykonx7s" path="res://Escenas/area_de_luz_sombra_final.tscn" id="17_w5o3i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_udyq4")
@@ -1625,15 +1626,6 @@ id_palanca = 2
 position = Vector2(337, 337)
 id_palanca = 1
 
-[node name="AreaDeLuz" parent="." instance=ExtResource("8_cbhuh")]
-position = Vector2(720, 272)
-
-[node name="AreaDeLuz2" parent="." instance=ExtResource("8_cbhuh")]
-position = Vector2(1120, 224)
-
-[node name="AreaDeLuz3" parent="." instance=ExtResource("8_cbhuh")]
-position = Vector2(208, 816)
-
 [node name="CajaEmpujable" parent="." instance=ExtResource("9_cbhuh")]
 position = Vector2(816, 273)
 
@@ -1747,6 +1739,15 @@ position = Vector2(369, 913)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
+
+[node name="AreaDeLuzPlayer" parent="." instance=ExtResource("17_gsgo2")]
+position = Vector2(720, 272)
+
+[node name="AreaDeLuzPlayer2" parent="." instance=ExtResource("17_gsgo2")]
+position = Vector2(1120, 224)
+
+[node name="AreaDeLuzPlayerSombraFinal" parent="." instance=ExtResource("17_w5o3i")]
+position = Vector2(208, 816)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
