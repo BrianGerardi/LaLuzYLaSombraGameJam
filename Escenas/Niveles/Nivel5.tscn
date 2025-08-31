@@ -1673,7 +1673,6 @@ position = Vector2(782, 768)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
-zoom = Vector2(0.54, 0.54)
 
 [node name="GanarNivel" type="Node2D" parent="."]
 position = Vector2(63, 433)

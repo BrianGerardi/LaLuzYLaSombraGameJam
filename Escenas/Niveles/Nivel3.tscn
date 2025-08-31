@@ -1606,16 +1606,6 @@ tile_set = SubResource("TileSet_64ska")
 [node name="Player" parent="." instance=ExtResource("4_g4ovo")]
 position = Vector2(78, 169)
 
-[node name="Player_sombra" parent="." instance=ExtResource("5_tj73n")]
-position = Vector2(1520, 648)
-vida = null
-velocidad_de_movimiento = null
-velocidad_de_correr = null
-fuerza_de_salto = null
-acceleration = null
-deceleracion = null
-deceleracion_al_saltar = null
-
 [node name="AreaDeLuz" parent="." instance=ExtResource("6_iabn3")]
 position = Vector2(356, 117)
 
@@ -1731,6 +1721,12 @@ position = Vector2(752, 913)
 
 [node name="Pinchos27" parent="." instance=ExtResource("16_hm56i")]
 position = Vector2(784, 913)
+
+[node name="Player_sombra" parent="." instance=ExtResource("5_tj73n")]
+position = Vector2(1488, 643)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(808, 480)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://s28dy5dp2lj2"]
+[gd_scene load_steps=22 format=4 uid="uid://s28dy5dp2lj2"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_lqc1x"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_o22r6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_u87e1"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_6uiw7"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_ogmb3"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_u87e1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ts8os"]
 texture = ExtResource("1_lqc1x")
@@ -1728,6 +1729,11 @@ position = Vector2(688, 913)
 
 [node name="Pinchos26" parent="." instance=ExtResource("14_ogmb3")]
 position = Vector2(720, 913)
+
+[node name="HUD" parent="." instance=ExtResource("15_u87e1")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(808, 480)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
