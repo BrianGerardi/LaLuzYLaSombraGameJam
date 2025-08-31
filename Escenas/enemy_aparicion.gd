@@ -42,3 +42,10 @@ func _on_area_pinchos_body_entered(body: Node2D) -> void:
 		
 func die ():
 	queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Player_sombra":
+		Global.restar_vida.emit(100)
+	if body.name == "Player":
+		Global.restar_vida.emit(100)

@@ -8,14 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="6_6illo"]
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="7_17wpl"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="8_bc6nl"]
-[ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="9_oncmo"]
 [ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="10_phr42"]
 [ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_ogmb3"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_u87e1"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_6uiw7"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_ogmb3"]
+[ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="15_6uiw7"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_u87e1"]
 [ext_resource type="AudioStream" uid="uid://d3s15irc83rmf" path="res://Audio/Musica/Music_Level6.ogg" id="16_6uiw7"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ts8os"]
 texture = ExtResource("1_lqc1x")
@@ -1620,12 +1621,6 @@ id_puerta = 1
 [node name="Enemy_aparicion" parent="." instance=ExtResource("8_bc6nl")]
 position = Vector2(1069, 367)
 
-[node name="AreaDeLuz" parent="." instance=ExtResource("9_oncmo")]
-position = Vector2(1170, 256)
-
-[node name="AreaDeLuz2" parent="." instance=ExtResource("9_oncmo")]
-position = Vector2(1231, 684)
-
 [node name="Pinchos" parent="." instance=ExtResource("10_phr42")]
 position = Vector2(1296, 81)
 
@@ -1741,6 +1736,12 @@ zoom = Vector2(0.8, 0.8)
 stream = ExtResource("16_6uiw7")
 volume_db = -10.0
 autoplay = true
+
+[node name="AreaDeLuzPlayer" parent="." instance=ExtResource("15_6uiw7")]
+position = Vector2(1170, 256)
+
+[node name="AreaDeLuzPlayerSombraFinal" parent="." instance=ExtResource("16_ou0rp")]
+position = Vector2(1231, 684)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

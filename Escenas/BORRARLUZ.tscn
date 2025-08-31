@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://dilyuo8qj5yw2"]
+
+[ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="2_8gw0p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hoifb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8we27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vsig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
+
+[sub_resource type="Gradient" id="Gradient_5vsig"]
+offsets = PackedFloat32Array(0.0526316, 0.324561, 0.561404)
+colors = PackedColorArray(0.650723, 0, 0.115449, 1, 1, 0, 0.2, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0g1a"]
+gradient = SubResource("Gradient_5vsig")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="BORRARLUZ" type="Node2D" groups=["Luces"]]
+
+[node name="AreaDeDaño1" type="Area2D" parent="."]
+
+[node name="CapaDeDaño1" type="CollisionShape2D" parent="AreaDeDaño1"]
+shape = SubResource("CircleShape2D_hoifb")
+
+[node name="AreaDeDaño2" type="Area2D" parent="."]
+
+[node name="CapaDeDaño2" type="CollisionShape2D" parent="AreaDeDaño2"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_8we27")
+
+[node name="AreaDeDaño3" type="Area2D" parent="."]
+
+[node name="CapaDeDaño3" type="CollisionShape2D" parent="AreaDeDaño3"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_5vsig")
+
+[node name="AreaDeDaño4" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CapaDeDaño4" type="CollisionShape2D" parent="AreaDeDaño4"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_d0g1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8gw0p")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+color = Color(1, 0, 0.2, 1)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_d0g1a")
+texture_scale = 3.0
+
+[node name="RayCastLuz" type="RayCast2D" parent="."]
+collision_mask = 3
+
+[connection signal="body_entered" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_exited"]
+[connection signal="body_entered" from="AreaDeDaño2" to="." method="_on_area_de_daño_2_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño2" to="." method="_on_area_de_daño_2_body_exited"]
+[connection signal="body_entered" from="AreaDeDaño3" to="." method="_on_area_de_daño_3_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño3" to="." method="_on_area_de_daño_3_body_exited"]
+[connection signal="body_entered" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_exited"]

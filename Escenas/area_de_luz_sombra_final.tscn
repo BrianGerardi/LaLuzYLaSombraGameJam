@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://c761hyv2w00ou"]
+
+[ext_resource type="Script" uid="uid://dll34awl42uj1" path="res://Escenas/area_de_luz_sombra_final.gd" id="1_tafgk"]
+[ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="2_o561d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
+radius = 16.298
+
+[sub_resource type="Gradient" id="Gradient_5vsig"]
+offsets = PackedFloat32Array(0.0526316, 0.324561, 0.561404)
+colors = PackedColorArray(0.996078, 0.792157, 0.533333, 1, 0.773153, 0.51278, 0.0666785, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0g1a"]
+gradient = SubResource("Gradient_5vsig")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqmdq"]
+radius = 10.0499
+
+[node name="AreaDeLuzPlayerSombraFinal" type="Node2D" node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
+script = ExtResource("1_tafgk")
+raycast_luces = NodePath("RayCastLuz")
+
+[node name="AreaDeDaño4" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CapaDeDaño4" type="CollisionShape2D" parent="AreaDeDaño4"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_d0g1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o561d")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+color = Color(0.996078, 0.792157, 0.533333, 1)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_d0g1a")
+texture_scale = 3.0
+
+[node name="RayCastLuz" type="RayCast2D" parent="."]
+collision_mask = 3
+
+[node name="Area2DCentral" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DCentral"]
+shape = SubResource("CircleShape2D_uqmdq")
+
+[connection signal="body_entered" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_entered"]
+[connection signal="body_exited" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_exited"]
+[connection signal="body_entered" from="Area2DCentral" to="." method="_on_area_2d_central_body_entered"]
+[connection signal="body_exited" from="Area2DCentral" to="." method="_on_area_2d_central_body_exited"]

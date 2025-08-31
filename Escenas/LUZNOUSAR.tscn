@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxpxh2bravn23"]
+[gd_scene load_steps=10 format=3 uid="uid://bxpxh2bravn23"]
 
 [ext_resource type="Script" uid="uid://bhlqqt6s8aoaf" path="res://Escenas/area_de_luz.gd" id="1_8we27"]
 [ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="2_5vsig"]
+[ext_resource type="Texture2D" uid="uid://eadjsemx1xlu" path="res://icon.svg" id="3_d0g1a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hoifb"]
 
@@ -20,8 +21,9 @@ gradient = SubResource("Gradient_5vsig")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="AreaDeLuz" type="Node2D" groups=["Luces"]]
+[node name="NOUSAR" type="Node2D" node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
 script = ExtResource("1_8we27")
+raycast_luces = NodePath("RayCastLuz")
 "daño_area1" = 25
 
 [node name="AreaDeDaño1" type="Area2D" parent="."]
@@ -59,6 +61,14 @@ energy = 2.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_d0g1a")
 texture_scale = 3.0
+
+[node name="RayCastLuz" type="RayCast2D" parent="."]
+collision_mask = 3
+
+[node name="prueba" type="Sprite2D" parent="."]
+position = Vector2(-7, -63)
+scale = Vector2(0.242188, 0.335938)
+texture = ExtResource("3_d0g1a")
 
 [connection signal="body_entered" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_entered"]
 [connection signal="body_exited" from="AreaDeDaño1" to="." method="_on_area_de_daño_1_body_exited"]
