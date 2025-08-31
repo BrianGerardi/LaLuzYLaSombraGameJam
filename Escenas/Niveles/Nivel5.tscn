@@ -1,15 +1,19 @@
-[gd_scene load_steps=16 format=4 uid="uid://08ysjgua035l"]
+[gd_scene load_steps=23 format=4 uid="uid://08ysjgua035l"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_o120r"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_8upsq"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_k8egr"]
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="4_k8egr"]
 [ext_resource type="PackedScene" uid="uid://c2d34n2113v01" path="res://Escenas/player_sombra.tscn" id="5_u1s0t"]
-[ext_resource type="PackedScene" uid="uid://chgjkvupo5g0s" path="res://Escenas/caja_empujable.tscn" id="6_u1s0t"]
+[ext_resource type="Texture2D" uid="uid://c3m7vjk2wrx0h" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Caja_1_Sombra.png" id="6_kanl4"]
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="7_ndw0j"]
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="8_yyw1r"]
 [ext_resource type="PackedScene" uid="uid://bxpxh2bravn23" path="res://Escenas/area_de_luz.tscn" id="9_ym6ai"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="10_xljyr"]
+[ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_kanl4"]
+[ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_v51q4"]
+[ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_y41d1"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="14_asemg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1s0t"]
 texture = ExtResource("1_o120r")
@@ -1582,6 +1586,15 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ndw0j")
 sources/1 = SubResource("TileSetAtlasSource_yyw1r")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_to7r0"]
+radius = 64.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_to7r0"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
+radius = 31.0
+
 [node name="Nivel4" type="Node2D"]
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
@@ -1600,8 +1613,22 @@ position = Vector2(817, 105)
 [node name="Player_sombra" parent="." instance=ExtResource("5_u1s0t")]
 position = Vector2(816, 904)
 
-[node name="CajaEmpujable" parent="." instance=ExtResource("6_u1s0t")]
+[node name="CajaEmpujable" type="RigidBody2D" parent="." groups=["Cajas"]]
 position = Vector2(208, 657)
+collision_layer = 2
+collision_mask = 3
+mass = 0.4
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CajaEmpujable" groups=["Cajas"]]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_to7r0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CajaEmpujable"]
+texture = ExtResource("6_kanl4")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CajaEmpujable"]
+occluder = SubResource("OccluderPolygon2D_to7r0")
 
 [node name="Puerta" parent="." instance=ExtResource("7_ndw0j")]
 position = Vector2(272, 97)
@@ -1647,3 +1674,38 @@ position = Vector2(782, 768)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
 zoom = Vector2(0.54, 0.54)
+
+[node name="GanarNivel" type="Node2D" parent="."]
+position = Vector2(63, 433)
+script = ExtResource("11_kanl4")
+siguiente_nivel = "uid://s28dy5dp2lj2"
+
+[node name="AreaPlayer" type="Node2D" parent="GanarNivel"]
+
+[node name="Area2D" type="Area2D" parent="GanarNivel/AreaPlayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaPlayer/Area2D"]
+shape = SubResource("CircleShape2D_frtrm")
+
+[node name="Sprite2DGanar" type="Sprite2D" parent="GanarNivel/AreaPlayer"]
+texture = ExtResource("12_v51q4")
+
+[node name="AreaSombra" type="Node2D" parent="GanarNivel"]
+position = Vector2(-141, 3)
+
+[node name="Sprite2DGanar" type="Sprite2D" parent="GanarNivel/AreaSombra"]
+position = Vector2(1615, 189)
+texture = ExtResource("13_y41d1")
+
+[node name="Area2DSombra" type="Area2D" parent="GanarNivel/AreaSombra"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaSombra/Area2DSombra"]
+position = Vector2(1615, 203)
+shape = SubResource("CircleShape2D_frtrm")
+
+[node name="HUD" parent="." instance=ExtResource("14_asemg")]
+
+[connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_entered"]
+[connection signal="body_exited" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_exited"]
