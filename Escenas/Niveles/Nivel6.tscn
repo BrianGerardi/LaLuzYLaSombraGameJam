@@ -1,6 +1,9 @@
-[gd_scene load_steps=38 format=4 uid="uid://s28dy5dp2lj2"]
+
+[gd_scene load_steps=27 format=4 uid="uid://s28dy5dp2lj2"]
+
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_lqc1x"]
+[ext_resource type="Script" uid="uid://76e0mf56kug6" path="res://Escenas/Niveles/nivel_6.gd" id="1_paavc"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_o22r6"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_cm8cv"]
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="4_cm8cv"]
@@ -2274,6 +2277,7 @@ shader_parameter/hdr = true
 shader_parameter/seed = -0.265
 
 [node name="Nivel6" type="Node2D"]
+script = ExtResource("1_paavc")
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
