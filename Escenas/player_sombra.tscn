@@ -1,25 +1,132 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2d34n2113v01"]
+[gd_scene load_steps=21 format=3 uid="uid://c2d34n2113v01"]
 
 [ext_resource type="Script" uid="uid://b8wai1o0bs6ac" path="res://Escenas/player_sombra.gd" id="1_yfo70"]
-[ext_resource type="Texture2D" uid="uid://48qeby6e5tgo" path="res://tiles de prueba/TilesSeparados/Osvaldo_Sombra_1_Prueba.png" id="2_yfo70"]
 [ext_resource type="AudioStream" uid="uid://c337kbkb7i8cj" path="res://Audio/SFX/Dolor.wav" id="3_a4slg"]
+[ext_resource type="Texture2D" uid="uid://c8xw7ju6ayesh" path="res://Assets/OSVALDO SOMBRA/Osvaldo_SOMBRA_CORRIENDO.png" id="3_t4a8y"]
+[ext_resource type="Texture2D" uid="uid://tujk5a2dfpuc" path="res://Assets/OSVALDO SOMBRA/Osvaldo_SOMBRA_DAÑO.png" id="4_1g7hs"]
+[ext_resource type="Texture2D" uid="uid://caqe2e6xsxwsm" path="res://Assets/OSVALDO SOMBRA/Osvaldo_SOMBRA_QUIETO.png" id="5_cmkbp"]
+[ext_resource type="Texture2D" uid="uid://ch3ym4lp0545u" path="res://Assets/OSVALDO SOMBRA/Osvaldo_SOMBRA_SALTO.png" id="6_mn8oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfo70"]
 size = Vector2(122, 122)
 
-[node name="Player_sombra" type="CharacterBody2D" groups=["Player_sombra", "player_sombra"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_icuxj"]
+atlas = ExtResource("3_t4a8y")
+region = Rect2(0, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odb64"]
+atlas = ExtResource("3_t4a8y")
+region = Rect2(33, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf6wv"]
+atlas = ExtResource("3_t4a8y")
+region = Rect2(66, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxibn"]
+atlas = ExtResource("3_t4a8y")
+region = Rect2(99, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s56dv"]
+atlas = ExtResource("4_1g7hs")
+region = Rect2(0, 0, 31, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2wn5"]
+atlas = ExtResource("5_cmkbp")
+region = Rect2(0, 0, 30, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8kjd"]
+atlas = ExtResource("5_cmkbp")
+region = Rect2(30, 0, 30, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwhdp"]
+atlas = ExtResource("5_cmkbp")
+region = Rect2(60, 0, 30, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1qf8"]
+atlas = ExtResource("6_mn8oa")
+region = Rect2(0, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4idu"]
+atlas = ExtResource("6_mn8oa")
+region = Rect2(34, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7cm1"]
+atlas = ExtResource("6_mn8oa")
+region = Rect2(68, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hix64"]
+atlas = ExtResource("6_mn8oa")
+region = Rect2(102, 0, 34, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3k1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icuxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odb64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf6wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxibn")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s56dv")
+}],
+"loop": true,
+"name": &"daño",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2wn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8kjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwhdp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1qf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4idu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7cm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hix64")
+}],
+"loop": true,
+"name": &"salto",
+"speed": 5.0
+}]
+
+[node name="Player_sombra" type="CharacterBody2D" node_paths=PackedStringArray("animaciones") groups=["Player_sombra", "player_sombra"]]
+z_index = 1
 collision_mask = 3
 script = ExtResource("1_yfo70")
+animaciones = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(0.23, 0.36)
 shape = SubResource("RectangleShape2D_yfo70")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.98023e-07, 0.500002)
-scale = Vector2(0.09375, 0.09375)
-texture = ExtResource("2_yfo70")
 
 [node name="CoyoteTimerSombra" type="Timer" parent="."]
 wait_time = 0.15
@@ -30,3 +137,9 @@ volume_db = -3.748
 
 [node name="AudioStreamDolor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_a4slg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.25)
+scale = Vector2(1, 0.946809)
+sprite_frames = SubResource("SpriteFrames_h3k1y")
+animation = &"correr"
