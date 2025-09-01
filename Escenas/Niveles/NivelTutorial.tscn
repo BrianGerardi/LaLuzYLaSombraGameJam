@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dhx7wvcpxputc"]
+[gd_scene load_steps=45 format=4 uid="uid://dhx7wvcpxputc"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_a2qx7"]
 [ext_resource type="Texture2D" uid="uid://brlnvopqik5l1" path="res://tiles de prueba/tiles/Arte/Fondo V2.png" id="2_y4b4n"]
@@ -16,8 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_5j72g"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_whaow"]
 [ext_resource type="AudioStream" uid="uid://bels2q5jpsduj" path="res://Audio/Musica/Music_Level1v2.ogg" id="15_5j72g"]
-[ext_resource type="PackedScene" uid="uid://c761hyv2w00ou" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_mp272"]
-[ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="17_y4b4n"]
+[ext_resource type="Script" uid="uid://dll34awl42uj1" path="res://Escenas/area_de_luz_sombra_final.gd" id="17_3efxe"]
+[ext_resource type="Texture2D" uid="uid://b6crd2esubf5j" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Lampara_SOMBRA_SUELO.png" id="18_cjm48"]
+[ext_resource type="Script" uid="uid://d2v6sul7dkjrm" path="res://Escenas/area_de_luz_p_sombra.gd" id="19_kxixt"]
+[ext_resource type="Texture2D" uid="uid://1b6ldafur3rm" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz_SUELO.png" id="20_p1ibf"]
+[ext_resource type="Texture2D" uid="uid://bgm3b535xkuqx" path="res://tiles de prueba/tiles/DECO_LUZ/ALCANTARILLA_3X3_LUZ.png" id="21_xogku"]
+[ext_resource type="Texture2D" uid="uid://cpdnlvx4srpr" path="res://tiles de prueba/tiles/DECO_LUZ/TELARAÑA_LUZ.png" id="22_4s3rq"]
+[ext_resource type="Texture2D" uid="uid://c3v38m85qthjo" path="res://tiles de prueba/tiles/DECO_LUZ/VELA_3_LUZ.png" id="23_jsxx6"]
+[ext_resource type="Texture2D" uid="uid://djd7h4nyswyq7" path="res://tiles de prueba/tiles/DECO_LUZ/VELA_1_LUZ.png" id="24_t86fv"]
+[ext_resource type="Texture2D" uid="uid://cp0oao8lw03q0" path="res://tiles de prueba/tiles/DECO_SOMBRA/ALCANTARILLA_2X2_SOMBRA.png" id="25_pyygf"]
+[ext_resource type="Texture2D" uid="uid://dtt3v60s6y2dg" path="res://tiles de prueba/tiles/DECO_SOMBRA/VELA_3_SOMBRA.png" id="26_0ib6a"]
+[ext_resource type="Texture2D" uid="uid://b2r6fl14fpfyw" path="res://tiles de prueba/tiles/DECO_SOMBRA/VELA_2_SOMBRA.png" id="27_3vrxm"]
+[ext_resource type="Texture2D" uid="uid://b5a70tv1oirco" path="res://tiles de prueba/tiles/DECO_SOMBRA/TELARAÑA_SOMBRA.png" id="28_1vkre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_a2qx7")
@@ -8145,6 +8155,36 @@ sources/2 = SubResource("TileSetAtlasSource_mp272")
 [sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
 radius = 31.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
+radius = 16.298
+
+[sub_resource type="Gradient" id="Gradient_5vsig"]
+offsets = PackedFloat32Array(0.0526316, 0.324561, 0.561404)
+colors = PackedColorArray(0.996078, 0.792157, 0.533333, 1, 0.773153, 0.51278, 0.0666785, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0g1a"]
+gradient = SubResource("Gradient_5vsig")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqmdq"]
+radius = 10.0499
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vvdim"]
+radius = 16.298
+
+[sub_resource type="Gradient" id="Gradient_13skh"]
+offsets = PackedFloat32Array(0.0526316, 0.324561, 0.561404)
+colors = PackedColorArray(0.650723, 0, 0.115449, 1, 1, 0, 0.2, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_whbtm"]
+gradient = SubResource("Gradient_13skh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3pjf"]
+radius = 10.0499
+
 [node name="NivelTutorial" type="Node2D"]
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
@@ -8253,13 +8293,112 @@ stream = ExtResource("15_5j72g")
 volume_db = -10.0
 autoplay = true
 
-[node name="AreaDeLuzPlayerSombraFinal" parent="." instance=ExtResource("16_mp272")]
+[node name="AreaDeLuzPlayerSombraFinal" type="Node2D" parent="." node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
 position = Vector2(848, 751)
+script = ExtResource("17_3efxe")
+raycast_luces = NodePath("RayCastLuz")
 
-[node name="AreaDeLuzPlayer" parent="." instance=ExtResource("17_y4b4n")]
-position = Vector2(753, 270)
+[node name="AreaDeDaño4" type="Area2D" parent="AreaDeLuzPlayerSombraFinal"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CapaDeDaño4" type="CollisionShape2D" parent="AreaDeLuzPlayerSombraFinal/AreaDeDaño4"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_d0g1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaDeLuzPlayerSombraFinal"]
+position = Vector2(0, 2)
+texture = ExtResource("18_cjm48")
+
+[node name="PointLight2D" type="PointLight2D" parent="AreaDeLuzPlayerSombraFinal"]
+color = Color(0.996078, 0.792157, 0.533333, 1)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_d0g1a")
+texture_scale = 3.0
+
+[node name="RayCastLuz" type="RayCast2D" parent="AreaDeLuzPlayerSombraFinal"]
+collision_mask = 3
+
+[node name="Area2DCentral" type="Area2D" parent="AreaDeLuzPlayerSombraFinal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeLuzPlayerSombraFinal/Area2DCentral"]
+shape = SubResource("CircleShape2D_uqmdq")
+
+[node name="AreaDeLuzPlayer" type="Node2D" parent="." node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
+position = Vector2(753, 272)
+script = ExtResource("19_kxixt")
+raycast_luces = NodePath("RayCastLuz")
+
+[node name="AreaDeDaño4" type="Area2D" parent="AreaDeLuzPlayer"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CapaDeDaño4" type="CollisionShape2D" parent="AreaDeLuzPlayer/AreaDeDaño4"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_vvdim")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaDeLuzPlayer"]
+texture = ExtResource("20_p1ibf")
+
+[node name="PointLight2D" type="PointLight2D" parent="AreaDeLuzPlayer"]
+unique_name_in_owner = true
+color = Color(1, 0, 0.2, 1)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_whbtm")
+texture_scale = 3.0
+
+[node name="RayCastLuz" type="RayCast2D" parent="AreaDeLuzPlayer"]
+collision_mask = 3
+
+[node name="Area2DCentral" type="Area2D" parent="AreaDeLuzPlayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeLuzPlayer/Area2DCentral"]
+shape = SubResource("CircleShape2D_p3pjf")
+
+[node name="Alcantarilla3x3Luz" type="Sprite2D" parent="."]
+position = Vector2(719, 92)
+texture = ExtResource("21_xogku")
+
+[node name="TelarañaLuz" type="Sprite2D" parent="."]
+position = Vector2(1410, 63)
+texture = ExtResource("22_4s3rq")
+
+[node name="Vela3Luz" type="Sprite2D" parent="."]
+position = Vector2(434, 144)
+texture = ExtResource("23_jsxx6")
+
+[node name="Vela1Luz" type="Sprite2D" parent="."]
+position = Vector2(244, 144)
+texture = ExtResource("24_t86fv")
+
+[node name="Alcantarilla2x2Sombra" type="Sprite2D" parent="."]
+position = Vector2(326, 549)
+texture = ExtResource("25_pyygf")
+
+[node name="Vela3Sombra" type="Sprite2D" parent="."]
+position = Vector2(496, 720)
+texture = ExtResource("26_0ib6a")
+
+[node name="Vela2Sombra" type="Sprite2D" parent="."]
+position = Vector2(751, 720)
+texture = ExtResource("27_3vrxm")
+
+[node name="TelarañaSombra" type="Sprite2D" parent="."]
+position = Vector2(272, 688)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_1vkre")
 
 [connection signal="body_entered" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_exited"]
+[connection signal="body_entered" from="AreaDeLuzPlayerSombraFinal/AreaDeDaño4" to="AreaDeLuzPlayerSombraFinal" method="_on_area_de_daño_4_body_entered"]
+[connection signal="body_exited" from="AreaDeLuzPlayerSombraFinal/AreaDeDaño4" to="AreaDeLuzPlayerSombraFinal" method="_on_area_de_daño_4_body_exited"]
+[connection signal="body_entered" from="AreaDeLuzPlayerSombraFinal/Area2DCentral" to="AreaDeLuzPlayerSombraFinal" method="_on_area_2d_central_body_entered"]
+[connection signal="body_exited" from="AreaDeLuzPlayerSombraFinal/Area2DCentral" to="AreaDeLuzPlayerSombraFinal" method="_on_area_2d_central_body_exited"]
+[connection signal="body_entered" from="AreaDeLuzPlayer/AreaDeDaño4" to="AreaDeLuzPlayer" method="_on_area_de_daño_4_body_entered"]
+[connection signal="body_exited" from="AreaDeLuzPlayer/AreaDeDaño4" to="AreaDeLuzPlayer" method="_on_area_de_daño_4_body_exited"]
+[connection signal="body_entered" from="AreaDeLuzPlayer/Area2DCentral" to="AreaDeLuzPlayer" method="_on_area_2d_central_body_entered"]
+[connection signal="body_exited" from="AreaDeLuzPlayer/Area2DCentral" to="AreaDeLuzPlayer" method="_on_area_2d_central_body_exited"]
