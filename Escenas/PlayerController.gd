@@ -135,6 +135,7 @@ func _reproducir_sonido_dolor():
 	#		colision_caja.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 
 
+
 func jugador_entro_en_area_de_luz(numero : int, daño_recibido):
 	match numero : 
 		1: 
