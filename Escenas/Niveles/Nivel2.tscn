@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://0tbq43e16ggf"]
+[gd_scene load_steps=26 format=4 uid="uid://0tbq43e16ggf"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_0w85u"]
 [ext_resource type="Script" uid="uid://btx2yxgbeiqah" path="res://Escenas/Niveles/nivel_2.gd" id="1_lvbtp"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_l3md6"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_t7ygp"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="16_lvbtp"]
+[ext_resource type="PackedScene" uid="uid://fcaknsgwqvjq" path="res://Escenas/shader_rojo.tscn" id="17_lvbtp"]
+[ext_resource type="PackedScene" uid="uid://me6ktgv3q747" path="res://Escenas/shader_amarillo.tscn" id="18_551t4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_0w85u")
@@ -2227,6 +2229,12 @@ position = Vector2(529, 204)
 
 [node name="AreaDeLuzPlayer" parent="AreaDeLuzPlayer" instance=ExtResource("16_lvbtp")]
 position = Vector2(735, -62)
+
+[node name="ShaderRojo" parent="." instance=ExtResource("17_lvbtp")]
+position = Vector2(1477, 881)
+
+[node name="ShaderAmarillo" parent="." instance=ExtResource("18_551t4")]
+position = Vector2(80, 440)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
