@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2d34n2113v01"]
+[gd_scene load_steps=5 format=3 uid="uid://c2d34n2113v01"]
 
 [ext_resource type="Script" uid="uid://b8wai1o0bs6ac" path="res://Escenas/player_sombra.gd" id="1_yfo70"]
 [ext_resource type="Texture2D" uid="uid://48qeby6e5tgo" path="res://tiles de prueba/TilesSeparados/Osvaldo_Sombra_1_Prueba.png" id="2_yfo70"]
+[ext_resource type="AudioStream" uid="uid://c337kbkb7i8cj" path="res://Audio/SFX/Dolor.wav" id="3_a4slg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfo70"]
 size = Vector2(122, 122)
@@ -23,3 +24,9 @@ texture = ExtResource("2_yfo70")
 [node name="CoyoteTimerSombra" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -3.748
+
+[node name="AudioStreamDolor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a4slg")

@@ -11,6 +11,24 @@ extends CharacterBody2D
 @export var PUSH_FORCE = 300.0
 const MAX_VELOCITY = 150.0
 @onready var coyote_timer = $CoyoteTimer #REVISAR COYOTE TIMER PORQUE LO TUVE QUE AGREGAR MANUALMENTE
+@onready var audio_pasos: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_saltos: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_dolor: AudioStreamPlayer = $AudioStreamDolor
+var sonido_dolor = preload("res://Audio/SFX/Dolor.wav")
+const sonido_de_salto = {
+	"saltos":[preload("res://Audio/SFX/Salto1.wav"),
+	preload("res://Audio/SFX/Salto2.wav"),
+	preload("res://Audio/SFX/Salto3.wav")
+	]
+}
+const sonido_de_pasos = {
+	"pasos": [preload("res://Audio/SFX/PasosPersonaje1.wav"),
+	preload("res://Audio/SFX/PasosPersonaje2.wav")
+	]
+}
+
+var puede_sonar_paso := true 
+
 
 var estaba_en_el_piso := false
 #var escena_principal
@@ -37,6 +55,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = fuerza_de_salto
 	if Input.is_action_just_released("saltar") and velocity.y < 0:	
 		velocity.y *= deceleracion_al_saltar
+		_reproducir_salto()
 	
 		
 	var velocidad
@@ -57,7 +76,35 @@ func _physics_process(delta: float) -> void:
 	if estaba_en_el_piso and not is_on_floor():
 		coyote_timer.start()
 	estaba_en_el_piso = is_on_floor()
+	
+		# --- SONIDO DE PASOS ---
+	if is_on_floor() and abs(velocity.x) > 10:
+		if puede_sonar_paso and not audio_pasos.playing:
+			_reproducir_paso()
+	else:
+		puede_sonar_paso = true   # reseteo para que pueda sonar el próximo paso
 
+func _reproducir_salto():
+	# elijo un sonido al azar
+	var sonidos = sonido_de_salto["saltos"]
+	var sonido_random = sonidos[randi() % sonidos.size()]
+	audio_saltos.stream = sonido_random
+	audio_saltos.play()
+	
+func _reproducir_paso():
+	# elijo un sonido al azar
+	var sonidos = sonido_de_pasos["pasos"]
+	var sonido_random = sonidos[randi() % sonidos.size()]
+	audio_pasos.stream = sonido_random
+	audio_pasos.play()
+	puede_sonar_paso = false
+	# espero al final del sonido para permitir otro paso
+	await audio_pasos.finished
+	puede_sonar_paso = true
+	
+func _reproducir_sonido_dolor():
+	audio_dolor.stream = sonido_dolor
+	audio_dolor.play()
 	
 	# esto soluciona lo de las cajas y evita que quite salto cuando estoy encima
 	for i in get_slide_collision_count():
@@ -127,3 +174,4 @@ func _on_restar_vida_player(cantidad_a_restar: int):
 	if vida<= 0:
 		Global.game_over.emit() #le avisa al HUD que muestre el mensaje de game over y boton de reiniciar
 		game_over_player()
+		

@@ -1,6 +1,7 @@
 [gd_scene load_steps=25 format=4 uid="uid://dhx7wvcpxputc"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_a2qx7"]
+[ext_resource type="Script" uid="uid://dyb55iy6pa2v" path="res://Escenas/Niveles/nivel_tutorial.gd" id="1_mp272"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_ywgws"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_6fdh6"]
 [ext_resource type="Texture2D" uid="uid://bxc3qb67mp7ql" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Tileset_Luz_Sombra_V2.png" id="4_2h0pd"]
@@ -14,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_whaow"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_5j72g"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_whaow"]
-[ext_resource type="AudioStream" uid="uid://bels2q5jpsduj" path="res://Audio/Musica/Music_Level1v2.ogg" id="15_5j72g"]
 [ext_resource type="PackedScene" uid="uid://c761hyv2w00ou" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_mp272"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="17_y4b4n"]
 
@@ -2141,6 +2141,7 @@ sources/2 = SubResource("TileSetAtlasSource_mp272")
 radius = 31.0
 
 [node name="NivelTutorial" type="Node2D"]
+script = ExtResource("1_mp272")
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -2244,7 +2245,6 @@ position = Vector2(808, 480)
 zoom = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_5j72g")
 volume_db = -10.0
 autoplay = true
 

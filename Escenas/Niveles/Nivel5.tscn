@@ -1,6 +1,7 @@
 [gd_scene load_steps=26 format=4 uid="uid://08ysjgua035l"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_o120r"]
+[ext_resource type="Script" uid="uid://wiblmm1dnadf" path="res://Escenas/Niveles/nivel_5.gd" id="1_y41d1"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_8upsq"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_k8egr"]
 [ext_resource type="PackedScene" uid="uid://03t2le3iliwf" path="res://Escenas/player.tscn" id="4_k8egr"]
@@ -11,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="8_yyw1r"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="10_xljyr"]
 [ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_kanl4"]
-[ext_resource type="AudioStream" uid="uid://2s7qma5duevn" path="res://Audio/Musica/Music_Level5.ogg" id="11_v51q4"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_v51q4"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_y41d1"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="14_asemg"]
@@ -2145,7 +2145,8 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
 radius = 31.0
 
-[node name="Nivel4" type="Node2D"]
+[node name="Nivel5" type="Node2D"]
+script = ExtResource("1_y41d1")
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -2223,7 +2224,6 @@ position = Vector2(808, 480)
 zoom = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
-stream = ExtResource("11_v51q4")
 volume_db = -10.0
 autoplay = true
 

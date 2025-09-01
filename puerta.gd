@@ -5,7 +5,7 @@ extends StaticBody2D
 @export var sprite_puerta_abierta: Sprite2D
 @onready var collision_puerta_abierta: CollisionShape2D = %CollisionPuertaAbierta
 var puerta_abierta : bool = false
-
+@onready var puerta_sonido : AudioStreamPlayer = %AudioPuerta
 func _ready() -> void:
 	Global.usar_palanca_id.connect(_on_usar_palanca)
 
@@ -25,6 +25,7 @@ func abrir_puerta():
 		collision_puerta_abierta.set_deferred("disabled", true)
 		print("puerta abierta")
 		puerta_abierta = true
+		puerta_sonido.play()
 	else:
 		%AnimatedSprite2D.play("cerrar")
 		collision_puerta_abierta.set_deferred("disabled", false)
