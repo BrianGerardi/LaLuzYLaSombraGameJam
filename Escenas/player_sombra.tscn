@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=21 format=3 uid="uid://c2d34n2113v01"]
 
 [ext_resource type="Script" uid="uid://b8wai1o0bs6ac" path="res://Escenas/player_sombra.gd" id="1_yfo70"]
@@ -5,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3buh3uochek2" path="res://tiles de prueba/tiles/Arte/Props_Luz/OSVALDO LUZ/OSVALDO SOMBRA/Osvaldo_SOMBRA_QUIETO.png" id="3_t4a8y"]
 [ext_resource type="Texture2D" uid="uid://mfekbro8qla3" path="res://tiles de prueba/tiles/Arte/Props_Luz/OSVALDO LUZ/OSVALDO SOMBRA/Osvaldo_SOMBRA_DAÑO.png" id="4_1g7hs"]
 [ext_resource type="Texture2D" uid="uid://y0m1xo45jda3" path="res://tiles de prueba/tiles/Arte/Props_Luz/OSVALDO LUZ/OSVALDO SOMBRA/Osvaldo_SOMBRA_SALTO.png" id="5_cmkbp"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfo70"]
 size = Vector2(122, 122)
@@ -143,3 +145,9 @@ one_shot = true
 position = Vector2(6.55651e-07, 0.999999)
 scale = Vector2(0.933333, 0.93617)
 sprite_frames = SubResource("SpriteFrames_h3k1y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -3.748
+
+[node name="AudioStreamDolor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a4slg")

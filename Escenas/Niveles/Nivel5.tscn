@@ -1,6 +1,9 @@
+
 [gd_scene load_steps=40 format=4 uid="uid://08ysjgua035l"]
 
+
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_o120r"]
+[ext_resource type="Script" uid="uid://wiblmm1dnadf" path="res://Escenas/Niveles/nivel_5.gd" id="1_y41d1"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_8upsq"]
 [ext_resource type="Texture2D" uid="uid://brlnvopqik5l1" path="res://tiles de prueba/tiles/Arte/Fondo V2.png" id="2_asemg"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_k8egr"]
@@ -12,10 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="8_yyw1r"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="10_xljyr"]
 [ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_kanl4"]
-[ext_resource type="AudioStream" uid="uid://2s7qma5duevn" path="res://Audio/Musica/Music_Level5.ogg" id="11_v51q4"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_v51q4"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_y41d1"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="14_asemg"]
+
 [ext_resource type="Script" uid="uid://d2v6sul7dkjrm" path="res://Escenas/area_de_luz_p_sombra.gd" id="17_pj0yt"]
 [ext_resource type="Texture2D" uid="uid://1b6ldafur3rm" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz_SUELO.png" id="18_s6cof"]
 [ext_resource type="Texture2D" uid="uid://br1gjkkpl7rmv" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Cadena_Sombra.png" id="19_mkeco"]
@@ -25,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://crn2wgessftak" path="res://tiles de prueba/tiles/DECO_SOMBRA/CADENA_5_SOMBRA.png" id="23_fj0oq"]
 [ext_resource type="Texture2D" uid="uid://dtt3v60s6y2dg" path="res://tiles de prueba/tiles/DECO_SOMBRA/VELA_3_SOMBRA.png" id="24_2fpd1"]
 [ext_resource type="Texture2D" uid="uid://bivd05hdewn7g" path="res://tiles de prueba/tiles/DECO_SOMBRA/ALCANTARILLA_3X3_SOMBRA.png" id="25_7h0uo"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1s0t"]
 texture = ExtResource("1_o120r")
@@ -8173,7 +8177,10 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqmdq"]
 radius = 10.0499
 
-[node name="Nivel4" type="Node2D"]
+
+[node name="Nivel5" type="Node2D"]
+script = ExtResource("1_y41d1")
+
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -8251,7 +8258,6 @@ position = Vector2(808, 480)
 zoom = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
-stream = ExtResource("11_v51q4")
 volume_db = -10.0
 autoplay = true
 
@@ -8282,6 +8288,9 @@ texture = ExtResource("13_y41d1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaSombra/Area2DSombra"]
 position = Vector2(1615, 203)
 shape = SubResource("CircleShape2D_frtrm")
+
+[node name="ShaderRojo" parent="GanarNivel" instance=ExtResource("15_asemg")]
+position = Vector2(1470, 191)
 
 [node name="HUD" parent="." instance=ExtResource("14_asemg")]
 offset_left = 2.0
@@ -8352,6 +8361,9 @@ texture = ExtResource("24_2fpd1")
 [node name="Alcantarilla3x3Sombra" type="Sprite2D" parent="TelarañaLuz"]
 position = Vector2(-673, 525)
 texture = ExtResource("25_7h0uo")
+
+[node name="ShaderAmarillo" parent="." instance=ExtResource("18_4w7yv")]
+position = Vector2(61, 439)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

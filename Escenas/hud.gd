@@ -3,6 +3,7 @@ extends Control
 @export var barra_de_vida : ProgressBar
 @export var layer_perder : CanvasLayer
 var  el_jugador_esta_en_luz : bool = false
+
 #por ahora HUD maneja la vida, cuando perdes y como reiniciar el nivel
 func _ready() -> void:
 	Global.game_over.connect(_on_game_over)

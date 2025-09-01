@@ -12,8 +12,28 @@ extends CharacterBody2D
 const MAX_VELOCITY = 150.0
 
 @onready var coyote_timer =  $CoyoteTimerSombra#REVISAR COYOTE TIMER PORQUE LO TUVE QUE AGREGAR MANUALMENTE
+@onready var audio_pasos: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_dolor: AudioStreamPlayer = $AudioStreamDolor
 
 var estaba_en_el_piso := false
+
+
+var sonido_dolor = preload("res://Audio/SFX/Dolor.wav")
+const sonido_de_pasos = {
+	"pasos": [preload("res://Audio/SFX/PasosSombra1.wav"),
+	preload("res://Audio/SFX/PasosSombra2.wav"),
+	preload("res://Audio/SFX/PasosSombra3.wav"),
+	preload("res://Audio/SFX/PasosSombra4.wav"),
+	preload("res://Audio/SFX/PasosSombra5.wav"),
+	preload("res://Audio/SFX/PasosSombra6.wav"),
+	preload("res://Audio/SFX/PasosSombra7.wav"),
+	preload("res://Audio/SFX/PasosSombra8.wav"),
+	preload("res://Audio/SFX/PasosSombra9.wav"),
+	preload("res://Audio/SFX/PasosSombra10.wav")
+	]
+}
+var puede_sonar_paso := true 
+
 #var escena_principal
 func _ready() -> void:
 	#escena_principal = $".."
@@ -60,6 +80,29 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 	estaba_en_el_piso = is_on_floor()
 
+	# --- SONIDO DE PASOS ---
+	if is_on_floor() and abs(velocity.x) > 10:
+		if puede_sonar_paso and not audio_pasos.playing:
+			_reproducir_paso()
+	else:
+		puede_sonar_paso = true   # reseteo para que pueda sonar el próximo paso
+
+
+func _reproducir_paso():
+	# elijo un sonido al azar
+	var sonidos = sonido_de_pasos["pasos"]
+	var sonido_random = sonidos[randi() % sonidos.size()]
+	audio_pasos.stream = sonido_random
+	audio_pasos.play()
+	puede_sonar_paso = false
+	# espero al final del sonido para permitir otro paso
+	await audio_pasos.finished
+	puede_sonar_paso = true
+	
+
+func _reproducir_sonido_dolor():
+	audio_dolor.stream = sonido_dolor
+	audio_dolor.play()
 	
 	# esto soluciona lo de las cajas y evita que quite salto cuando estoy encima
 	for i in get_slide_collision_count():
@@ -95,15 +138,19 @@ func jugador_entro_en_area_de_luz(numero : int, daño_recibido):
 		1: 
 			print("El jugador entro en el area de luz 1")
 			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+			_reproducir_sonido_dolor()
 		2:
 			print("El jugador entro en el area de luz 2")
 			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+			_reproducir_sonido_dolor()
 		3:
 			print("El jugador entro en el area de luz 3")
 			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+			_reproducir_sonido_dolor()
 		4:
 			print("El jugador entro en el area de luz 4")
 			Global.restar_vida.emit(daño_recibido) #quito 5 de vida
+			_reproducir_sonido_dolor()
 	
 	
 func jugador_salio_en_area_de_luz(numero : int):		
@@ -126,6 +173,7 @@ func game_over_player():
 func _on_restar_vida_player(cantidad_a_restar: int):
 	vida -= cantidad_a_restar
 	print("la vida de player vale: ", vida)
+	_reproducir_sonido_dolor()
 	if vida<= 0:
 		Global.game_over.emit() #le avisa al HUD que muestre el mensaje de game over y boton de reiniciar
 		game_over_player()

@@ -1,7 +1,9 @@
+
 [gd_scene load_steps=45 format=4 uid="uid://dhx7wvcpxputc"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_a2qx7"]
 [ext_resource type="Texture2D" uid="uid://brlnvopqik5l1" path="res://tiles de prueba/tiles/Arte/Fondo V2.png" id="2_y4b4n"]
+
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_ywgws"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_6fdh6"]
 [ext_resource type="Texture2D" uid="uid://bxc3qb67mp7ql" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Tileset_Luz_Sombra_V2.png" id="4_2h0pd"]
@@ -15,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_whaow"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_5j72g"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_whaow"]
+
 [ext_resource type="AudioStream" uid="uid://bels2q5jpsduj" path="res://Audio/Musica/Music_Level1v2.ogg" id="15_5j72g"]
 [ext_resource type="Script" uid="uid://dll34awl42uj1" path="res://Escenas/area_de_luz_sombra_final.gd" id="17_3efxe"]
 [ext_resource type="Texture2D" uid="uid://b6crd2esubf5j" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Lampara_SOMBRA_SUELO.png" id="18_cjm48"]
@@ -28,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dtt3v60s6y2dg" path="res://tiles de prueba/tiles/DECO_SOMBRA/VELA_3_SOMBRA.png" id="26_0ib6a"]
 [ext_resource type="Texture2D" uid="uid://b2r6fl14fpfyw" path="res://tiles de prueba/tiles/DECO_SOMBRA/VELA_2_SOMBRA.png" id="27_3vrxm"]
 [ext_resource type="Texture2D" uid="uid://b5a70tv1oirco" path="res://tiles de prueba/tiles/DECO_SOMBRA/TELARAÑA_SOMBRA.png" id="28_1vkre"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cchw8"]
 texture = ExtResource("1_a2qx7")
@@ -8186,6 +8190,7 @@ fill_from = Vector2(0.5, 0.5)
 radius = 10.0499
 
 [node name="NivelTutorial" type="Node2D"]
+script = ExtResource("1_mp272")
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -8289,7 +8294,6 @@ position = Vector2(808, 480)
 zoom = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_5j72g")
 volume_db = -10.0
 autoplay = true
 
@@ -8389,6 +8393,12 @@ texture = ExtResource("27_3vrxm")
 position = Vector2(272, 688)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_1vkre")
+
+[node name="ShaderRojo" parent="." instance=ExtResource("18_y4b4n")]
+position = Vector2(82, 782)
+
+[node name="ShaderAmarillo" parent="." instance=ExtResource("19_3i60y")]
+position = Vector2(1520, 341)
 
 [connection signal="body_entered" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

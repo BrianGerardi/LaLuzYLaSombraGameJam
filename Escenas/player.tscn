@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=21 format=3 uid="uid://03t2le3iliwf"]
 
 [ext_resource type="Script" uid="uid://y3c0tuklx4v2" path="res://Escenas/PlayerController.gd" id="1_i8vih"]
@@ -5,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://durscdf7e42pl" path="res://tiles de prueba/tiles/Arte/Props_Luz/OSVALDO LUZ/Osvaldo_LUZ_QUIETO.png" id="4_7v5l4"]
 [ext_resource type="Texture2D" uid="uid://bkj5p1edf2o2a" path="res://tiles de prueba/tiles/Arte/Props_Luz/OSVALDO LUZ/Osvaldo_LUZ_DAÑO.png" id="5_b21vg"]
 [ext_resource type="Texture2D" uid="uid://bdatr3monfaau" path="res://tiles de prueba/tiles/Arte/Props_Luz/OSVALDO LUZ/Osvaldo_LUZ_SALTO.png" id="6_ohiiw"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8vih"]
 size = Vector2(122, 122)
@@ -139,7 +141,9 @@ shape = SubResource("RectangleShape2D_i8vih")
 wait_time = 0.15
 one_shot = true
 
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6.55651e-07, 0.999999)
 scale = Vector2(0.933333, 0.93617)
 sprite_frames = SubResource("SpriteFrames_el7rh")
+

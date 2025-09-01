@@ -1,5 +1,8 @@
+
 [gd_scene load_steps=49 format=4 uid="uid://c4r2obppwaekg"]
 
+
+[ext_resource type="Script" uid="uid://bgpexg86qdujr" path="res://Escenas/Niveles/nivel_4.gd" id="1_5pylq"]
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_udyq4"]
 [ext_resource type="Texture2D" uid="uid://brlnvopqik5l1" path="res://tiles de prueba/tiles/Arte/Fondo V2.png" id="2_5pylq"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_7qjsc"]
@@ -17,8 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="14_lctq1"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="15_gsgo2"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="16_lctq1"]
-[ext_resource type="AudioStream" uid="uid://cer0aknym6852" path="res://Audio/Musica/Music_Level4.ogg" id="17_gsgo2"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="18_w5o3i"]
+
 [ext_resource type="Script" uid="uid://d2v6sul7dkjrm" path="res://Escenas/area_de_luz_p_sombra.gd" id="20_qge6i"]
 [ext_resource type="Texture2D" uid="uid://b6crd2esubf5j" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Lampara_SOMBRA_SUELO.png" id="21_wcgng"]
 [ext_resource type="Script" uid="uid://dll34awl42uj1" path="res://Escenas/area_de_luz_sombra_final.gd" id="22_uyiuw"]
@@ -32,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://crn2wgessftak" path="res://tiles de prueba/tiles/DECO_SOMBRA/CADENA_5_SOMBRA.png" id="30_3ht44"]
 [ext_resource type="Texture2D" uid="uid://diw1t1y8i2wj0" path="res://tiles de prueba/tiles/DECO_SOMBRA/CADENA_2_SOMBRA.png" id="31_dhc4g"]
 [ext_resource type="Texture2D" uid="uid://bivd05hdewn7g" path="res://tiles de prueba/tiles/DECO_SOMBRA/ALCANTARILLA_3X3_SOMBRA.png" id="32_osk6c"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_udyq4")
@@ -8198,6 +8202,7 @@ fill_from = Vector2(0.5, 0.5)
 radius = 10.0499
 
 [node name="Nivel4" type="Node2D"]
+script = ExtResource("1_5pylq")
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -8347,7 +8352,6 @@ position = Vector2(808, 480)
 zoom = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
-stream = ExtResource("17_gsgo2")
 volume_db = -10.0
 autoplay = true
 
@@ -8458,6 +8462,13 @@ texture = ExtResource("31_dhc4g")
 [node name="Alcantarilla3x3Sombra" type="Sprite2D" parent="."]
 position = Vector2(130, 603)
 texture = ExtResource("32_osk6c")
+
+[node name="ShaderRojo" parent="." instance=ExtResource("20_5pylq")]
+position = Vector2(66, 782)
+
+[node name="ShaderAmarillo" parent="." instance=ExtResource("21_q3bx8")]
+position = Vector2(1552, 125)
+scale = Vector2(0.52, 0.52)
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

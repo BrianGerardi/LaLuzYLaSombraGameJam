@@ -1,6 +1,9 @@
+
 [gd_scene load_steps=41 format=4 uid="uid://s28dy5dp2lj2"]
 
+
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_lqc1x"]
+[ext_resource type="Script" uid="uid://76e0mf56kug6" path="res://Escenas/Niveles/nivel_6.gd" id="1_paavc"]
 [ext_resource type="Texture2D" uid="uid://cqyjkky2dn6r1" path="res://tiles de prueba/TilesSeparados/Tileset_Placeholder (2).png" id="2_o22r6"]
 [ext_resource type="Texture2D" uid="uid://brlnvopqik5l1" path="res://tiles de prueba/tiles/Arte/Fondo V2.png" id="2_paavc"]
 [ext_resource type="Texture2D" uid="uid://dlcm0q30cnysh" path="res://tiles de prueba/tiles/Arte/Tileset_Luz_Sombra_V1.png" id="3_cm8cv"]
@@ -14,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_ogmb3"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_u87e1"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_6uiw7"]
+[ext_resource type="Shader" uid="uid://bckx5rgrecqvf" path="res://Escenas/Niveles/luz_shader.gdshader" id="14_166th"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_ogmb3"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="15_6uiw7"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_u87e1"]
@@ -8155,6 +8159,7 @@ sources/2 = SubResource("TileSetAtlasSource_v7kb4")
 [sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
 radius = 31.0
 
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
 radius = 16.298
 
@@ -8170,7 +8175,9 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqmdq"]
 radius = 10.0499
 
+
 [node name="Nivel6" type="Node2D"]
+script = ExtResource("1_paavc")
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -8280,6 +8287,21 @@ position = Vector2(-141, 3)
 position = Vector2(975, 509)
 texture = ExtResource("13_6uiw7")
 
+[node name="PointLight2D" type="PointLight2D" parent="GanarNivel/AreaSombra/Sprite2DGanar"]
+texture = SubResource("GradientTexture2D_xa48f")
+
+[node name="SpriteShader" type="Sprite2D" parent="GanarNivel/AreaSombra/Sprite2DGanar"]
+material = SubResource("ShaderMaterial_166th")
+position = Vector2(1.00003, 10)
+scale = Vector2(1.56519, 2.05833)
+texture = SubResource("GradientTexture2D_166th")
+
+[node name="SpriteShader2" type="Sprite2D" parent="GanarNivel/AreaSombra/Sprite2DGanar"]
+material = SubResource("ShaderMaterial_r21bl")
+position = Vector2(-835, -505)
+scale = Vector2(1.31384, 1.72779)
+texture = SubResource("GradientTexture2D_166th")
+
 [node name="Area2DSombra" type="Area2D" parent="GanarNivel/AreaSombra"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GanarNivel/AreaSombra/Area2DSombra"]
@@ -8305,6 +8327,10 @@ position = Vector2(688, 913)
 position = Vector2(720, 913)
 
 [node name="HUD" parent="." instance=ExtResource("15_u87e1")]
+offset_left = 8.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = -6.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
