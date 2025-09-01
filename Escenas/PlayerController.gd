@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 	#		colision_caja.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 
 
+
 func jugador_entro_en_area_de_luz(numero : int, daño_recibido):
 	match numero : 
 		1: 
