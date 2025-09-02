@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dhuewfpphkmml" path="res://Escenas/main_menu.gd" id="1_hjcy7"]
 [ext_resource type="Script" uid="uid://1nivlxqvs0b7" path="res://Escenas/volume_slider.gd" id="1_r8uxs"]
 [ext_resource type="Texture2D" uid="uid://bslm2sluamcst" path="res://Assets/MenuDeInicio/Fondo_V2.png" id="2_7ms0u"]
+[ext_resource type="FontFile" uid="uid://dlm5gyvh31cph" path="res://textFUENTES/Deutsch.ttf" id="2_qn7j5"]
 [ext_resource type="Texture2D" uid="uid://duo8h0jfp5oxp" path="res://Assets/MenuDeInicio/PLAY_NO_CLICK.png" id="3_7rocb"]
 [ext_resource type="Texture2D" uid="uid://dru4nfdr4k1my" path="res://Assets/MenuDeInicio/PLAY_CLICK.png" id="4_0bd8u"]
-[ext_resource type="Texture2D" uid="uid://ddeay0vclhu14" path="res://Assets/MenuDeInicio/CARTEL_VOLUMEN.png" id="6_7rocb"]
 [ext_resource type="Texture2D" uid="uid://b0dwllaihpsbb" path="res://Assets/MenuDeInicio/CADENA_MEDIDOR.png" id="6_mrusn"]
 [ext_resource type="Texture2D" uid="uid://b5wlncbchaelr" path="res://Assets/MenuDeInicio/MEDIDOR_VOLUMEN.png" id="7_qsgyl"]
 [ext_resource type="Texture2D" uid="uid://bikefa7mvurma" path="res://Assets/MenuDeInicio/LOGO_SIN_FONDO.png" id="9_riaih"]
@@ -24,14 +24,6 @@ script = ExtResource("1_hjcy7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
-offset_left = 860.0
-offset_top = 486.0
-offset_right = 2140.0
-offset_bottom = 966.0
-scale = Vector2(0.320001, 0.320001)
-texture = ExtResource("6_7rocb")
-
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 z_index = -2
 offset_right = 40.0
@@ -44,23 +36,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -114.0
-offset_top = -282.0
-offset_right = 1166.0
-offset_bottom = 486.0
+offset_left = 140.0
+offset_top = -257.0
+offset_right = 1420.0
+offset_bottom = 511.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.27, 0.27)
 texture_normal = ExtResource("3_7rocb")
 texture_pressed = ExtResource("4_0bd8u")
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -43.0
+offset_right = 378.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5977, 1.71362)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_qn7j5")
+theme_override_font_sizes/font_size = 45
+text = "VOLUMEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -36.0
-offset_top = 31.0
-offset_right = 4.0
-offset_bottom = 71.0
+offset_left = 1.0
+offset_top = -36.0
+offset_right = 41.0
+offset_bottom = 4.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 0

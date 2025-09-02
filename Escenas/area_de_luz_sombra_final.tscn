@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c761hyv2w00ou"]
 
-[ext_resource type="Script" path="res://Escenas/area_de_luz_sombra_final.gd" id="1_tafgk"]
+[ext_resource type="Script" uid="uid://dll34awl42uj1" path="res://Escenas/area_de_luz_sombra_final.gd" id="1_tafgk"]
 [ext_resource type="Texture2D" uid="uid://bbpmagx8dsxhv" path="res://Assets/Lampara_SOMBRA_SUELO.png" id="2_tafgk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2h3k6"]

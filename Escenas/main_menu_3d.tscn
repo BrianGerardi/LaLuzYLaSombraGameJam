@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://j57u8b7grw5a"]
+
+[ext_resource type="Texture2D" uid="uid://bslm2sluamcst" path="res://Assets/MenuDeInicio/Fondo_V2.png" id="1_5txoh"]
+[ext_resource type="Script" uid="uid://d0v335uw4g8gu" path="res://Escenas/main_menu_3d.gd" id="1_h263c"]
+[ext_resource type="Texture2D" uid="uid://bikefa7mvurma" path="res://Assets/MenuDeInicio/LOGO_SIN_FONDO.png" id="2_bjcba"]
+[ext_resource type="Texture2D" uid="uid://duo8h0jfp5oxp" path="res://Assets/MenuDeInicio/PLAY_NO_CLICK.png" id="3_a3ki8"]
+
+[sub_resource type="Environment" id="Environment_bjcba"]
+background_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fd5hl"]
+size = Vector3(0.793213, 0.553223, 1)
+
+[node name="MainMenu3D" type="Node3D"]
+script = ExtResource("1_h263c")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.12869)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bjcba")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="Fondo" type="MeshInstance3D" parent="."]
+
+[node name="ImgFondo" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.573488)
+texture = ExtResource("1_5txoh")
+
+[node name="ImgLogo" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.540499, 0, 0)
+texture = ExtResource("2_bjcba")
+
+[node name="BotonPlay" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.858553, 0.293218, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BotonPlay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00646973, -0.00756836, 0)
+shape = SubResource("BoxShape3D_fd5hl")
+
+[node name="ImgPlay" type="Sprite3D" parent="BotonPlay"]
+unique_name_in_owner = true
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
+texture = ExtResource("3_a3ki8")
+
+[connection signal="input_event" from="BotonPlay" to="." method="_on_boton_play_input_event"]
