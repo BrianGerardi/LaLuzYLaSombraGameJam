@@ -3,7 +3,10 @@ extends CharacterBody2D
 @export var velocidad = -60
 var target
 var mirando_derecha = false
+@export var animaciones = AnimatableBody2D
 
+func _ready() -> void:
+	animaciones.play("default")
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

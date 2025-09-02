@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @export var vida : int = 100
-@export var velocidad_de_movimiento = 150.0
+@export var velocidad_de_movimiento = 250.0
 @export var velocidad_de_correr = 300.0
-@export var fuerza_de_salto = -400.0
+@export var fuerza_de_salto = -555.0
 @export_range(0,1) var acceleration = 0.1
 @export_range(0,1) var deceleracion = 0.1
 @export_range(0,1) var deceleracion_al_saltar = 0.1
@@ -14,7 +14,7 @@ const MAX_VELOCITY = 150.0
 @onready var coyote_timer =  $CoyoteTimerSombra#REVISAR COYOTE TIMER PORQUE LO TUVE QUE AGREGAR MANUALMENTE
 @onready var audio_pasos: AudioStreamPlayer = $AudioStreamPlayer
 @onready var audio_dolor: AudioStreamPlayer = $AudioStreamDolor
-
+@export var animaciones : AnimatedSprite2D
 var estaba_en_el_piso := false
 
 
@@ -70,11 +70,49 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("mover_derecha", "mover_izquierda")
 	if direction:
-		velocity.x = move_toward(velocity.x , direction * velocidad, velocidad * acceleration)
+		velocity.x = move_toward(velocity.x, direction * velocidad_de_movimiento, velocidad_de_movimiento * acceleration)
+		animaciones.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, velocidad_de_movimiento * deceleracion)
 
+	# --- Salto ---
+	if Input.is_action_just_pressed("saltar") and (is_on_floor() or !coyote_timer.is_stopped()):
+		velocity.y = fuerza_de_salto
+
+	# --- Animaciones ---
+	if not is_on_floor():
+		# En el aire: diferenciamos subida y bajada
+		if velocity.y < 0:
+			animaciones.play("salto") # Subiendo
+		else:
+			animaciones.play("caer")  # Bajando
+	else:
+		# En el piso
+		if direction != 0:
+			animaciones.play("correr")
+		else:
+			animaciones.play("default")
+
+	# --- Movimiento vertical ---
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
 	move_and_slide()
+	
+		# esto soluciona lo de las cajas y evita que quite salto cuando estoy encima
+	for i in get_slide_collision_count():
+		var c := get_slide_collision(i)
+		var rb := c.get_collider()
+		if rb is RigidBody2D:
+			var n := c.get_normal()            # normal apunta desde la caja hacia afuera
+			# ignorar suelo/techo: sólo empujar si la colisión es principalmente de costado
+			if abs(n.y) < 0.5:
+				# empujón lateral
+				var push_dir := Vector2(-sign(n.x), 0.0)
+				var speed_factor = clamp(abs(velocity.x) / 200.0, 0.3, 1.0)
+				rb.apply_central_impulse(push_dir * PUSH_FORCE * speed_factor)
+				#esto + cambiarle la colission a la caja por un circulo lo soluciona igual sigo buscando si puede mejorarse el comportamiento
+				# a veces como que tiene tirones y empuja mucho pero ya no se traba
 		#COYOTE TIME
 	if estaba_en_el_piso and not is_on_floor():
 		coyote_timer.start()
@@ -104,20 +142,7 @@ func _reproducir_sonido_dolor():
 	audio_dolor.stream = sonido_dolor
 	audio_dolor.play()
 	
-	# esto soluciona lo de las cajas y evita que quite salto cuando estoy encima
-	for i in get_slide_collision_count():
-		var c := get_slide_collision(i)
-		var rb := c.get_collider()
-		if rb is RigidBody2D:
-			var n := c.get_normal()            # normal apunta desde la caja hacia afuera
-			# ignorar suelo/techo: sólo empujar si la colisión es principalmente de costado
-			if abs(n.y) < 0.5:
-				# empujón lateral
-				var push_dir := Vector2(-sign(n.x), 0.0)
-				var speed_factor = clamp(abs(velocity.x) / 200.0, 0.3, 1.0)
-				rb.apply_central_impulse(push_dir * PUSH_FORCE * speed_factor)
-				#esto + cambiarle la colission a la caja por un circulo lo soluciona igual sigo buscando si puede mejorarse el comportamiento
-				# a veces como que tiene tirones y empuja mucho pero ya no se traba
+
 	
 	
 	#hola brian esto lo comento porque hacia que quitara salto estando encima de la caja
@@ -165,6 +190,8 @@ func jugador_salio_en_area_de_luz(numero : int):
 			print("El jugador salio en el area de luz 4")
 
 func game_over_player():
+	queue_free()
+
 	#cuando perdes se llama a esta funcion
 	#aca esta ideal para poner sonidos, animacion de morir y demas
 	pass

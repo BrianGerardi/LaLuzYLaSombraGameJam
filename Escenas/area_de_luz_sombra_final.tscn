@@ -1,21 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://c761hyv2w00ou"]
 
 [ext_resource type="Script" uid="uid://dll34awl42uj1" path="res://Escenas/area_de_luz_sombra_final.gd" id="1_tafgk"]
-[ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="2_o561d"]
+[ext_resource type="Texture2D" uid="uid://bbpmagx8dsxhv" path="res://Assets/Lampara_SOMBRA_SUELO.png" id="2_tafgk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2h3k6"]
 radius = 16.298
 
-[sub_resource type="Gradient" id="Gradient_5vsig"]
+[sub_resource type="Gradient" id="Gradient_wd1e2"]
 offsets = PackedFloat32Array(0.0526316, 0.324561, 0.561404)
 colors = PackedColorArray(1, 0, 0.2, 1, 0.650723, 0, 0.115449, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0g1a"]
-gradient = SubResource("Gradient_5vsig")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4mi4"]
+gradient = SubResource("Gradient_wd1e2")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uqmdq"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j240t"]
 radius = 10.0499
 
 [node name="AreaDeLuzPlayerSombraFinal" type="Node2D" node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
@@ -28,17 +28,17 @@ collision_mask = 3
 
 [node name="CapaDeDaño4" type="CollisionShape2D" parent="AreaDeDaño4"]
 scale = Vector2(4, 4)
-shape = SubResource("CircleShape2D_d0g1a")
+shape = SubResource("CircleShape2D_2h3k6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_o561d")
+texture = ExtResource("2_tafgk")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 unique_name_in_owner = true
 color = Color(0.996078, 0.792157, 0.533333, 1)
 energy = 2.0
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_d0g1a")
+texture = SubResource("GradientTexture2D_g4mi4")
 texture_scale = 3.0
 
 [node name="RayCastLuz" type="RayCast2D" parent="."]
@@ -47,7 +47,7 @@ collision_mask = 3
 [node name="Area2DCentral" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DCentral"]
-shape = SubResource("CircleShape2D_uqmdq")
+shape = SubResource("CircleShape2D_j240t")
 
 [connection signal="body_entered" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_entered"]
 [connection signal="body_exited" from="AreaDeDaño4" to="." method="_on_area_de_daño_4_body_exited"]
