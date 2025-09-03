@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqsaeemt4wrmf"]
 
-[ext_resource type="Script" uid="uid://csbwfirutmx0n" path="res://Escenas/pinchos_area.gd" id="1_4dfd3"]
+[ext_resource type="Script" path="res://Escenas/pinchos_area.gd" id="1_4dfd3"]
 [ext_resource type="Texture2D" uid="uid://cm4xw4gm7psop" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Pincho_Sombra_DOWN.png" id="2_4dfd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iad1l"]

@@ -24,7 +24,10 @@ const sonido_de_salto = {
 }
 const sonido_de_pasos = {
 	"pasos": [preload("res://Audio/SFX/PasosPersonaje1.wav"),
-	preload("res://Audio/SFX/PasosPersonaje2.wav")
+	preload("res://Audio/SFX/PasosPersonaje2.wav"),
+	preload("res://Audio/SFX/PasosPersonaje3.wav"),
+	preload("res://Audio/SFX/PasosPersonaje4.wav"),
+	preload("res://Audio/SFX/PasosPersonaje5.wav")
 	]
 }
 

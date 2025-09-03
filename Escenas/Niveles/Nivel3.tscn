@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://px3vwrsgm1e8"]
+[gd_scene load_steps=67 format=4 uid="uid://px3vwrsgm1e8"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_ou1yc"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_3.gd" id="1_q48ks"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="14_hm56i"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="15_swdps"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="16_hm56i"]
-[ext_resource type="AudioStream" uid="uid://byqc6f5beolhx" path="res://Audio/Musica/Music_Level3.ogg" id="17_lqyas"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="18_emka4"]
 [ext_resource type="PackedScene" uid="uid://fcaknsgwqvjq" path="res://Escenas/shader_rojo.tscn" id="20_q48ks"]
 [ext_resource type="Script" path="res://Escenas/area_de_luz_p_sombra.gd" id="20_u4wq0"]
@@ -8351,7 +8350,6 @@ position = Vector2(808, 480)
 zoom = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
-stream = ExtResource("17_lqyas")
 volume_db = -10.0
 autoplay = true
 
