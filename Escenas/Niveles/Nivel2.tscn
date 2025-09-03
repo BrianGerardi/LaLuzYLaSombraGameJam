@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://g2rqk0nap2sv" path="res://Assets/Decoraciones/DECO_LUZ/CADENA_5_LUZ.png" id="10_qf864"]
 [ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="10_xngs0"]
 [ext_resource type="Texture2D" uid="uid://d08swqxdg5bct" path="res://Assets/Decoraciones/DECO_LUZ/CADENA_4_LUZ.png" id="11_h52gu"]
-[ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_rr262"]
+[ext_resource type="Script" path="res://ganar_nivel.gd" id="11_rr262"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_l3md6"]
 [ext_resource type="Texture2D" uid="uid://cdnk25oewl6gh" path="res://Assets/Decoraciones/DECO_LUZ/CADENA_3_LUZ.png" id="12_phs44"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_t7ygp"]
@@ -8181,8 +8181,8 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjo1t"]
 _data = {
-&"RESET": SubResource("Animation_hhn24"),
-&"fuego": SubResource("Animation_7gpvr")
+"RESET": SubResource("Animation_hhn24"),
+"fuego": SubResource("Animation_7gpvr")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
@@ -8219,7 +8219,7 @@ texture = SubResource("GradientTexture2D_rn3or")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela2Luz/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 
@@ -8232,7 +8232,7 @@ texture = SubResource("GradientTexture2D_rn3or")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela2Luz2/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 
@@ -8264,7 +8264,7 @@ texture = SubResource("GradientTexture2D_rn3or")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela1Luz/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 
@@ -8277,7 +8277,7 @@ texture = SubResource("GradientTexture2D_rn3or")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela1Luz2/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 

@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="7_fbgce"]
 [ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="9_tva6x"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="10_88ryt"]
-[ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_87lu3"]
+[ext_resource type="Script" path="res://ganar_nivel.gd" id="11_87lu3"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_whaow"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_5j72g"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_whaow"]
@@ -8182,8 +8182,8 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjo1t"]
 _data = {
-&"RESET": SubResource("Animation_hhn24"),
-&"fuego": SubResource("Animation_7gpvr")
+"RESET": SubResource("Animation_hhn24"),
+"fuego": SubResource("Animation_7gpvr")
 }
 
 [node name="NivelTutorial" type="Node2D"]
@@ -8325,7 +8325,7 @@ texture = SubResource("GradientTexture2D_qgqby")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela1Luz/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 
@@ -8338,7 +8338,7 @@ texture = SubResource("GradientTexture2D_qgqby")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela2Luz/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 
@@ -8351,7 +8351,7 @@ texture = SubResource("GradientTexture2D_qgqby")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela1Luz2/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="7_17wpl"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="8_bc6nl"]
 [ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="10_phr42"]
-[ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_ogmb3"]
+[ext_resource type="Script" path="res://ganar_nivel.gd" id="11_ogmb3"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_u87e1"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_6uiw7"]
 [ext_resource type="Shader" path="res://Escenas/Niveles/luz_shader.gdshader" id="14_166th"]
@@ -22,11 +22,11 @@
 [ext_resource type="Script" path="res://Escenas/area_de_luz_p_sombra.gd" id="20_xa48f"]
 [ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="21_f2sig"]
 [ext_resource type="Texture2D" uid="uid://d33mlsnuly3hq" path="res://Assets/Decoraciones/DECO_LUZ/TELARAÑA_LUZ.png" id="23_c8x4n"]
-[ext_resource type="Shader" uid="uid://bwdmt0wgkjbao" path="res://Materials/ShaderVela.gdshader" id="24_7gpvr"]
+[ext_resource type="Shader" path="res://Materials/ShaderVela.gdshader" id="24_7gpvr"]
 [ext_resource type="Texture2D" uid="uid://bu0b1xkxineug" path="res://Assets/Decoraciones/DECO_LUZ/VELA_2_LUZ.png" id="24_8r6bh"]
 [ext_resource type="Texture2D" uid="uid://bqceoyt5vasc8" path="res://Assets/Decoraciones/DECO_LUZ/VELA_3_LUZ.png" id="25_7gpvr"]
 [ext_resource type="Material" uid="uid://cgeb5rxlwlr38" path="res://Materials/MaterialCadenasColgantes.tres" id="26_7gpvr"]
-[ext_resource type="Shader" uid="uid://ct4dendosuhsb" path="res://Materials/ShaderCadena.gdshader" id="26_8r6bh"]
+[ext_resource type="Shader" path="res://Materials/ShaderCadena.gdshader" id="26_8r6bh"]
 [ext_resource type="Texture2D" uid="uid://d08swqxdg5bct" path="res://Assets/Decoraciones/DECO_LUZ/CADENA_4_LUZ.png" id="26_hhn24"]
 [ext_resource type="Texture2D" uid="uid://be6274p7c6jon" path="res://Assets/Decoraciones/DECO_LUZ/CADENA_2_LUZ.png" id="27_vjo1t"]
 [ext_resource type="Texture2D" uid="uid://cdnk25oewl6gh" path="res://Assets/Decoraciones/DECO_LUZ/CADENA_3_LUZ.png" id="28_mqsct"]
@@ -8190,7 +8190,6 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_166th"]
 shader = ExtResource("14_166th")
-shader_parameter/gradient = SubResource("GradientTexture2D_paavc")
 shader_parameter/spread = 0.5
 shader_parameter/cutoff = 0.19
 shader_parameter/size = -0.405
@@ -8201,6 +8200,7 @@ shader_parameter/ray2_intensity = 0.635
 shader_parameter/core_intensity = 2.125
 shader_parameter/hdr = true
 shader_parameter/seed = -0.265
+shader_parameter/gradient = SubResource("GradientTexture2D_paavc")
 
 [sub_resource type="Gradient" id="Gradient_f2sig"]
 offsets = PackedFloat32Array(0.719298, 0.912281)
@@ -8289,7 +8289,6 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r21bl"]
 shader = SubResource("Shader_r21bl")
-shader_parameter/gradient = SubResource("GradientTexture2D_soxpm")
 shader_parameter/spread = 0.5
 shader_parameter/cutoff = 0.19
 shader_parameter/size = -0.405
@@ -8300,6 +8299,7 @@ shader_parameter/ray2_intensity = 0.635
 shader_parameter/core_intensity = 2.125
 shader_parameter/hdr = true
 shader_parameter/seed = -0.265
+shader_parameter/gradient = SubResource("GradientTexture2D_soxpm")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0g1a"]
 radius = 16.298
@@ -8462,8 +8462,8 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjo1t"]
 _data = {
-&"RESET": SubResource("Animation_hhn24"),
-&"fuego": SubResource("Animation_7gpvr")
+"RESET": SubResource("Animation_hhn24"),
+"fuego": SubResource("Animation_7gpvr")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jhoei"]
@@ -8924,7 +8924,7 @@ texture = SubResource("GradientTexture2D_hhn24")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela2Luz2/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 
 [node name="Cadena5Luz2" type="Sprite2D" parent="decoraciones"]

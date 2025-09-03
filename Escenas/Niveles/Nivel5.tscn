@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://lky8ruc8urj" path="res://Escenas/puerta.tscn" id="7_ndw0j"]
 [ext_resource type="PackedScene" uid="uid://bff6wgjmhykwc" path="res://Escenas/palanca.tscn" id="8_yyw1r"]
 [ext_resource type="PackedScene" uid="uid://bq2ff72a2s2wu" path="res://Escenas/enemy_aparicion.tscn" id="10_xljyr"]
-[ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="11_kanl4"]
+[ext_resource type="Script" path="res://ganar_nivel.gd" id="11_kanl4"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="12_v51q4"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="13_y41d1"]
 [ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="14_asemg"]
@@ -8190,8 +8190,8 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjo1t"]
 _data = {
-&"RESET": SubResource("Animation_hhn24"),
-&"fuego": SubResource("Animation_7gpvr")
+"RESET": SubResource("Animation_hhn24"),
+"fuego": SubResource("Animation_7gpvr")
 }
 
 [node name="Nivel5" type="Node2D"]
@@ -8374,7 +8374,7 @@ texture_scale = 0.916402
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela2Luz/PointLight2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_vjo1t")
+"": SubResource("AnimationLibrary_vjo1t")
 }
 autoplay = "fuego"
 

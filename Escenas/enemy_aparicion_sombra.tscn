@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bsmw5qu5405b5"]
 
-[ext_resource type="Script" uid="uid://dduhq5c0xkrue" path="res://Escenas/enemy_aparicion.gd" id="1_g2fei"]
+[ext_resource type="Script" path="res://Escenas/enemy_aparicion.gd" id="1_g2fei"]
 [ext_resource type="Texture2D" uid="uid://ctysevlof8qtr" path="res://Assets/enemigos/ENEMIGO_SOMBRA.png" id="2_g2fei"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ievrw"]

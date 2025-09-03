@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bq2ff72a2s2wu"]
 
-[ext_resource type="Script" uid="uid://dduhq5c0xkrue" path="res://Escenas/enemy_aparicion.gd" id="1_ievrw"]
+[ext_resource type="Script" path="res://Escenas/enemy_aparicion.gd" id="1_ievrw"]
 [ext_resource type="Texture2D" uid="uid://7yefvgo1o0bq" path="res://Assets/enemigos/ENEMIGO_LUZ.png" id="2_u21hq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ievrw"]
