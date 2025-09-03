@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqwxfixfsgjln"]
 
-[ext_resource type="Script" uid="uid://c0f2yxntqtmvn" path="res://ganar_nivel.gd" id="1_ex76w"]
+[ext_resource type="Script" path="res://ganar_nivel.gd" id="1_ex76w"]
 [ext_resource type="Texture2D" uid="uid://bnivoojdwwy04" path="res://tiles de prueba/tiles/Arte/Props_Luz/Portal_Luz.png" id="2_frtrm"]
 [ext_resource type="Texture2D" uid="uid://7ok0owsiegpt" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Portal_Sombra.png" id="3_cdsh0"]
 
