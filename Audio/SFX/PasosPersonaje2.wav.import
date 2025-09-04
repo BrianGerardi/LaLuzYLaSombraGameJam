@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cjlc4mhnu1tpd"
+uid="uid://dx8amwak8expm"
 path="res://.godot/imported/PasosPersonaje2.wav-d3788d31f4a7b7f0295d4d17fe6838fb.sample"
 
 [deps]
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=2
+compress/mode=0
