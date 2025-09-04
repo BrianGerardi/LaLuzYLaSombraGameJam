@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://lky8ruc8urj"]
 
-[ext_resource type="Script" uid="uid://dlgl1gixm6pea" path="res://puerta.gd" id="1_cydqo"]
+[ext_resource type="Script" path="res://puerta.gd" id="1_cydqo"]
 [ext_resource type="Texture2D" uid="uid://cgiyv8u0xsroi" path="res://tiles de prueba/TilesSeparados/PuertaCuerpo.png" id="2_hgxfh"]
 [ext_resource type="Texture2D" uid="uid://c7q02hp6it5nl" path="res://tiles de prueba/tiles/Arte/Props_Luz/Puerta_OPEN_Luz.png" id="3_imcla"]
 [ext_resource type="Texture2D" uid="uid://dpd71ptafg275" path="res://tiles de prueba/tiles/Arte/Props_Luz/Puerta_CLOSED_Luz.png" id="4_rbcj5"]
@@ -52,3 +52,4 @@ animation = &"abrir"
 [node name="AudioPuerta" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_rbcj5")
+volume_db = 1.0

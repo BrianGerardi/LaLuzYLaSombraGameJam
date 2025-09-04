@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bff6wgjmhykwc"]
 
-[ext_resource type="Script" uid="uid://6lrq4xvxvpqq" path="res://Escenas/palanca.gd" id="1_r1760"]
+[ext_resource type="Script" path="res://Escenas/palanca.gd" id="1_r1760"]
 [ext_resource type="Texture2D" uid="uid://bhmkahv4xa027" path="res://tiles de prueba/tiles/Arte/Props_Luz/Palanca_Luz/Palanca_1_Luz.png" id="2_4req0"]
 [ext_resource type="Texture2D" uid="uid://i26qxq2xacqq" path="res://tiles de prueba/tiles/Arte/Props_Luz/Palanca_Luz/Palanca_2_Luz.png" id="3_2bg3c"]
 [ext_resource type="Texture2D" uid="uid://d1syt7frkhsq3" path="res://tiles de prueba/tiles/Arte/Props_Luz/Palanca_Luz/Palanca_3_Luz.png" id="4_y8eym"]

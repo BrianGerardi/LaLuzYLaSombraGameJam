@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dij0vikki4cp4"
+uid="uid://del7d2jil24t8"
 path="res://.godot/imported/Muerte.wav-01a1db663bd16bc4ea9aa31fc1280e11.sample"
 
 [deps]
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=2
+compress/mode=0

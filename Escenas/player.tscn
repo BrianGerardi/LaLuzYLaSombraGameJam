@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://03t2le3iliwf"]
+[gd_scene load_steps=23 format=3 uid="uid://03t2le3iliwf"]
 
 [ext_resource type="Script" path="res://Escenas/PlayerController.gd" id="1_i8vih"]
 [ext_resource type="AudioStream" uid="uid://c337kbkb7i8cj" path="res://Audio/SFX/Dolor.wav" id="3_qgqwx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dr6vvl8holj5e" path="res://Assets/OSVALDO LUZ/Osvaldo_LUZ_DAÑO.png" id="4_7v5l4"]
 [ext_resource type="Texture2D" uid="uid://calx8so7gge2t" path="res://Assets/OSVALDO LUZ/Osvaldo_LUZ_QUIETO.png" id="5_b21vg"]
 [ext_resource type="Texture2D" uid="uid://wql63jv4pn3l" path="res://Assets/OSVALDO LUZ/Osvaldo_LUZ_SALTO.png" id="6_ohiiw"]
+[ext_resource type="AudioStream" uid="uid://cpjls4bj6bwyf" path="res://Audio/SFX/Caja.wav" id="7_ksu5t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8vih"]
 size = Vector2(122, 122)
@@ -155,3 +156,9 @@ position = Vector2(0, 1.25)
 scale = Vector2(1, 0.946809)
 sprite_frames = SubResource("SpriteFrames_n5uw0")
 animation = &"caer"
+
+[node name="AudioStreamEmpuje" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ksu5t")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

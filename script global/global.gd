@@ -17,11 +17,11 @@ signal ganar_nivel #se emite cuando entras al area2d de ganar nivel
 
 
 const musica_de_niveles = {
-	1: preload("res://Audio/Musica/Music_Level1v2.ogg"),
+	1: preload("res://Audio/Musica/Music_Level1.ogg"),
 	2: preload("res://Audio/Musica/Music_Level2.ogg"),
-	3: preload("res://Audio/Musica/Music_Level3.ogg"),
-	4: preload("res://Audio/Musica/Music_Level4.ogg"),
-	5: preload("res://Audio/Musica/Music_Level5.ogg"),
+	3: preload("res://Audio/Musica/Music_Level5.ogg"),
+	4: preload("res://Audio/Musica/Music_Level3.ogg"),
+	5: preload("res://Audio/Musica/Music_Level4.ogg"),
 	6: preload("res://Audio/Musica/Music_Level6.ogg"),
 	0: preload("res://Audio/Musica/Music_Menu.ogg"),
 }

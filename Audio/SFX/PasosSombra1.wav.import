@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cd2c1g0dp2yec"
+uid="uid://ca2y3f6l3424n"
 path="res://.godot/imported/PasosSombra1.wav-36c08666ff5b9b33e8d3252af2b81e65.sample"
 
 [deps]
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=2
+compress/mode=0

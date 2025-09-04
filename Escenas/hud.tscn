@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgtx7w1m0of4y"]
+[gd_scene load_steps=11 format=3 uid="uid://bgtx7w1m0of4y"]
 
 [ext_resource type="Script" path="res://Escenas/hud.gd" id="1_4nel0"]
 [ext_resource type="Texture2D" uid="uid://bgk132dp7as3y" path="res://Assets/BORDE DAÑO.png" id="2_v1vk6"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cn53kn2q2iah7" path="res://Audio/SFX/Ambiente_Niveles.ogg" id="3_5x6hg"]
 [ext_resource type="Texture2D" uid="uid://bdt13hj2ecf34" path="res://Assets/MenuDeInicio/RETRY_NO_CLICK.png" id="3_hqa34"]
 [ext_resource type="Texture2D" uid="uid://84ti8hukv7u3" path="res://Assets/MenuDeInicio/RETRY_CLICK.png" id="4_pwpan"]
+[ext_resource type="AudioStream" uid="uid://bary5dap5jmtt" path="res://Audio/SFX/ClickOk.wav" id="7_dx11s"]
 
 [sub_resource type="Animation" id="Animation_5x6hg"]
 resource_name = "DañadoPorLuz"
@@ -120,7 +121,14 @@ stretch_mode = 5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5x6hg")
+volume_db = -2.0
+pitch_scale = 0.5
 autoplay = true
+
+[node name="AudioButtonReiniciar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dx11s")
+volume_db = -5.0
+pitch_scale = 0.8
 
 [connection signal="animation_finished" from="CanvasLayer/TextureRect/Animation_EntroLuz" to="." method="_on_animation_entro_luz_animation_finished"]
 [connection signal="pressed" from="LayerPerder/VBoxContainer/ButtonReiniciar" to="." method="_on_button_reiniciar_pressed"]

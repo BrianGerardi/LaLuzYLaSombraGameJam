@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2d34n2113v01"]
+[gd_scene load_steps=22 format=3 uid="uid://c2d34n2113v01"]
 
 [ext_resource type="Script" path="res://Escenas/player_sombra.gd" id="1_yfo70"]
 [ext_resource type="AudioStream" uid="uid://c337kbkb7i8cj" path="res://Audio/SFX/Dolor.wav" id="3_a4slg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tujk5a2dfpuc" path="res://Assets/OSVALDO SOMBRA/Osvaldo_SOMBRA_DAÑO.png" id="4_1g7hs"]
 [ext_resource type="Texture2D" uid="uid://caqe2e6xsxwsm" path="res://Assets/OSVALDO SOMBRA/Osvaldo_SOMBRA_QUIETO.png" id="5_cmkbp"]
 [ext_resource type="Texture2D" uid="uid://ch3ym4lp0545u" path="res://Assets/OSVALDO SOMBRA/Osvaldo_SOMBRA_SALTO.png" id="6_mn8oa"]
+[ext_resource type="AudioStream" uid="uid://cpjls4bj6bwyf" path="res://Audio/SFX/Caja.wav" id="7_7n130"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfo70"]
 size = Vector2(122, 122)
@@ -133,7 +134,6 @@ wait_time = 0.15
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -3.748
 
 [node name="AudioStreamDolor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_a4slg")
@@ -143,3 +143,6 @@ position = Vector2(0, 1.25)
 scale = Vector2(1, 0.946809)
 sprite_frames = SubResource("SpriteFrames_h3k1y")
 animation = &"correr"
+
+[node name="AudioStreamEmpuje" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7n130")

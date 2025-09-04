@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxpxh2bravn23"]
 
-[ext_resource type="Script" uid="uid://bhlqqt6s8aoaf" path="res://Escenas/area_de_luz.gd" id="1_8we27"]
+[ext_resource type="Script" path="res://Escenas/area_de_luz.gd" id="1_8we27"]
 [ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="2_5vsig"]
 [ext_resource type="Texture2D" uid="uid://eadjsemx1xlu" path="res://icon.svg" id="3_d0g1a"]
 

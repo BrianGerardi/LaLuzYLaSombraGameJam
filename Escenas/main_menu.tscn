@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dlm5gyvh31cph" path="res://textFUENTES/Deutsch.ttf" id="2_qn7j5"]
 [ext_resource type="Texture2D" uid="uid://duo8h0jfp5oxp" path="res://Assets/MenuDeInicio/PLAY_NO_CLICK.png" id="3_7rocb"]
 [ext_resource type="Texture2D" uid="uid://dru4nfdr4k1my" path="res://Assets/MenuDeInicio/PLAY_CLICK.png" id="4_0bd8u"]
+[ext_resource type="AudioStream" uid="uid://bary5dap5jmtt" path="res://Audio/SFX/ClickOk.wav" id="5_kr5dm"]
 [ext_resource type="Texture2D" uid="uid://b0dwllaihpsbb" path="res://Assets/MenuDeInicio/CADENA_MEDIDOR.png" id="6_mrusn"]
 [ext_resource type="Texture2D" uid="uid://b5wlncbchaelr" path="res://Assets/MenuDeInicio/MEDIDOR_VOLUMEN.png" id="7_qsgyl"]
 [ext_resource type="Texture2D" uid="uid://bikefa7mvurma" path="res://Assets/MenuDeInicio/LOGO_SIN_FONDO.png" id="9_riaih"]
@@ -110,10 +111,6 @@ value = 85.0
 script = ExtResource("1_r8uxs")
 bus_name = "Master"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
-volume_db = -10.0
-autoplay = true
-
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
 offset_left = 121.0
 offset_top = 203.0
@@ -122,10 +119,9 @@ offset_bottom = 1131.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_riaih")
 
-[node name="BarraVolumen" parent="CanvasLayer" instance=ExtResource("10_dqq85")]
-offset_left = 1023.0
-offset_top = 670.0
-offset_right = 1023.0
-offset_bottom = 670.0
+
+[node name="ButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kr5dm")
+
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
