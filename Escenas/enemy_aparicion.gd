@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var audio_aparicion: AudioStreamPlayer2D = $AudioAparicion
 @export var velocidad = -60
 var target
 var mirando_derecha = false
@@ -7,6 +7,8 @@ var mirando_derecha = false
 
 func _ready() -> void:
 	animaciones.play("default")
+	if audio_aparicion and not audio_aparicion.playing:
+		audio_aparicion.play()
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -44,6 +46,8 @@ func _on_area_pinchos_body_entered(body: Node2D) -> void:
 		die()
 		
 func die ():
+	if audio_aparicion:
+		audio_aparicion.stop()
 	queue_free()
 
 

@@ -3,11 +3,15 @@ extends Node2D
 @export_file("*.tscn") var siguiente_nivel : String
 var player_entro : bool = false
 var sombra_entro : bool = false
+
+@onready var victoria_audio: AudioStreamPlayer = AudioStreamPlayer.new()
+const VICTORIA_SOUND = preload("res://Audio/SFX/Victoria.wav") 
 #intrucciones para usar: Agregar la escena GanarNivel al nivel en desarrollo
 #click en el nodo y en el editor seleccionar la escena del nivel al que tiene que ir cuando ganas
 
 func _ready() -> void:
-	pass
+	add_child(victoria_audio)
+	
 
 
 func _process(delta: float) -> void:
@@ -24,6 +28,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func cargar_nivel_nuevo():
 	if player_entro and sombra_entro:
 		Global.ganar_nivel.emit()
+		reproducir_victoria()
 		call_deferred("cambiar_escena")
 	else:
 		print("falta uno de los personajes en el area ganar")
@@ -46,3 +51,10 @@ func _on_area_2d_sombra_body_entered(body: Node2D) -> void: #solo sombra
 func _on_area_2d_sombra_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player_sombra"):
 		sombra_entro = false
+		
+		
+func reproducir_victoria():
+	victoria_audio.stream = VICTORIA_SOUND
+	victoria_audio.volume_db = 0 # puedes ajustarlo
+	victoria_audio.play()
+	victoria_audio.finished.connect(cambiar_escena)

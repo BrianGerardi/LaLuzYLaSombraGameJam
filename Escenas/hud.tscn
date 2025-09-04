@@ -121,6 +121,8 @@ stretch_mode = 5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5x6hg")
+volume_db = -2.0
+pitch_scale = 0.5
 autoplay = true
 
 [node name="AudioButtonReiniciar" type="AudioStreamPlayer" parent="."]

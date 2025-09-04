@@ -15,6 +15,8 @@ const MAX_VELOCITY = 150.0
 @onready var audio_saltos: AudioStreamPlayer = $AudioStreamPlayer
 @onready var audio_dolor: AudioStreamPlayer = $AudioStreamDolor
 var sonido_dolor = preload("res://Audio/SFX/Dolor.wav")
+@onready var audio_empuje: AudioStreamPlayer = $AudioStreamEmpuje
+const sonido_empuje = preload("res://Audio/SFX/Caja.wav")
 @export var animaciones : AnimatedSprite2D 
 const sonido_de_salto = {
 	"saltos":[preload("res://Audio/SFX/Salto1.wav"),
@@ -112,12 +114,20 @@ func _physics_process(delta: float) -> void:
 				var push_dir := Vector2(-sign(n.x), 0.0)
 				var speed_factor = clamp(abs(velocity.x) / 200.0, 0.3, 1.0)
 				rb.apply_central_impulse(push_dir * PUSH_FORCE * speed_factor)
+				
+				# --- SONIDO EMPUJE ---
+				if not audio_empuje.playing:
+					audio_empuje.stream = sonido_empuje
+					audio_empuje.pitch_scale = randf_range(0.8, 1.2) # opcional
+					audio_empuje.volume_db = -2 # podés subirlo si está bajo
+					audio_empuje.play()
 				#esto + cambiarle la colission a la caja por un circulo lo soluciona igual sigo buscando si puede mejorarse el comportamiento
 				# a veces como que tiene tirones y empuja mucho pero ya no se traba
 		#COYOTE TIME
 	if estaba_en_el_piso and not is_on_floor():
 		coyote_timer.start()
 	estaba_en_el_piso = is_on_floor()
+	
 	
 		# --- SONIDO DE PASOS ---
 	if is_on_floor() and abs(velocity.x) > 10:
@@ -139,6 +149,7 @@ func _reproducir_paso():
 	var sonidos = sonido_de_pasos["pasos"]
 	var sonido_random = sonidos[randi() % sonidos.size()]
 	audio_pasos.stream = sonido_random
+	audio_pasos.volume_db = -10
 	audio_pasos.play()
 	puede_sonar_paso = false
 	# espero al final del sonido para permitir otro paso
