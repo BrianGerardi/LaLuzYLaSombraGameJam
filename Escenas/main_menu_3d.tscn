@@ -1,15 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://j57u8b7grw5a"]
+[gd_scene load_steps=9 format=3 uid="uid://j57u8b7grw5a"]
 
 [ext_resource type="Texture2D" uid="uid://bslm2sluamcst" path="res://Assets/MenuDeInicio/Fondo_V2.png" id="1_5txoh"]
 [ext_resource type="Script" path="res://Escenas/main_menu_3d.gd" id="1_h263c"]
 [ext_resource type="Texture2D" uid="uid://bikefa7mvurma" path="res://Assets/MenuDeInicio/LOGO_SIN_FONDO.png" id="2_bjcba"]
 [ext_resource type="Texture2D" uid="uid://duo8h0jfp5oxp" path="res://Assets/MenuDeInicio/PLAY_NO_CLICK.png" id="3_a3ki8"]
+[ext_resource type="PackedScene" uid="uid://bp6rew3mrj6x5" path="res://Escenas/barra_volumen.tscn" id="5_je8ee"]
+[ext_resource type="AudioStream" uid="uid://bary5dap5jmtt" path="res://Audio/SFX/ClickOk.wav" id="6_rvj2v"]
 
 [sub_resource type="Environment" id="Environment_bjcba"]
 background_mode = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fd5hl"]
-size = Vector3(0.793213, 0.553223, 1)
+size = Vector3(0.705505, 0.477173, 0.163452)
 
 [node name="MainMenu3D" type="Node3D"]
 script = ExtResource("1_h263c")
@@ -37,7 +39,7 @@ texture = ExtResource("2_bjcba")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.858553, 0.293218, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BotonPlay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00646973, -0.00756836, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00863653, -0.00433347, -0.121765)
 shape = SubResource("BoxShape3D_fd5hl")
 
 [node name="ImgPlay" type="Sprite3D" parent="BotonPlay"]
@@ -45,4 +47,12 @@ unique_name_in_owner = true
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
 texture = ExtResource("3_a3ki8")
 
+[node name="BarraVolumen" parent="." instance=ExtResource("5_je8ee")]
+
+[node name="AudioClick" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_rvj2v")
+
 [connection signal="input_event" from="BotonPlay" to="." method="_on_boton_play_input_event"]
+[connection signal="mouse_entered" from="BotonPlay" to="." method="_on_boton_play_mouse_entered"]
+[connection signal="mouse_exited" from="BotonPlay" to="." method="_on_boton_play_mouse_exited"]

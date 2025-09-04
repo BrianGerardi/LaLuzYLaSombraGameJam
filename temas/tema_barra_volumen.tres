@@ -1,0 +1,57 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://blo00gbeamxfn"]
+
+[ext_resource type="Texture2D" uid="uid://b0dwllaihpsbb" path="res://Assets/MenuDeInicio/CADENA_MEDIDOR.png" id="1_0g3tx"]
+[ext_resource type="Texture2D" uid="uid://b5wlncbchaelr" path="res://Assets/MenuDeInicio/MEDIDOR_VOLUMEN.png" id="1_v3odf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbbix"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nosru"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uw17"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88ork"]
+texture = ExtResource("1_0g3tx")
+expand_margin_top = 44.0
+expand_margin_bottom = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6nax"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24eah"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1tvs"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m12dc"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i725x"]
+texture = ExtResource("1_v3odf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg3ub"]
+atlas = ExtResource("1_v3odf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h27l6"]
+texture = SubResource("AtlasTexture_rg3ub")
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_duinc"]
+texture = ExtResource("1_v3odf")
+axis_stretch_horizontal = 1
+
+[resource]
+HSlider/icons/grabber = SubResource("AtlasTexture_fbbix")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_nosru")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_2uw17")
+HSlider/styles/slider = SubResource("StyleBoxTexture_88ork")
+VSlider/icons/grabber = SubResource("AtlasTexture_n6nax")
+VSlider/icons/grabber_disabled = SubResource("AtlasTexture_24eah")
+VSlider/icons/grabber_highlight = SubResource("AtlasTexture_c1tvs")
+VSlider/icons/tick = SubResource("AtlasTexture_m12dc")
+VSlider/styles/grabber_area = SubResource("StyleBoxTexture_i725x")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_h27l6")
+VSlider/styles/slider = SubResource("StyleBoxTexture_duinc")

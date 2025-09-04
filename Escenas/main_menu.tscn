@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hfngjsna2wvr"]
+[gd_scene load_steps=12 format=3 uid="uid://hfngjsna2wvr"]
 
 [ext_resource type="Script" path="res://Escenas/main_menu.gd" id="1_hjcy7"]
 [ext_resource type="Script" path="res://Escenas/volume_slider.gd" id="1_r8uxs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b0dwllaihpsbb" path="res://Assets/MenuDeInicio/CADENA_MEDIDOR.png" id="6_mrusn"]
 [ext_resource type="Texture2D" uid="uid://b5wlncbchaelr" path="res://Assets/MenuDeInicio/MEDIDOR_VOLUMEN.png" id="7_qsgyl"]
 [ext_resource type="Texture2D" uid="uid://bikefa7mvurma" path="res://Assets/MenuDeInicio/LOGO_SIN_FONDO.png" id="9_riaih"]
+[ext_resource type="PackedScene" uid="uid://bp6rew3mrj6x5" path="res://Escenas/barra_volumen.tscn" id="10_dqq85"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5aupu"]
 texture = ExtResource("6_mrusn")
@@ -69,6 +70,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
@@ -119,5 +121,11 @@ offset_right = 1185.0
 offset_bottom = 1131.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_riaih")
+
+[node name="BarraVolumen" parent="CanvasLayer" instance=ExtResource("10_dqq85")]
+offset_left = 1023.0
+offset_top = 670.0
+offset_right = 1023.0
+offset_bottom = 670.0
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
