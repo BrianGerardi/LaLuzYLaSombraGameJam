@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxilreuhgadsg"]
+[gd_scene load_steps=8 format=3 uid="uid://bxilreuhgadsg"]
 
 [ext_resource type="Script" path="res://Escenas/pinchos_area.gd" id="1_vhquf"]
+[ext_resource type="Shader" path="res://Escenas/Pinchos.gdshader" id="2_pe07q"]
 [ext_resource type="Texture2D" uid="uid://be21iihdtgkie" path="res://tiles de prueba/tiles/Arte/Props_Luz/Pinchos_DOWN_Luz.png" id="2_yttkv"]
 [ext_resource type="AudioStream" uid="uid://bh2sg3sauv0w5" path="res://Audio/SFX/Pinchos.wav" id="3_h1p4b"]
 
@@ -9,6 +10,11 @@ size = Vector2(8.5, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhquf"]
 size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w33lf"]
+shader = ExtResource("2_pe07q")
+shader_parameter/glow_strength = 0.6
+shader_parameter/glow_size = 3.0
 
 [node name="Pinchos" type="Node2D" groups=["Pinchos"]]
 
@@ -26,6 +32,7 @@ shape = SubResource("RectangleShape2D_iad1l")
 shape = SubResource("RectangleShape2D_vhquf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w33lf")
 texture = ExtResource("2_yttkv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

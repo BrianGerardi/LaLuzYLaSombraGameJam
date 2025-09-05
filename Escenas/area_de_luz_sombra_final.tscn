@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c761hyv2w00ou"]
+[gd_scene load_steps=8 format=3 uid="uid://c761hyv2w00ou"]
 
 [ext_resource type="Script" path="res://Escenas/area_de_luz_sombra_final.gd" id="1_tafgk"]
 [ext_resource type="Texture2D" uid="uid://bbpmagx8dsxhv" path="res://Assets/Lampara_SOMBRA_SUELO.png" id="2_tafgk"]
+[ext_resource type="Script" path="res://Escenas/point_light_2d.gd" id="3_k768b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2h3k6"]
 radius = 16.298
@@ -40,6 +41,7 @@ energy = 2.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_g4mi4")
 texture_scale = 3.0
+script = ExtResource("3_k768b")
 
 [node name="RayCastLuz" type="RayCast2D" parent="."]
 collision_mask = 3

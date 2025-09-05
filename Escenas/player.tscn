@@ -134,6 +134,7 @@ animations = [{
 z_index = 1
 collision_mask = 3
 script = ExtResource("1_i8vih")
+PUSH_FORCE = 100.0
 animaciones = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

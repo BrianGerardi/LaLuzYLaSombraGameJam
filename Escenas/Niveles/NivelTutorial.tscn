@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://dhx7wvcpxputc"]
+[gd_scene load_steps=53 format=4 uid="uid://dhx7wvcpxputc"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_a2qx7"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_tutorial.gd" id="1_mp272"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://divma6o3ne4d8" path="res://Assets/mitimiti.png" id="7_ulwd8"]
 [ext_resource type="PackedScene" uid="uid://bxilreuhgadsg" path="res://Escenas/Pinchos.tscn" id="9_tva6x"]
 [ext_resource type="Script" path="res://ganar_nivel.gd" id="11_87lu3"]
+[ext_resource type="Script" path="res://Escenas/Niveles/point_light_2d.gd" id="11_qisy8"]
 [ext_resource type="PackedScene" uid="uid://bqsaeemt4wrmf" path="res://Escenas/PinchosSombra.tscn" id="14_whaow"]
 [ext_resource type="PackedScene" uid="uid://c761hyv2w00ou" path="res://Escenas/area_de_luz_sombra_final.tscn" id="16_mp272"]
 [ext_resource type="PackedScene" uid="uid://bdura38asnjv8" path="res://Escenas/area_de_luz_player.tscn" id="17_y4b4n"]
@@ -35,6 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://gwr0nw1l1pmh" path="res://Assets/Decoraciones/DECO_SOMBRA/VELA_1_SOMBRA.png" id="34_8o6n2"]
 [ext_resource type="Texture2D" uid="uid://t15d22w2x0ec" path="res://Assets/Decoraciones/DECO_SOMBRA/VELA_2_SOMBRA.png" id="35_2raa5"]
 [ext_resource type="Texture2D" uid="uid://drhwtvrfehaii" path="res://Assets/TILES_FINALES-export.png" id="37_hw8lh"]
+[ext_resource type="Shader" path="res://Escenas/Niveles/fog.gdshader" id="37_ms7dg"]
+[ext_resource type="Texture2D" uid="uid://bn7q3yct4k3ch" path="res://Assets/PerlinNoise2d.png" id="38_2exrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_a2qx7")
@@ -7790,27 +7793,33 @@ sources/1 = SubResource("TileSetAtlasSource_qdfaw")
 sources/3 = SubResource("TileSetAtlasSource_jd4ej")
 sources/2 = SubResource("TileSetAtlasSource_nsppb")
 
-[sub_resource type="Gradient" id="Gradient_2lfw5"]
-offsets = PackedFloat32Array(0, 0.135338)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_dv37j"]
+offsets = PackedFloat32Array(0, 0.639098)
+colors = PackedColorArray(0.932331, 0.932331, 0.932331, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qgqby"]
-gradient = SubResource("Gradient_2lfw5")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rt7ko"]
+gradient = SubResource("Gradient_dv37j")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Animation" id="Animation_7gpvr"]
-resource_name = "fuego"
-length = 0.5
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vjo1t"]
-_data = {
-"fuego": SubResource("Animation_7gpvr")
-}
+fill_to = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
 radius = 31.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdqn3"]
+shader = ExtResource("37_ms7dg")
+shader_parameter/speed = 0.05
+shader_parameter/contraste = 2.0
+shader_parameter/densidad = 0.5
+shader_parameter/noise_tex = ExtResource("38_2exrh")
+
+[sub_resource type="Environment" id="Environment_oxobd"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 0.14
+glow_hdr_scale = 2.09
+fog_light_energy = 11.3
+fog_sun_scatter = 4.05
 
 [node name="NivelTutorial" type="Node2D"]
 script = ExtResource("1_mp272")
@@ -7836,38 +7845,27 @@ position = Vector2(914, 241)
 texture = ExtResource("27_5bd1c")
 
 [node name="PointLight2D" type="PointLight2D" parent="decoraciones/Vela1Luz"]
-texture = SubResource("GradientTexture2D_qgqby")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela1Luz/PointLight2D"]
-libraries = {
-"": SubResource("AnimationLibrary_vjo1t")
-}
-autoplay = "fuego"
+energy = 2.11
+texture = SubResource("GradientTexture2D_rt7ko")
+script = ExtResource("11_qisy8")
 
 [node name="Vela2Luz" type="Sprite2D" parent="decoraciones"]
 position = Vector2(1041, 241)
 texture = ExtResource("28_14mb4")
 
 [node name="PointLight2D" type="PointLight2D" parent="decoraciones/Vela2Luz"]
-texture = SubResource("GradientTexture2D_qgqby")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela2Luz/PointLight2D"]
-libraries = {
-"": SubResource("AnimationLibrary_vjo1t")
-}
+energy = 2.11
+texture = SubResource("GradientTexture2D_rt7ko")
+script = ExtResource("11_qisy8")
 
 [node name="Vela1Luz2" type="Sprite2D" parent="decoraciones"]
 position = Vector2(1390, 369)
 texture = ExtResource("27_5bd1c")
 
 [node name="PointLight2D" type="PointLight2D" parent="decoraciones/Vela1Luz2"]
-texture = SubResource("GradientTexture2D_qgqby")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="decoraciones/Vela1Luz2/PointLight2D"]
-libraries = {
-"": SubResource("AnimationLibrary_vjo1t")
-}
-autoplay = "fuego"
+energy = 2.11
+texture = SubResource("GradientTexture2D_rt7ko")
+script = ExtResource("11_qisy8")
 
 [node name="Vela3Sombra" type="Sprite2D" parent="decoraciones"]
 position = Vector2(1004, 658)
@@ -8032,6 +8030,17 @@ position = Vector2(82, 782)
 
 [node name="ShaderAmarillo" parent="." instance=ExtResource("19_3i60y")]
 position = Vector2(1520, 341)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vdqn3")
+offset_right = 1600.0
+offset_bottom = 959.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oxobd")
 
 [connection signal="body_entered" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
