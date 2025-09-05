@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp6rew3mrj6x5"]
+
+[ext_resource type="Texture2D" uid="uid://ddeay0vclhu14" path="res://Assets/MenuDeInicio/CARTEL_VOLUMEN.png" id="1_6ltqi"]
+[ext_resource type="Script" path="res://Escenas/barra_volumen.gd" id="1_63lfa"]
+[ext_resource type="Theme" uid="uid://blo00gbeamxfn" path="res://temas/tema_barra_volumen.tres" id="1_dski2"]
+[ext_resource type="Script" path="res://Escenas/volume_slider.gd" id="2_evfid"]
+
+[node name="BarraVolumen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_63lfa")
+
+[node name="LayerColor" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="LayerColor"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0.2, 0.372549)
+
+[node name="ButtonSalirVolumen" type="Button" parent="LayerColor"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="LayerVolumen" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LayerVolumen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -117.5
+offset_right = 256.0
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="TextureVolumen" type="TextureRect" parent="LayerVolumen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 123)
+layout_mode = 2
+texture = ExtResource("1_6ltqi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Volume_slider" type="HSlider" parent="LayerVolumen/VBoxContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_dski2")
+value = 50.0
+script = ExtResource("2_evfid")
+bus_name = "Master"
+
+[connection signal="pressed" from="LayerColor/ButtonSalirVolumen" to="." method="_on_button_salir_volumen_pressed"]
