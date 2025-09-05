@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://b0dwllaihpsbb" path="res://Assets/MenuDeInicio/CADENA_MEDIDOR.png" id="6_mrusn"]
 [ext_resource type="Texture2D" uid="uid://b5wlncbchaelr" path="res://Assets/MenuDeInicio/MEDIDOR_VOLUMEN.png" id="7_qsgyl"]
 [ext_resource type="Texture2D" uid="uid://bikefa7mvurma" path="res://Assets/MenuDeInicio/LOGO_SIN_FONDO.png" id="9_riaih"]
-[ext_resource type="PackedScene" uid="uid://bp6rew3mrj6x5" path="res://Escenas/barra_volumen.tscn" id="10_dqq85"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5aupu"]
 texture = ExtResource("6_mrusn")
@@ -119,9 +118,7 @@ offset_bottom = 1131.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_riaih")
 
-
 [node name="ButtonAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_kr5dm")
-
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

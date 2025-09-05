@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Escenas/main_menu_3d.gd" id="1_h263c"]
 [ext_resource type="Texture2D" uid="uid://bikefa7mvurma" path="res://Assets/MenuDeInicio/LOGO_SIN_FONDO.png" id="2_bjcba"]
 [ext_resource type="Texture2D" uid="uid://duo8h0jfp5oxp" path="res://Assets/MenuDeInicio/PLAY_NO_CLICK.png" id="3_a3ki8"]
-[ext_resource type="PackedScene" uid="uid://bp6rew3mrj6x5" path="res://Escenas/barra_volumen.tscn" id="5_je8ee"]
-[ext_resource type="Texture2D" uid="uid://ddeay0vclhu14" path="res://Assets/MenuDeInicio/CARTEL_VOLUMEN.png" id="5_km4b4"]
+[ext_resource type="PackedScene" path="res://Escenas/barra_volumen.tscn" id="5_je8ee"]
+[ext_resource type="Texture2D" uid="uid://cbxsx43gk2sak" path="res://Assets/MenuDeInicio/image.png" id="6_2lmgi"]
 [ext_resource type="AudioStream" uid="uid://bary5dap5jmtt" path="res://Audio/SFX/ClickOk.wav" id="6_rvj2v"]
 
 [sub_resource type="Environment" id="Environment_bjcba"]
@@ -59,8 +59,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00863653, -0.00433347, -0.1
 shape = SubResource("BoxShape3D_fd5hl")
 
 [node name="ImgVolumen" type="Sprite3D" parent="BotonVolumen"]
+unique_name_in_owner = true
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.0970672, 0)
-texture = ExtResource("5_km4b4")
+texture = ExtResource("6_2lmgi")
 
 [node name="AudioClick" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -71,3 +72,5 @@ stream = ExtResource("6_rvj2v")
 [connection signal="mouse_entered" from="BotonPlay" to="." method="_on_boton_play_mouse_entered"]
 [connection signal="mouse_exited" from="BotonPlay" to="." method="_on_boton_play_mouse_exited"]
 [connection signal="input_event" from="BotonVolumen" to="." method="_on_boton_volumen_input_event"]
+[connection signal="mouse_entered" from="BotonVolumen" to="." method="_on_boton_volumen_mouse_entered"]
+[connection signal="mouse_exited" from="BotonVolumen" to="." method="_on_boton_volumen_mouse_exited"]

@@ -3,6 +3,8 @@ extends Node3D
 var nivel_tutorial = "res://Escenas/Niveles/NivelTutorial.tscn"
 var textura_pressed = preload("res://Assets/MenuDeInicio/PLAY_CLICK.png")
 var textura_normal = preload("res://Assets/MenuDeInicio/PLAY_NO_CLICK.png")
+var textura_pressed_volumen = preload("res://Assets/MenuDeInicio/CARTEL_VOLUMEN.png")
+var textura_normal_volumen = preload("res://Assets/MenuDeInicio/image.png")
 signal esconder_barra_volumen
 
 func _ready() -> void:
@@ -45,3 +47,11 @@ func _on_boton_volumen_input_event(camera: Node, event: InputEvent, event_positi
 
 func _on_barra_volumen_salir_barra_volumen() -> void:
 	esconder_barra_volumen_3d()
+
+
+func _on_boton_volumen_mouse_entered() -> void:
+	%ImgVolumen.texture = textura_pressed_volumen
+
+
+func _on_boton_volumen_mouse_exited() -> void:
+	%ImgVolumen.texture = textura_normal_volumen

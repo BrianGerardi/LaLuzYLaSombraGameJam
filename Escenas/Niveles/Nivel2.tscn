@@ -8432,6 +8432,9 @@ position = Vector2(592, 688)
 [node name="AreaDeLuzPlayer2" parent="." instance=ExtResource("16_lvbtp")]
 position = Vector2(1264, 145)
 
+[node name="AreaDeLuzPlayerSombraFinal2" parent="." instance=ExtResource("5_yy12c")]
+position = Vector2(1053, 913)
+
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="GanarNivel/AreaSombra/Area2DSombra" to="GanarNivel" method="_on_area_2d_sombra_body_entered"]
