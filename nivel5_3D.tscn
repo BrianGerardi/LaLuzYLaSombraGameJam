@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnks60emtoopt"]
+
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="1_kfpvm"]
+[ext_resource type="PackedScene" uid="uid://08ysjgua035l" path="res://Escenas/Niveles/Nivel5.tscn" id="2_205kq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4sabe"]
+viewport_path = NodePath("SubViewport")
+
+[node name="cacatua ninja" type="Node3D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_kfpvm")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.9)
+far = 24.89
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_4sabe")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+canvas_item_default_texture_filter = 0
+size = Vector2i(1600, 960)
+
+[node name="Nivel5" parent="SubViewport" instance=ExtResource("2_205kq")]

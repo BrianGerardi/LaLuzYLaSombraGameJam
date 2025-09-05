@@ -1,6 +1,6 @@
 extends Node3D
 
-var nivel_tutorial = "res://Escenas/Niveles/NivelTutorial.tscn"
+var nivel_tutorial = "res://nivel1_3D.tscn"
 var textura_pressed = preload("res://Assets/MenuDeInicio/PLAY_CLICK.png")
 var textura_normal = preload("res://Assets/MenuDeInicio/PLAY_NO_CLICK.png")
 var textura_pressed_volumen = preload("res://Assets/MenuDeInicio/CARTEL_VOLUMEN.png")
