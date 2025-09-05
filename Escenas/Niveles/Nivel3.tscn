@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://px3vwrsgm1e8"]
+[gd_scene load_steps=69 format=4 uid="uid://px3vwrsgm1e8"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_ou1yc"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_3.gd" id="1_q48ks"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bk1n5epamsawc" path="res://tiles de prueba/tiles/Arte/Props_Luz/Lampara_Luz.png" id="21_vtves"]
 [ext_resource type="Script" path="res://Escenas/area_de_luz_sombra_final.gd" id="22_6xgmd"]
 [ext_resource type="Texture2D" uid="uid://q07xix4pulcy" path="res://tiles de prueba/tiles/Arte/Props_Sombra/Lampara_Sombra.png" id="23_nmntb"]
+[ext_resource type="Script" path="res://Escenas/Niveles/point_light_2d.gd" id="24_tt8co"]
 [ext_resource type="PackedScene" uid="uid://bsmw5qu5405b5" path="res://Escenas/enemy_aparicion_sombra.tscn" id="27_vtves"]
 [ext_resource type="Texture2D" uid="uid://t15d22w2x0ec" path="res://Assets/Decoraciones/DECO_SOMBRA/VELA_2_SOMBRA.png" id="28_586db"]
 [ext_resource type="Texture2D" uid="uid://cgylbq287nh5d" path="res://Assets/Decoraciones/DECO_SOMBRA/CADENA_5_SOMBRA.png" id="29_epbh0"]
@@ -43,7 +44,9 @@
 [ext_resource type="Texture2D" uid="uid://b58artw7mqxc7" path="res://Assets/Decoraciones/DECO_LUZ/CADENA_1_LUZ.png" id="42_1hi5c"]
 [ext_resource type="Texture2D" uid="uid://bjyx07xnmkb4g" path="res://Assets/Decoraciones/DECO_LUZ/VELA_1_LUZ.png" id="44_a2fhg"]
 [ext_resource type="Texture2D" uid="uid://bu0b1xkxineug" path="res://Assets/Decoraciones/DECO_LUZ/VELA_2_LUZ.png" id="45_x0vjk"]
+[ext_resource type="Shader" path="res://Escenas/Niveles/fog.gdshader" id="46_5alte"]
 [ext_resource type="Texture2D" uid="uid://bqceoyt5vasc8" path="res://Assets/Decoraciones/DECO_LUZ/VELA_3_LUZ.png" id="46_scnxg"]
+[ext_resource type="Texture2D" uid="uid://bn7q3yct4k3ch" path="res://Assets/PerlinNoise2d.png" id="47_qflvo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_ou1yc")
@@ -7799,28 +7802,15 @@ sources/1 = SubResource("TileSetAtlasSource_qdfaw")
 sources/3 = SubResource("TileSetAtlasSource_jd4ej")
 sources/2 = SubResource("TileSetAtlasSource_or0h5")
 
-[sub_resource type="Gradient" id="Gradient_7gpvr"]
-offsets = PackedFloat32Array(0, 0.616541)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_hjr3d"]
+offsets = PackedFloat32Array(0, 0.639098)
+colors = PackedColorArray(0.932331, 0.932331, 0.932331, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_eq2f6"]
-gradient = SubResource("Gradient_7gpvr")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr6lc"]
+gradient = SubResource("Gradient_hjr3d")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Animation" id="Animation_hhn24"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_7gpvr"]
-resource_name = "fuego"
-length = 0.5
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vjo1t"]
-_data = {
-"RESET": SubResource("Animation_hhn24"),
-"fuego": SubResource("Animation_7gpvr")
-}
+fill_to = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frtrm"]
 radius = 31.0
@@ -7854,6 +7844,13 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j240t"]
 radius = 10.0499
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5rkl"]
+shader = ExtResource("46_5alte")
+shader_parameter/speed = 0.05
+shader_parameter/contraste = 2.0
+shader_parameter/densidad = 0.5
+shader_parameter/noise_tex = ExtResource("47_qflvo")
 
 [node name="Nivel3" type="Node2D"]
 script = ExtResource("1_q48ks")
@@ -7963,52 +7960,36 @@ position = Vector2(1165, 146)
 texture = ExtResource("44_a2fhg")
 
 [node name="PointLight2D" type="PointLight2D" parent="decoracion/Vela1Luz"]
-texture = SubResource("GradientTexture2D_eq2f6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="decoracion/Vela1Luz/PointLight2D"]
-libraries = {
-"": SubResource("AnimationLibrary_vjo1t")
-}
-autoplay = "fuego"
+energy = 2.11
+texture = SubResource("GradientTexture2D_pr6lc")
+script = ExtResource("24_tt8co")
 
 [node name="Vela2Luz" type="Sprite2D" parent="decoracion"]
 position = Vector2(1302, 241)
 texture = ExtResource("45_x0vjk")
 
 [node name="PointLight2D" type="PointLight2D" parent="decoracion/Vela2Luz"]
-texture = SubResource("GradientTexture2D_eq2f6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="decoracion/Vela2Luz/PointLight2D"]
-libraries = {
-"": SubResource("AnimationLibrary_vjo1t")
-}
-autoplay = "fuego"
+energy = 2.11
+texture = SubResource("GradientTexture2D_pr6lc")
+script = ExtResource("24_tt8co")
 
 [node name="Vela3Luz" type="Sprite2D" parent="decoracion"]
 position = Vector2(236, 369)
 texture = ExtResource("46_scnxg")
 
 [node name="PointLight2D" type="PointLight2D" parent="decoracion/Vela3Luz"]
-texture = SubResource("GradientTexture2D_eq2f6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="decoracion/Vela3Luz/PointLight2D"]
-libraries = {
-"": SubResource("AnimationLibrary_vjo1t")
-}
-autoplay = "fuego"
+energy = 2.11
+texture = SubResource("GradientTexture2D_pr6lc")
+script = ExtResource("24_tt8co")
 
 [node name="Vela3Luz2" type="Sprite2D" parent="decoracion"]
 position = Vector2(459, 177)
 texture = ExtResource("46_scnxg")
 
 [node name="PointLight2D" type="PointLight2D" parent="decoracion/Vela3Luz2"]
-texture = SubResource("GradientTexture2D_eq2f6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="decoracion/Vela3Luz2/PointLight2D"]
-libraries = {
-"": SubResource("AnimationLibrary_vjo1t")
-}
-autoplay = "fuego"
+energy = 2.11
+texture = SubResource("GradientTexture2D_pr6lc")
+script = ExtResource("24_tt8co")
 
 [node name="Player" parent="." instance=ExtResource("4_g4ovo")]
 position = Vector2(78, 169)
@@ -8200,6 +8181,14 @@ position = Vector2(58, 872)
 
 [node name="Enemy_aparicion2" parent="." instance=ExtResource("27_vtves")]
 position = Vector2(1174, 718)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_u5rkl")
+offset_right = 1600.0
+offset_bottom = 959.0
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
