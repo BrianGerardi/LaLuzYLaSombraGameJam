@@ -5,7 +5,7 @@ extends Control
 
 const GAME_OVER_SOUND = preload("res://Audio/SFX/Muerte.wav")
 
-@export var barra_de_vida : ProgressBar
+@export var barra_de_vida : TextureProgressBar
 @export var layer_perder : CanvasLayer
 var  el_jugador_esta_en_luz : bool = false
 
