@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://dhx7wvcpxputc"]
+[gd_scene load_steps=54 format=4 uid="uid://dhx7wvcpxputc"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_a2qx7"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_tutorial.gd" id="1_mp272"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://drhwtvrfehaii" path="res://Assets/TILES_FINALES-export.png" id="37_hw8lh"]
 [ext_resource type="Shader" path="res://Escenas/Niveles/fog.gdshader" id="37_ms7dg"]
 [ext_resource type="Texture2D" uid="uid://bn7q3yct4k3ch" path="res://Assets/PerlinNoise2d.png" id="38_2exrh"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="39_b485c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_a2qx7")
@@ -7969,7 +7970,7 @@ position = Vector2(1328, 465)
 
 [node name="GanarNivel" type="Node2D" parent="."]
 script = ExtResource("11_87lu3")
-siguiente_nivel = "res://nivel2_3D.tscn"
+siguiente_nivel = "res://Escenas/Niveles/Nivel2.tscn"
 
 [node name="Node2D" type="Node2D" parent="GanarNivel"]
 
@@ -8011,10 +8012,6 @@ position = Vector2(1264, 817)
 [node name="Pinchos29" parent="." instance=ExtResource("14_whaow")]
 position = Vector2(1296, 817)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(808, 480)
-zoom = Vector2(0.8, 0.8)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
 autoplay = true
@@ -8041,6 +8038,17 @@ offset_bottom = 959.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oxobd")
+
+[node name="Camera2DFINAL" type="Camera2D" parent="."]
+position = Vector2(808, 480)
+limit_left = -5
+limit_top = -3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2DFINAL"]
+volume_db = -10.0
+autoplay = true
+
+[node name="HUD" parent="." instance=ExtResource("39_b485c")]
 
 [connection signal="body_entered" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/Node2D/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

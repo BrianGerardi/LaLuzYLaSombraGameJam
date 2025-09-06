@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://tr76sutqregf"]
+
+[node name="CreditosFinales" type="Node2D"]
+
+[node name="Camera2DFINAL" type="Camera2D" parent="."]
+position = Vector2(808, 480)
+limit_left = -5
+limit_top = -3

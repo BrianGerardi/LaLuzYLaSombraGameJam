@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=4 uid="uid://s28dy5dp2lj2"]
+[gd_scene load_steps=94 format=4 uid="uid://s28dy5dp2lj2"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_lqc1x"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_6.gd" id="1_paavc"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://gwr0nw1l1pmh" path="res://Assets/Decoraciones/DECO_SOMBRA/VELA_1_SOMBRA.png" id="41_d6gk0"]
 [ext_resource type="Shader" path="res://Escenas/Niveles/fog.gdshader" id="42_nhs8n"]
 [ext_resource type="Texture2D" uid="uid://bn7q3yct4k3ch" path="res://Assets/PerlinNoise2d.png" id="43_7af3p"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="44_wju2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_lqc1x")
@@ -8487,7 +8488,7 @@ position = Vector2(848, 465)
 [node name="GanarNivel" type="Node2D" parent="."]
 position = Vector2(63, 305)
 script = ExtResource("11_ogmb3")
-siguiente_nivel = "res://nivel4_3D.tscn"
+siguiente_nivel = "res://Escenas/Niveles/Nivel4.tscn"
 
 [node name="AreaPlayer" type="Node2D" parent="GanarNivel"]
 
@@ -8545,14 +8546,6 @@ position = Vector2(688, 913)
 [node name="Pinchos26" parent="." instance=ExtResource("14_ogmb3")]
 position = Vector2(720, 913)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(808, 480)
-zoom = Vector2(0.8, 0.8)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
-volume_db = -10.0
-autoplay = true
-
 [node name="AreaDeLuzPlayer" type="Node2D" parent="." node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
 position = Vector2(1133, 254)
 script = ExtResource("20_xa48f")
@@ -8595,6 +8588,17 @@ texture_repeat = 2
 material = SubResource("ShaderMaterial_ywoio")
 offset_right = 1600.0
 offset_bottom = 959.0
+
+[node name="Camera2DFINAL" type="Camera2D" parent="."]
+position = Vector2(808, 480)
+limit_left = -5
+limit_top = -3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2DFINAL"]
+volume_db = -10.0
+autoplay = true
+
+[node name="HUD" parent="." instance=ExtResource("44_wju2c")]
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]

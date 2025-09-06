@@ -23,6 +23,7 @@ Global="*res://script global/global.gd"
 
 window/size/viewport_width=1600
 window/size/viewport_height=960
+window/stretch/mode="viewport"
 
 [global_group]
 

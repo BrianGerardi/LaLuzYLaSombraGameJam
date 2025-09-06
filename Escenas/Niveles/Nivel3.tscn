@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://px3vwrsgm1e8"]
+[gd_scene load_steps=70 format=4 uid="uid://px3vwrsgm1e8"]
 
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_ou1yc"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_3.gd" id="1_q48ks"]
@@ -47,6 +47,7 @@
 [ext_resource type="Shader" path="res://Escenas/Niveles/fog.gdshader" id="46_5alte"]
 [ext_resource type="Texture2D" uid="uid://bqceoyt5vasc8" path="res://Assets/Decoraciones/DECO_LUZ/VELA_3_LUZ.png" id="46_scnxg"]
 [ext_resource type="Texture2D" uid="uid://bn7q3yct4k3ch" path="res://Assets/PerlinNoise2d.png" id="47_qflvo"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="48_cho62"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_ou1yc")
@@ -8037,6 +8038,7 @@ position = Vector2(752, 272)
 [node name="GanarNivel" type="Node2D" parent="."]
 position = Vector2(315, 431)
 script = ExtResource("12_jhnrk")
+siguiente_nivel = "res://Escenas/creditos_finales.tscn"
 
 [node name="AreaPlayer" type="Node2D" parent="GanarNivel"]
 
@@ -8091,14 +8093,6 @@ position = Vector2(784, 913)
 
 [node name="Player_sombra" parent="." instance=ExtResource("5_tj73n")]
 position = Vector2(1516, 645)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(808, 480)
-zoom = Vector2(0.8, 0.8)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
-volume_db = -10.0
-autoplay = true
 
 [node name="AreaDeLuzPlayer3" type="Node2D" parent="." node_paths=PackedStringArray("raycast_luces") groups=["Luces"]]
 position = Vector2(361, 97)
@@ -8189,6 +8183,17 @@ texture_repeat = 2
 material = SubResource("ShaderMaterial_u5rkl")
 offset_right = 1600.0
 offset_bottom = 959.0
+
+[node name="Camera2DFINAL" type="Camera2D" parent="."]
+position = Vector2(808, 480)
+limit_left = -5
+limit_top = -3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2DFINAL"]
+volume_db = -10.0
+autoplay = true
+
+[node name="HUD" parent="." instance=ExtResource("48_cho62")]
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
