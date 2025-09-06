@@ -1,8 +1,25 @@
-[gd_scene format=3 uid="uid://tr76sutqregf"]
+[gd_scene load_steps=3 format=3 uid="uid://tr76sutqregf"]
 
-[node name="CreditosFinales" type="Node2D"]
+[ext_resource type="Script" path="res://Escenas/creditos_finales.gd" id="1_7ertm"]
+[ext_resource type="VideoStream" path="res://creditos/TITULOS.ogv" id="1_lerje"]
 
-[node name="Camera2DFINAL" type="Camera2D" parent="."]
-position = Vector2(808, 480)
-limit_left = -5
-limit_top = -3
+[node name="CreditosFinales" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ertm")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_lerje")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
