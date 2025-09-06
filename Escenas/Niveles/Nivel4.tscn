@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://c4r2obppwaekg"]
+[gd_scene load_steps=74 format=4 uid="uid://c4r2obppwaekg"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_4.gd" id="1_5pylq"]
 [ext_resource type="Texture2D" uid="uid://cospy7occ1uvd" path="res://tiles de prueba/TilesSeparados/ofndos.png" id="1_udyq4"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://bhk8u5y3uf0x1" path="res://Assets/Decoraciones/DECO_SOMBRA/VELA_3_SOMBRA.png" id="43_p0kfv"]
 [ext_resource type="Shader" path="res://Escenas/Niveles/fog.gdshader" id="47_sh8q3"]
 [ext_resource type="Texture2D" uid="uid://bn7q3yct4k3ch" path="res://Assets/PerlinNoise2d.png" id="48_pykvq"]
+[ext_resource type="PackedScene" uid="uid://bgtx7w1m0of4y" path="res://Escenas/hud.tscn" id="49_0cyox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhuh"]
 texture = ExtResource("1_udyq4")
@@ -15971,6 +15972,8 @@ shader_parameter/noise_tex = ExtResource("48_pykvq")
 
 [node name="Nivel4" type="Node2D"]
 script = ExtResource("1_5pylq")
+metadata/_edit_horizontal_guides_ = [-3.0, 960.0]
+metadata/_edit_vertical_guides_ = [-8.0, 1602.0, -5.0, -5.0, 1602.0]
 
 [node name="CreadorDeMapas" type="Node2D" parent="."]
 
@@ -16274,7 +16277,7 @@ position = Vector2(1552, 465)
 [node name="GanarNivel" type="Node2D" parent="."]
 position = Vector2(1536, 97)
 script = ExtResource("13_mbwfw")
-siguiente_nivel = "res://nivel5_3D.tscn"
+siguiente_nivel = "res://Escenas/Niveles/Nivel5.tscn"
 
 [node name="AreaPlayer" type="Node2D" parent="GanarNivel"]
 
@@ -16328,7 +16331,8 @@ position = Vector2(369, 913)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(808, 480)
-zoom = Vector2(0.8, 0.8)
+limit_left = -5
+limit_top = -3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
 volume_db = -10.0
@@ -16394,6 +16398,8 @@ texture_repeat = 2
 material = SubResource("ShaderMaterial_jk4wn")
 offset_right = 1600.0
 offset_bottom = 959.0
+
+[node name="HUD" parent="." instance=ExtResource("49_0cyox")]
 
 [connection signal="body_entered" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GanarNivel/AreaPlayer/Area2D" to="GanarNivel" method="_on_area_2d_body_exited"]
